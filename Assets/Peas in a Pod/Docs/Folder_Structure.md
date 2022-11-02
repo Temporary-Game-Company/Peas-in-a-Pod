@@ -1,0 +1,1 @@
+![A chart describing some folders.](Images/Folders.webp "Folders")
