@@ -835,6 +835,63 @@
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.2D.IK.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Common.Runtime">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Psdimporter.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.IK.Runtime">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.PixelPerfect">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.SpriteShape.Runtime">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.PixelPerfect.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Path.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Animation.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Extras">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Animation.Runtime">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEngineBridge.001">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Common.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="PsdPlugin">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridge.001">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.SpriteShape.Editor">
+     <HintPath>C:\Users\mrjor\Documents\Unity Projects\Peas-in-a-Pod\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
