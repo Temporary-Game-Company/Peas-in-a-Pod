@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TemporaryGameCompany;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class UnitRTS : MonoBehaviour
 {
+    [SerializeField] private PeaRuntimeSet PeaSet;
+
     private GameObject _selectedGameObject;
 
     [SerializeField] private float Velocity;
@@ -36,11 +39,6 @@ public class UnitRTS : MonoBehaviour
         }
 
         HealthBar = GetComponentInChildren<HealthBar>();
-    }
-
-    private void OnEnable()
-    {
-        NavAgent = GetComponent<NavMeshAgent>();
     }
 
     public void SetSelectedVisible(bool visible)
@@ -76,5 +74,16 @@ public class UnitRTS : MonoBehaviour
     public void MoveTo(Vector3 targetPosition)
     {
         NavAgent.SetDestination(targetPosition);
+    }
+    
+    void OnEnable()
+    {
+        NavAgent = GetComponent<NavMeshAgent>();
+        PeaSet.Add(this);
+    }
+    
+    void OnDisable()
+    {
+        PeaSet.Remove(this);
     }
 }

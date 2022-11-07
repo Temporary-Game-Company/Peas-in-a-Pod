@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using TemporaryGameCompany;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI foodText;
 
     public static ResourceManager instance;
+
+    [SerializeField] private ManagerRuntimeSet ResourceManagerSet;
 
     public float initialFoodAmt = 100f;
 
@@ -66,10 +69,14 @@ public class ResourceManager : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    void OnEnable()
     {
-        
+        ResourceManagerSet.Add(this);
+    }
+    
+    void OnDisable()
+    {
+        ResourceManagerSet.Remove(this);
     }
 }
