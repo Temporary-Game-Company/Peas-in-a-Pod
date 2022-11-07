@@ -62,4 +62,19 @@ public class Selected : MonoBehaviour
             }
         }
     }
+
+    public void MoveUnits(Selectable Loc)
+    {
+        foreach (KeyValuePair<int, GameObject> pair in selectedTable)
+        {
+            if (pair.Value != null)
+            {
+                UnitRTS r = pair.Value.GetComponent<UnitRTS>();
+                if (r != null)
+                {
+                    r.MoveTo(Loc.GetNearbyLocation());
+                }
+            }
+        }
+    }
 }

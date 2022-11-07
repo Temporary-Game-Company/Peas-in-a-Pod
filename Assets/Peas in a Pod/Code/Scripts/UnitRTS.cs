@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class UnitRTS : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class UnitRTS : MonoBehaviour
         {
             _selectedGameObject.SetActive(visible);
         }
+        
     }
 
     private void Start()
@@ -61,6 +63,14 @@ public class UnitRTS : MonoBehaviour
     private void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        if (GlobalSelection.instance != null)
+        {
+            GlobalSelection.instance.AddUnit(this.gameObject);
+        }
     }
 
     public void MoveTo(Vector3 targetPosition)

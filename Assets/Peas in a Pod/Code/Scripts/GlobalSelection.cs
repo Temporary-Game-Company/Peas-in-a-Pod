@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GlobalSelection : MonoBehaviour
 {
+    
     private Selected SelectedUnits;
+
+    public static GlobalSelection instance;
 
     private bool dragSelect;
 
@@ -20,6 +24,8 @@ public class GlobalSelection : MonoBehaviour
 
     private Mesh SelectionMesh;
 
+    private Selectable CurrentSelected;
+
     private Vector2[] Corners;
     
     //The vertices of our mesh collider
@@ -30,6 +36,7 @@ public class GlobalSelection : MonoBehaviour
     {
         SelectedUnits = GetComponent<Selected>();
         dragSelect = false;
+        instance = this;
     }
 
     private void Update()
@@ -37,6 +44,7 @@ public class GlobalSelection : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StartLoc = Input.mousePosition;
+            
             dragSelect = false;
         }
 
@@ -110,15 +118,20 @@ public class GlobalSelection : MonoBehaviour
                 //Generate Mesh
                 
                 SelectionMesh = generateSelectionMesh(Verts, Vecs);
-                
-                
+
+                SelectionBox = gameObject.AddComponent<MeshCollider>();
+                SelectionBox.convex = true;
+                SelectionBox.isTrigger = true;
 
                 Vector3 min = SelectionMesh.vertices[2];
                 Vector3 max = SelectionMesh.vertices[5];
                 Vector3 centre = new Vector3((max.x + min.x) / 2, (max.y + min.y) / 2, (max.x + min.z) / 2);
                 Vector3 Extents = new Vector3(max.x - min.x, max.y - min.y, max.z - min.z);
                 Bounds b = new Bounds(centre, Extents);
-                
+                if (!Input.GetKey(KeyCode.LeftShift))
+                {
+                    SelectedUnits.DeselectAll();
+                }
                 foreach (GameObject r in GameObject.FindObjectsOfType(typeof(GameObject)))
                 {
                     if (b.Contains(r.transform.position))
@@ -132,12 +145,9 @@ public class GlobalSelection : MonoBehaviour
                 
                 
 
-                if (!Input.GetKey(KeyCode.LeftShift))
-                {
-                    SelectedUnits.DeselectAll();
-                }
                 
-                Destroy(SelectionBox, 10.0f);
+                
+                Destroy(SelectionBox, 0.02f);
                 dragSelect = false;
             }
             
@@ -146,9 +156,58 @@ public class GlobalSelection : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8)))
+            
+            if (Physics.Raycast(ray, out hit, 50000.0f))
             {
-                SelectedUnits.MoveUnits(hit.point);
+                CurrentSelected = hit.transform.gameObject.GetComponent<Selectable>();
+                Debug.Log(hit.transform.gameObject);
+                if (CurrentSelected != null)
+                {
+                    CurrentSelected.SetSelectableVisible(true);
+                }
+                else
+                {
+                    SelectedUnits.MoveUnits(hit.point);
+                }
+                
+            }
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray, out hit, 50000.0f, (1<< 3)))
+            {
+                Selectable tmp = hit.transform.gameObject.GetComponent<Selectable>();
+                if (!CurrentSelected == tmp && CurrentSelected != null)
+                {
+                    CurrentSelected.SetSelectableVisible(false);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray, out hit, 50000.0f, (1<< 3)))
+            {
+                Selectable tmp = hit.transform.gameObject.GetComponent<Selectable>();
+                if (CurrentSelected == tmp && CurrentSelected != null)
+                {
+                    CurrentSelected.SetSelectableVisible(false);
+                   
+                    if (SelectedUnits.selectedTable.Count > 0)
+                    {
+                        SelectedUnits.MoveUnits(CurrentSelected);
+                    }
+                    else
+                    {
+                        CurrentSelected.RightClicked();
+                    }
+                    
+                }
             }
         }
         
@@ -161,6 +220,14 @@ public class GlobalSelection : MonoBehaviour
             var rect = DragBox.GetScreenRect(StartLoc, Input.mousePosition);
             DragBox.DrawScreenRect(rect, new Color(0.8f, 0.8f, 0.95f, 0.1f));
             DragBox.DrawScreenRectBorder(rect, 2, new Color(0.8f, 0.8f, 0.5f));
+        }
+    }
+
+    public void AddUnit(GameObject u)
+    {
+        if (SelectedUnits != null)
+        {
+            SelectedUnits.AddSelected(u);
         }
     }
 
