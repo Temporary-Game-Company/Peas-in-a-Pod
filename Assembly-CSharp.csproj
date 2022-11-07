@@ -81,31 +81,30 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ResourceManager.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\Draggable.cs" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMPro.cginc" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Peas in a Pod\Imported Packages\CodeMonkey\README.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\Peas in a Pod\Imported Packages\Dark_Brown_GUI_kit\Dark_Brown_GUI_kit.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne.json" />
-     <None Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.12f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -849,25 +848,6 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Peas in a Pod\Code\Scripts\Draggable.cs.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Fonts\LiberationSans - OFL.txt.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Fonts\LiberationSans.ttf" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Fonts\LiberationSans.ttf.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\Fonts &amp; Materials.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\LineBreaking Following Characters.txt.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\LineBreaking Leading Characters.txt.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\Sprite Assets.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\Style Sheets.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\TMP Settings.asset" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Resources\TMP Settings.asset.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Shaders\TMPro.cginc.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne Attribution.txt.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne.json.meta" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne.png" />
-    <Content Include="Assets\Peas in a Pod\Imported Packages\TextMesh Pro\Sprites\EmojiOne.png.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
