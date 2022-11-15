@@ -54,8 +54,10 @@ public class UnitRTS : MonoBehaviour
     {
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
-        HealthBar.SetHealth(CurrentHeat, MaximumHeat);
-        
+        if (HealthBar != null)
+        {
+            HealthBar.SetHealth(CurrentHeat, MaximumHeat);
+        }
     }
 
     private void Update()
