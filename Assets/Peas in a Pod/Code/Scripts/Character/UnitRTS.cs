@@ -58,8 +58,6 @@ public class UnitRTS : MonoBehaviour
         {
             HealthBar.SetHealth(CurrentHeat, MaximumHeat);
         }
-        
-        
     }
 
     private void Update()

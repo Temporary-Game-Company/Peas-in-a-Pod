@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\Draggable.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\Button_UI.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\World_Mesh.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\DragBox.cs" />
