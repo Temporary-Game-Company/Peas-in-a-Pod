@@ -20,9 +20,9 @@ public class Selected : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not a unit!");
+                
             }
-            Debug.Log(go + " selected!");
+            
         }
     }
 

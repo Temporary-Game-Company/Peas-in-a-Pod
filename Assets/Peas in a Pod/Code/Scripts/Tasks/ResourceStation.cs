@@ -26,7 +26,7 @@ public class ResourceStation : MonoBehaviour
             UnitsInside.Add(r);
             NumUnitsInside++;
             GeneratePerSecond += 1;
-            Debug.Log(r + " has been added!");
+            
         }
     }
 
@@ -37,7 +37,7 @@ public class ResourceStation : MonoBehaviour
         {
             UnitsInside.Remove(r);
             NumUnitsInside--;
-            Debug.Log(r + " has been removed!");
+            
         }
     }
 
@@ -69,7 +69,7 @@ public class ResourceStation : MonoBehaviour
             }
             else
             {
-                Debug.Log("Null");
+               
             }
         }
     }

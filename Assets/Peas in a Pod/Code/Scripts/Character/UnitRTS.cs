@@ -25,6 +25,8 @@ public class UnitRTS : MonoBehaviour
     [SerializeField] private float MaximumHeat;
 
     private float CurrentHeat;
+
+   
     
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class UnitRTS : MonoBehaviour
             {
                 _selectedGameObject.SetActive(false);
             }
+            
         }
 
         HealthBar = GetComponentInChildren<HealthBar>();
