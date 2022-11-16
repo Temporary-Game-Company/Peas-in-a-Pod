@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using TemporaryGameCompany;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
 {
 
     private float foodAmt = 0;
 
-    public TextMeshProUGUI foodText;
+    public HUD playerHUD;
 
     public static ResourceManager instance;
 
     [SerializeField] private ManagerRuntimeSet ResourceManagerSet;
+
+   
 
     public float initialFoodAmt = 100f;
 
@@ -49,20 +52,24 @@ public class ResourceManager : MonoBehaviour
         powerAmt = initialPowerAmt;
         heatAmt = initialFoodAmt;
         updateHUDFood();
+        updateHUDPower(); 
         instance = this;
     }
 
     private void updateHUDFood()
     {
-        if (foodText)
+        if (playerHUD)
         {
-            foodText.text = "Food: " + foodAmt.ToString();
+            playerHUD.UpdateHUDFood(foodAmt);
         }
     }
 
     private void updateHUDPower()
     {
-        
+        if (playerHUD)
+        {
+            playerHUD.UpdateHealthValue(powerAmt/initialPowerAmt);
+        }
     }
 
     private void updateHUDHeat()

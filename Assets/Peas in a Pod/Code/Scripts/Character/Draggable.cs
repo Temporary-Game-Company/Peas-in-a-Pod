@@ -22,7 +22,7 @@ public class Draggable : MonoBehaviour
     void OnMouseDrag()
     {
         Vector3 targetDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position - _offset;
-        Debug.Log(targetDirection.ToString());
+       
     
         RigidBody.velocity = targetDirection * DragVelocity;
     }
