@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TemporaryGameCompany;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -13,9 +14,21 @@ public class Room : MonoBehaviour
 
     public bool _producesPower;
 
-    public bool _producesHeat;
+    public bool _repairsIntegrity;
 
-    public float _foodProducitonPerSecond;
+    public bool _producesOxygen;
+
+    public float _oxygenProductionPerCycle;
+
+    public float _integrityPerProduction;
+
+    public float _foodProducitonPerProduction;
+
+    public float PowerProductionPerCycle;
+
+    private float _timeSinceProduction = 0f;
+
+    public float _productionTime = 2f;
 
     public GameObject _attentionIndicator;
 
@@ -25,15 +38,24 @@ public class Room : MonoBehaviour
 
     private float maxdamage;
 
+    public float _powerConsumptionPerSecond = 0.5f;
+
     public EventConfigSO.EventType affectedEvent;
 
     private bool _isDamaged;
+
+    public bool bProducing;
 
     private ResourceManager _resourceManager;
 
     public ManagerRuntimeSet resourceManager;
 
     public bool usedThisWave;
+
+    private RepairBar _repairBar;
+
+    public RepairBar _productionBar;
+    
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
     // Start is called before the first frame update
@@ -53,6 +75,12 @@ public class Room : MonoBehaviour
         {
             attentionRenderer = _attentionIndicator.GetComponent<SpriteRenderer>();
         }
+
+        _repairBar = GetComponentInChildren<RepairBar>();
+        if (_repairBar == null)
+        {
+            Debug.Log("Null repair bar");
+        }
     }
 
     // Update is called once per frame
@@ -61,28 +89,52 @@ public class Room : MonoBehaviour
         if (_resourceManager == null)
         {
             _resourceManager = resourceManager.Items[0];
-            
+
         }
 
-        
-        if (_producesFood)
+        if (bProducing)
         {
-            IncreaseFood();
+            _timeSinceProduction += Time.deltaTime; 
         }
         
+        if (_timeSinceProduction > _productionTime)
+        {
+            HandleProduction();
+            _timeSinceProduction = 0f;
+        }
+
+        if (_productionBar)
+        {
+            _productionBar.updateFill(_timeSinceProduction/_productionTime);
+        }
+
         if (_isDamaged)
         {
             
             HandleRepairs();
         }
-        
+
+        HandlePower();
+
+    }
+
+    private void HandlePower()
+    {
+        if (_resourceManager)
+        {
+            _resourceManager.changePower(_powerConsumptionPerSecond * -1 * Time.deltaTime);
+        }
     }
 
     private void HandleRepairs()
     {
         
         damaged = (float) Math.Clamp(damaged - UnitsInside.Count * Time.deltaTime, 0, 100000.0);
-
+        if (_repairBar != null)
+        {
+            _repairBar.updateFill((maxdamage - damaged)/maxdamage);
+        }
+        
         if (attentionRenderer)
         {
             attentionRenderer.color = new Color(attentionRenderer.color.r, attentionRenderer.color.g, attentionRenderer.color.b, damaged/maxdamage);
@@ -93,19 +145,83 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void SystemDamaged(float DamageDone)
+    private void HandleProduction()
+    {
+        if (_producesFood)
+        {
+            
+            IncreaseFood(_foodProducitonPerProduction);
+        }
+
+        if (_producesOxygen)
+        {
+            IncreaseOxygen(_oxygenProductionPerCycle);
+        }
+
+        if (_repairsIntegrity)
+        {
+            IncreaseIntegrity(_integrityPerProduction);
+        }
+
+        if (_producesPower)
+        {
+            IncreasePower(PowerProductionPerCycle);
+        }
+    }
+
+    private void IncreasePower(float amt)
+    {
+        if (_resourceManager)
+        {
+            _resourceManager.changePower(amt);
+        }
+    }
+
+    private void IncreaseOxygen(float amt)
+    {
+        if (_resourceManager)
+        {
+            _resourceManager.changeOxygen(amt);
+        }
+    }
+
+    private void IncreaseIntegrity(float amt)
+    {
+        if (_resourceManager)
+        {
+            _resourceManager.changeIntegrity(amt);
+        }
+    }
+    
+    private void IncreaseFood(float amt)
     {
         
+        if (_resourceManager != null)
+        {
+            _resourceManager.changeFood(amt);
+        }
+    }
+
+    public void SystemDamaged(float DamageDone)
+    {
+        _timeSinceProduction = 0f;
         _isDamaged = true;
         damaged += DamageDone;
         maxdamage = damaged;
+        bProducing = false;
+        if (_repairBar != null)
+        {
+            _repairBar.gameObject.SetActive(true);
+        }
         
-        _producesFood = false;
-        _producesHeat = false;
-        _producesPower = false;
+        
         if (_attentionIndicator != null)
         {
-            _attentionIndicator.SetActive(true);
+            //_attentionIndicator.SetActive(true);
+        }
+        foreach (UnitRTS r in UnitsInside)
+        {
+            _resourceManager.increaseActivePeas();
         }
         
         
@@ -114,14 +230,24 @@ public class Room : MonoBehaviour
 
     void SystemRepaired()
     {
+        bProducing = true;
         if (attentionRenderer)
         {
             attentionRenderer.color = new Color(attentionRenderer.color.r, attentionRenderer.color.g, attentionRenderer.color.b, 1f);
+        }
+        if (_repairBar != null)
+        {
+            _repairBar.gameObject.SetActive(false);
         }
         _isDamaged = false;
         if (_attentionIndicator != null)
         {
             _attentionIndicator.SetActive(false);
+        }
+
+        foreach (UnitRTS r in UnitsInside)
+        {
+            _resourceManager.decreaseActivePeas();
         }
     }
     
@@ -131,7 +257,13 @@ public class Room : MonoBehaviour
         if (other != null)
         {
             UnitsInside.Add(other);
-            _foodProducitonPerSecond = UnitsInside.Count;
+            
+            
+        }
+
+        if (_isDamaged)
+        {
+            _resourceManager.increaseActivePeas();
         }
     }
 
@@ -141,18 +273,14 @@ public class Room : MonoBehaviour
         if (unit != null)
         {
             UnitsInside.Remove(unit);
-            _foodProducitonPerSecond = UnitsInside.Count;
+            if (_isDamaged)
+            {
+                _resourceManager.decreaseActivePeas();
+            }
         }
     }
 
-    private void IncreaseFood()
-    {
-        float toIncrease = _foodProducitonPerSecond * Time.deltaTime;
-        if (_resourceManager != null)
-        {
-            _resourceManager.changeFood(toIncrease);
-        }
-    }
+   
 
     private void OnDisable()
     {

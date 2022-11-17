@@ -15,6 +15,8 @@ public class NegativeEventsManager : MonoBehaviour
 
     public List<float> DamageAmounts;
 
+    public List<NegativeEvent> NegativeEvents;
+
     public float _timeBetweenEvents = 10;
     void Start()
     {
@@ -56,9 +58,48 @@ public class NegativeEventsManager : MonoBehaviour
         StartCoroutine(DoAnEvent(_currentEvent.Cooldown, 1));
     }
 
+    private void NextEvent(int i)
+    {
+        if (i == Wave.Events.Count)
+        {
+            // For now just loop but this can be a win condition
+            i = 0;
+        }
+        foreach (Room r in _rooms.Items)
+        {
+            r.usedThisWave = false;
+        }
+        _currentEvent = Wave.Events[i];
+        for(int j = 0; j < _currentEvent.Events.Count; j++)
+        {
+            EventConfigSO Event = _currentEvent.Events[j];
+            EventConfigSO.Difficulty d = Event.difficulty;
+            if (Event.type.Equals(EventConfigSO.EventType.Food))
+            {
+                ExecuteFoodEvent(d);
+            }else if (Event.type.Equals(EventConfigSO.EventType.Alien))
+            {
+                ExecuteAlienEvent(d);
+            }else if(Event.type.Equals(EventConfigSO.EventType.Damage)){
+                ExecuteDamageEvent(d);
+            }else if (Event.type.Equals(EventConfigSO.EventType.Power))
+            {
+                ExecutePowerEvent(d);
+            }
+        }
+    }
+
     private void ExecuteFoodEvent(EventConfigSO.Difficulty difficulty)
     {
         Debug.Log("Doing Food Event");
+
+        foreach (NegativeEvent n in NegativeEvents)
+        {
+            if (n.EventType == EventConfigSO.EventType.Food && n.Difficulty == difficulty)
+            {
+                Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+            }
+        }
         foreach(Room r in _rooms.Items)
         {
             if (r.affectedEvent.Equals(EventConfigSO.EventType.Food) && !r.usedThisWave)
@@ -90,6 +131,14 @@ public class NegativeEventsManager : MonoBehaviour
     private void ExecuteDamageEvent(EventConfigSO.Difficulty difficulty)
     {
         Debug.Log("Doing Damage Event");
+        foreach (NegativeEvent n in NegativeEvents)
+        {
+            if (n.EventType == EventConfigSO.EventType.Damage && n.Difficulty == difficulty)
+            {
+                Debug.Log("Suitable damage event found");
+                Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+            }
+        }
         foreach(Room r in _rooms.Items)
         {
             if (r.affectedEvent.Equals(EventConfigSO.EventType.Damage) && !r.usedThisWave)
@@ -119,7 +168,14 @@ public class NegativeEventsManager : MonoBehaviour
     
     private void ExecutePowerEvent(EventConfigSO.Difficulty difficulty)
     {
-        Debug.Log("Doing Power Event");
+        foreach (NegativeEvent n in NegativeEvents)
+        {
+            if (n.EventType == EventConfigSO.EventType.Power && n.Difficulty == difficulty)
+            {
+                Debug.Log("Suitable event found");
+                Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+            }
+        }
         foreach(Room r in _rooms.Items)
         {
             if (r.affectedEvent.Equals(EventConfigSO.EventType.Power) && !r.usedThisWave)
@@ -151,6 +207,13 @@ public class NegativeEventsManager : MonoBehaviour
     private void ExecuteAlienEvent(EventConfigSO.Difficulty difficulty)
     {
         Debug.Log("Doing Alien Event");
+        foreach (NegativeEvent n in NegativeEvents)
+        {
+            if (n.EventType == EventConfigSO.EventType.Alien && n.Difficulty == difficulty)
+            {
+                Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+            }
+        }
         foreach(Room r in _rooms.Items)
         {
             if (r.affectedEvent.Equals(EventConfigSO.EventType.Alien) && !r.usedThisWave)
