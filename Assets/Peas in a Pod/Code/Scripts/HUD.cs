@@ -12,7 +12,15 @@ public class HUD : MonoBehaviour
 
     public TextMeshProUGUI FoodText;
 
-    public Slider healthSlider;
+    public TextMeshProUGUI SunlightText;
+
+    public TextMeshProUGUI OxygenText;
+
+    public TextMeshProUGUI PeasCount;
+
+    public TextMeshProUGUI HullIntegrity;
+
+    public Slider PowerSlider;
     
     
     void Start()
@@ -26,13 +34,36 @@ public class HUD : MonoBehaviour
         
     }
 
-    public void UpdateHealthValue(float value)
-    {
-        healthSlider.value = value;
-    }
+   
 
     public void UpdateHUDFood(float value)
     {
-        FoodText.text = "Food: " + Math.Round(value).ToString();
+        FoodText.text = Math.Round(value).ToString();
+    }
+
+    public void UpdateHUDActivePeas(float active, float total)
+    {
+        PeasCount.text = active.ToString() + "/" + total.ToString();
+    }
+
+    public void UpdateHUDOxygen(float percent)
+    {
+        OxygenText.text = (percent * 100).ToString() + "%";
+    }
+
+    public void UpdateHUDIntegrity(float amt)
+    {
+        HullIntegrity.text = amt.ToString();
+    }
+
+
+    public void UpdateHUDPower(float percent)
+    {
+        PowerSlider.value = percent;
+    }
+
+    public void UpdateHUDSunlight(float sunlight)
+    {
+        SunlightText.text = sunlight.ToString();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,11 +13,11 @@ public class ResourceManager : MonoBehaviour
 
     public HUD playerHUD;
 
-    public static ResourceManager instance;
+    
 
     [SerializeField] private ManagerRuntimeSet ResourceManagerSet;
-
-   
+    
+    
 
     public float initialFoodAmt = 100f;
 
@@ -24,19 +25,29 @@ public class ResourceManager : MonoBehaviour
 
     public float initialPowerAmt = 100f;
 
-    private float heatAmt = 0;
 
-    public float initialHeatAmt = 100f;
+    public float _initialOxygenAmt = 100f;
 
-    public void changeHeat(float delta)
-    {
-        heatAmt += delta;
-        updateHUDHeat();
-    }
+    private float OxygenAmt;
+
+    public float _initialSunlightAmt;
+
+    private float SunlightAmt;
+
+    public float HullIntegrity = 100f;
+
+    public PeaRuntimeSet Peas;
+
+    private int _activePeas;
+    
+    
+
+    
 
     public void changePower(float delta)
     {
-        powerAmt += delta;
+        powerAmt = Math.Clamp(powerAmt + delta, 0, initialPowerAmt);
+        
         updateHUDPower();
     }
 
@@ -45,15 +56,41 @@ public class ResourceManager : MonoBehaviour
         foodAmt += delta;
         updateHUDFood();
     }
+
+    public void changeSunlight(float delta)
+    {
+        SunlightAmt += delta;
+        updateHUDSunlight();
+    }
+
+    public void changeIntegrity(float delta)
+    {
+        HullIntegrity = Math.Clamp(HullIntegrity + delta, 0, 100f);
+        updateHUDIntegrity();
+    }
+
+    public void changeOxygen(float delta)
+    {
+        OxygenAmt = Math.Clamp(OxygenAmt + delta, 0, 100f);
+        updateHUDOxygen();
+    }
     // Start is called before the first frame update
     void Start()
     {
         foodAmt = initialFoodAmt;
         powerAmt = initialPowerAmt;
-        heatAmt = initialFoodAmt;
+        
+        OxygenAmt = _initialOxygenAmt;
+        _activePeas = 0;
+        updateHUDIntegrity();
         updateHUDFood();
+        updateHUDPeas();
         updateHUDPower(); 
-        instance = this;
+        updateHUDOxygen();
+        updateHUDSunlight();
+        
+
+
     }
 
     private void updateHUDFood()
@@ -68,14 +105,36 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHealthValue(powerAmt/initialPowerAmt);
+            playerHUD.UpdateHUDPower(powerAmt/initialPowerAmt);
+            
         }
     }
 
-    private void updateHUDHeat()
+    private void updateHUDIntegrity()
     {
-        
+        if (playerHUD)
+        {
+            playerHUD.UpdateHUDIntegrity(HullIntegrity);
+        }
     }
+
+    private void updateHUDOxygen()
+    {
+        if (playerHUD)
+        {
+            playerHUD.UpdateHUDOxygen(OxygenAmt/_initialOxygenAmt);
+        }
+    }
+
+    private void updateHUDSunlight()
+    {
+        if (playerHUD)
+        {
+            playerHUD.UpdateHUDSunlight(SunlightAmt);
+        }
+    }
+
+    
     
     void OnEnable()
     {
@@ -85,5 +144,25 @@ public class ResourceManager : MonoBehaviour
     void OnDisable()
     {
         ResourceManagerSet.Remove(this);
+    }
+
+    public void increaseActivePeas()
+    {
+        _activePeas++;
+        updateHUDPeas();
+    }
+
+    private void updateHUDPeas()
+    {
+        if (playerHUD)
+        {
+            playerHUD.UpdateHUDActivePeas(_activePeas, Peas.Items.Count);
+        }
+    }
+
+    public void decreaseActivePeas()
+    {
+        _activePeas--;
+        updateHUDPeas();
     }
 }

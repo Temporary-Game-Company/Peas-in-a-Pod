@@ -48,7 +48,7 @@ public class ResourceStation : MonoBehaviour
         {
             StartCoroutine(GenerateResource());
         }
-        rm = ResourceManager.instance;
+        
     }
 
     // Update is called once per frame

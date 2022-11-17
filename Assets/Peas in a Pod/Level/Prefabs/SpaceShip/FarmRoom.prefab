@@ -125,3 +125,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
+  _producesFood: 1
+  _producesPower: 1
+  _foodProducitonPerProduction: 2
+  PowerProductionPerCycle: 0
+  _productionTime: 2
+  _attentionIndicator: {fileID: 0}
+  _powerConsumptionPerSecond: 0.5
+  affectedEvent: 0
+  bProducing: 0
+  resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
+  usedThisWave: 0
+  _productionBar: {fileID: 0}
