@@ -55,6 +55,10 @@ public class Room : MonoBehaviour
     private RepairBar _repairBar;
 
     public RepairBar _productionBar;
+
+    public ParticleSystem damagedParticles;
+
+    public ParticleSystem _repairedParticles;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -206,6 +210,10 @@ public class Room : MonoBehaviour
     {
         _timeSinceProduction = 0f;
         _isDamaged = true;
+        if (damagedParticles)
+        {
+            damagedParticles.Play();
+        }
         damaged += DamageDone;
         maxdamage = damaged;
         bProducing = false;
@@ -243,6 +251,11 @@ public class Room : MonoBehaviour
         if (_attentionIndicator != null)
         {
             _attentionIndicator.SetActive(false);
+        }
+
+        if (_repairedParticles)
+        {
+            _repairedParticles.Play();
         }
 
         foreach (UnitRTS r in UnitsInside)
