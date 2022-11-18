@@ -21,8 +21,8 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI HullIntegrity;
 
     public Slider PowerSlider;
-    
-    
+
+
     void Start()
     {
         
@@ -55,6 +55,8 @@ public class HUD : MonoBehaviour
     {
         HullIntegrity.text = amt.ToString();
     }
+    
+    
 
 
     public void UpdateHUDPower(float percent)
