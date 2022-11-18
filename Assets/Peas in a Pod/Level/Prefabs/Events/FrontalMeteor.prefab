@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3578852102916307585}
   - component: {fileID: 4407423149575183730}
   - component: {fileID: 2419880300461386382}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FrontalMeteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
   InterpTime: 0.23
   _particleTrail: {fileID: 4202088448872697385}
   bApplyCameraShake: 1
-  _shakeMagnitude: 5
+  _shakeMagnitude: 2
   _shakeTime: 0.4
   dmgAmt: 20
   ManagerRuntimeSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
@@ -119,6 +119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334094, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}

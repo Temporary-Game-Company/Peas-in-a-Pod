@@ -55,6 +55,12 @@ public class Room : MonoBehaviour
     private RepairBar _repairBar;
 
     public RepairBar _productionBar;
+
+    public ParticleSystem damagedParticles;
+
+    public ParticleSystem _repairedParticles;
+
+    public ParticleSystem _productionParticles;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -63,6 +69,8 @@ public class Room : MonoBehaviour
     {
         
         _attentionIndicator.SetActive(false);
+        
+        // TODO add self to HUD in rooms tab
     }
 
     private void Awake()
@@ -94,7 +102,11 @@ public class Room : MonoBehaviour
 
         if (bProducing)
         {
-            _timeSinceProduction += Time.deltaTime; 
+            if (UnitsInside.Count == 0)
+            {
+                _timeSinceProduction -= Time.deltaTime;
+            }
+            _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
         }
         
         if (_timeSinceProduction > _productionTime)
@@ -147,6 +159,10 @@ public class Room : MonoBehaviour
 
     private void HandleProduction()
     {
+        if (_productionParticles)
+        {
+            _productionParticles.Play();
+        }
         if (_producesFood)
         {
             
@@ -206,6 +222,10 @@ public class Room : MonoBehaviour
     {
         _timeSinceProduction = 0f;
         _isDamaged = true;
+        if (damagedParticles)
+        {
+            damagedParticles.Play();
+        }
         damaged += DamageDone;
         maxdamage = damaged;
         bProducing = false;
@@ -224,6 +244,7 @@ public class Room : MonoBehaviour
             _resourceManager.increaseActivePeas();
         }
         
+        //TODO add self to tasks tab
         
         
     }
@@ -245,10 +266,17 @@ public class Room : MonoBehaviour
             _attentionIndicator.SetActive(false);
         }
 
+        if (_repairedParticles)
+        {
+            _repairedParticles.Play();
+        }
+
         foreach (UnitRTS r in UnitsInside)
         {
             _resourceManager.decreaseActivePeas();
         }
+        
+        //TODO remove self from tasks tab
     }
     
     private void OnTriggerEnter2D(Collider2D col)
@@ -257,14 +285,15 @@ public class Room : MonoBehaviour
         if (other != null)
         {
             UnitsInside.Add(other);
+            if (_isDamaged)
+            {
+                _resourceManager.increaseActivePeas();
+            }
             
             
         }
 
-        if (_isDamaged)
-        {
-            _resourceManager.increaseActivePeas();
-        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)

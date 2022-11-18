@@ -61,6 +61,8 @@ public class UnitRTS : MonoBehaviour
         {
             HealthBar.SetHealth(CurrentHeat, MaximumHeat);
         }
+        
+        //TODO Add self to HUD in Units Tab
     }
 
     private void Update()

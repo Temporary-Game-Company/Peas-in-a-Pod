@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Peas in a Pod\Code\Editor\Variable Refs\ReferenceDrawer.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Editor\Events\EventEditor.cs" />
+     <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Editor\SlimUIWindow.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.12f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
