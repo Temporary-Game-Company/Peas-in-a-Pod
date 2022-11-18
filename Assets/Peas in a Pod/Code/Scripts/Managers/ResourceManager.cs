@@ -32,7 +32,9 @@ public class ResourceManager : MonoBehaviour
 
     public float _initialSunlightAmt;
 
-    private float SunlightAmt;
+    private float temperature = 50f;
+
+    public float _initialTemperature;
 
     public float HullIntegrity = 100f;
 
@@ -57,10 +59,10 @@ public class ResourceManager : MonoBehaviour
         updateHUDFood();
     }
 
-    public void changeSunlight(float delta)
+    public void changeTemp(float delta)
     {
-        SunlightAmt += delta;
-        updateHUDSunlight();
+        temperature += delta;
+        updateHUDTemp();
     }
 
     public void changeIntegrity(float delta)
@@ -87,7 +89,7 @@ public class ResourceManager : MonoBehaviour
         updateHUDPeas();
         updateHUDPower(); 
         updateHUDOxygen();
-        updateHUDSunlight();
+        updateHUDTemp();
         
 
 
@@ -126,11 +128,11 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    private void updateHUDSunlight()
+    private void updateHUDTemp()
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDSunlight(SunlightAmt);
+            playerHUD.UpdateHUDTemp(temperature/100f);
         }
     }
 
