@@ -5544,6 +5544,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66284343, guid: 81d5b6a185a197a4d8af8b42d6b9489d, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 66284344, guid: 81d5b6a185a197a4d8af8b42d6b9489d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1234229940092427542, guid: 81d5b6a185a197a4d8af8b42d6b9489d,
         type: 3}
       propertyPath: m_RootOrder
@@ -5715,6 +5723,12 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -2053958747
       objectReference: {fileID: 0}
+    - target: {fileID: 6082112552544456299, guid: 81d5b6a185a197a4d8af8b42d6b9489d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0bbfbbdae755d2f4cbbba57bb60526e5,
+        type: 3}
     - target: {fileID: 7180774760191469419, guid: 81d5b6a185a197a4d8af8b42d6b9489d,
         type: 3}
       propertyPath: m_IsActive
@@ -9863,7 +9877,7 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: orthographic size
-      value: 7.625
+      value: 8.296875
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
