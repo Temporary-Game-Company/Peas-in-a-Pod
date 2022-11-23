@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ResourceManager : MonoBehaviour
 {
 
-    private float foodAmt = 0;
+    public FloatVariable foodAmt;
 
     public HUD playerHUD;
 
@@ -19,70 +19,71 @@ public class ResourceManager : MonoBehaviour
     
     
 
-    public float initialFoodAmt = 100f;
+    private float initialFoodAmt = 100f;
 
-    private float powerAmt = 0;
+    public FloatVariable powerAmt;
 
-    public float initialPowerAmt = 100f;
+    private float initialPowerAmt = 100f;
 
 
-    public float _initialOxygenAmt = 100f;
+    private float _initialOxygenAmt = 100f;
 
-    private float OxygenAmt;
+    public FloatVariable OxygenAmt;
 
-    public float _initialSunlightAmt;
+    private float _initialSunlightAmt;
 
-    private float temperature = 50f;
+    public FloatVariable temperature;
 
-    public float _initialTemperature;
+    private float _initialTemperature = 50f;
 
-    public float HullIntegrity = 100f;
+    public FloatVariable HullIntegrity;
 
     public PeaRuntimeSet Peas;
 
     private int _activePeas;
-    
-    
+
+    private float _temperatureDelta = 0f;
 
     
 
     public void changePower(float delta)
     {
-        powerAmt = Math.Clamp(powerAmt + delta, 0, initialPowerAmt);
+        powerAmt.Value = Math.Clamp(powerAmt.Value + delta, 0, initialPowerAmt);
         
         updateHUDPower();
     }
 
     public void changeFood(float delta)
     {
-        foodAmt += delta;
+        foodAmt.Value += delta;
         updateHUDFood();
     }
 
     public void changeTemp(float delta)
     {
-        temperature += delta;
+        temperature.Value += delta;
         updateHUDTemp();
     }
 
     public void changeIntegrity(float delta)
     {
-        HullIntegrity = Math.Clamp(HullIntegrity + delta, 0, 100f);
+        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value + delta, 0, 100f);
         updateHUDIntegrity();
     }
 
     public void changeOxygen(float delta)
     {
-        OxygenAmt = Math.Clamp(OxygenAmt + delta, 0, 100f);
+        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value + delta, 0, 100f);
         updateHUDOxygen();
     }
     // Start is called before the first frame update
     void Start()
     {
-        foodAmt = initialFoodAmt;
-        powerAmt = initialPowerAmt;
-        
-        OxygenAmt = _initialOxygenAmt;
+        foodAmt.Value = initialFoodAmt;
+        OxygenAmt.Value = _initialOxygenAmt;
+        temperature.Value = _initialTemperature;
+        powerAmt.Value = initialPowerAmt;
+        HullIntegrity.Value = 100f;
         _activePeas = 0;
         updateHUDIntegrity();
         updateHUDFood();
@@ -99,7 +100,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDFood(foodAmt);
+            playerHUD.UpdateHUDFood(foodAmt.Value);
         }
     }
 
@@ -107,7 +108,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDPower(powerAmt/initialPowerAmt);
+            playerHUD.UpdateHUDPower(powerAmt.Value/initialPowerAmt);
             
         }
     }
@@ -116,7 +117,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDIntegrity(HullIntegrity);
+            playerHUD.UpdateHUDIntegrity(HullIntegrity.Value);
         }
     }
 
@@ -124,7 +125,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDOxygen(OxygenAmt/_initialOxygenAmt);
+            playerHUD.UpdateHUDOxygen(OxygenAmt.Value/_initialOxygenAmt);
         }
     }
 
@@ -132,7 +133,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDTemp(temperature/100f);
+            playerHUD.UpdateHUDTemp(temperature.Value/100f);
         }
     }
 
@@ -166,5 +167,24 @@ public class ResourceManager : MonoBehaviour
     {
         _activePeas--;
         updateHUDPeas();
+    }
+
+    public void IncreaseTemperatureDelta(float amt)
+    {
+        _temperatureDelta += amt;
+    }
+
+    public void DecreaseTemperatureDelta(float amt)
+    {
+        _temperatureDelta -= amt;
+    }
+
+    private void Update()
+    {
+        if (_temperatureDelta != 0)
+        {
+            temperature.Value += _temperatureDelta * Time.deltaTime;
+        }
+        updateHUDTemp();
     }
 }

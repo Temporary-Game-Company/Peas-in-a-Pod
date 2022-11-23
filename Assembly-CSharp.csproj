@@ -62,6 +62,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\GrowThenShrink.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\UI_TextComplex.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Tasks\ResourceStation.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Turret.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\Button_Sprite.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\UtilsClass.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\RuntimeSet.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\Selected.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionUpdater.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionTimer.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\PeaUI.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Variables\FloatVariable.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScrollUV.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\UI_Sprite.cs" />
@@ -110,8 +112,8 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\PeaUI.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Turret.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Window.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\ColorGradient.cs" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

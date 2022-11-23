@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TemporaryGameCompany;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class UnitRTS : MonoBehaviour
@@ -16,7 +17,7 @@ public class UnitRTS : MonoBehaviour
 
     private NavMeshAgent NavAgent;
 
-    public HealthBar HealthBar;
+    public Slider FatigueSlider;
 
     private Vector3 DesiredLocation;
 
@@ -25,6 +26,12 @@ public class UnitRTS : MonoBehaviour
     [SerializeField] private float MaximumHeat;
 
     private float CurrentHeat;
+
+    private float _exhaustion = 0f;
+
+    private float _exhuastionDelta = 0f;
+
+    public float _maxExhaustion = 20f;
 
    
     
@@ -41,7 +48,7 @@ public class UnitRTS : MonoBehaviour
             
         }
 
-        HealthBar = GetComponentInChildren<HealthBar>();
+        
     }
 
     public void SetSelectedVisible(bool visible)
@@ -57,17 +64,38 @@ public class UnitRTS : MonoBehaviour
     {
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
-        if (HealthBar != null)
-        {
-            HealthBar.SetHealth(CurrentHeat, MaximumHeat);
-        }
+        UpdateFatigue();
         
         //TODO Add self to HUD in Units Tab
     }
 
+    private void UpdateFatigue()
+    {
+        if (FatigueSlider != null)
+        {
+            FatigueSlider.value = _exhaustion / _maxExhaustion;
+        }
+    }
+
+    public void AddToExhuastion(float amt)
+    {
+        _exhaustion += amt;
+    }
+
     private void Update()
     {
-        
+        HandleFatigue();
+    }
+
+    private void HandleFatigue()
+    {
+        _exhaustion += _exhuastionDelta * Time.deltaTime;
+        UpdateFatigue();
+    }
+
+    public void AddToExhaustionDelta(float value)
+    {
+        _exhuastionDelta += value;
     }
 
     private void OnMouseDown()
