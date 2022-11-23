@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using TemporaryGameCompany;
 
+public delegate void BoolChangeDelegate(bool newValue);
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class UnitRTS : MonoBehaviour
 {
@@ -26,8 +28,32 @@ public class UnitRTS : MonoBehaviour
 
     private float CurrentHeat;
 
-   
-    
+    static LayerMask raycastMask;
+
+   // tracking whether pea is working, providing delegate for catching changes in state
+    public BoolChangeDelegate OnWorkingChanged;
+    bool _isWorking = false;
+    public bool isWorking 
+    {
+        set {
+            _isWorking = value;
+            if (OnWorkingChanged != null) OnWorkingChanged(_isWorking);
+        }
+        get => _isWorking;
+    }
+
+    // tracking whether pea is grounded, providing delegate for catching changes in state
+    public BoolChangeDelegate OnGroundedChanged;
+    bool _isGrounded = true;
+    private bool isGrounded 
+    {
+        set {
+            _isGrounded = value;
+            if (OnGroundedChanged != null) OnGroundedChanged(_isGrounded);
+        }
+        get => _isGrounded;
+    }
+
     private void Awake()
     {
         Transform t = transform.Find("Selected");
@@ -55,6 +81,8 @@ public class UnitRTS : MonoBehaviour
 
     private void Start()
     {
+        raycastMask = ~LayerMask.GetMask(new string[] {"Player"});
+
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
         if (HealthBar != null)
@@ -62,30 +90,34 @@ public class UnitRTS : MonoBehaviour
             HealthBar.SetHealth(CurrentHeat, MaximumHeat);
         }
         
+        isWorking = false;
+        isGrounded = true;
         //TODO Add self to HUD in Units Tab
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        // TODO consider changing this for a more performant option
+        // checks if the pea is grounded using raycast, and updates isGrounded accordingly
+        isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.53125f, raycastMask)? true : false;
     }
 
-    private void OnMouseDown()
+    /* private void OnMouseDown()
     {
         if (GlobalSelection.instance != null)
         {
             GlobalSelection.instance.AddUnit(this.gameObject);
         }
-    }
+    } */
 
     public void MoveTo(Vector3 targetPosition)
     {
-        NavAgent.SetDestination(targetPosition);
+        // NavAgent.SetDestination(targetPosition);
     }
     
     void OnEnable()
     {
-        NavAgent = GetComponent<NavMeshAgent>();
+        // NavAgent = GetComponent<NavMeshAgent>();
         PeaSet.Add(this);
     }
     
@@ -93,4 +125,6 @@ public class UnitRTS : MonoBehaviour
     {
         PeaSet.Remove(this);
     }
+
+
 }
