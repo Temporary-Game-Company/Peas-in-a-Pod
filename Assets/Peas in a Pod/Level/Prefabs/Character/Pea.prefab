@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1234052777913864254}
   - component: {fileID: 6082112552544456299}
   m_Layer: 7
-  m_Name: Toon Chicken
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: -2053958747
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 583d3e76b8ae4c44f966ea157acc567b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0bbfbbdae755d2f4cbbba57bb60526e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
