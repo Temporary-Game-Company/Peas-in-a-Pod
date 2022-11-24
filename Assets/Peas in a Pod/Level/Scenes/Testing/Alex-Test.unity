@@ -6453,13 +6453,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a33068f0e30af7499c61bbea283b1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodAmt: {fileID: 11400000, guid: da876b73bf295a540996e819d7dcd353, type: 2}
   playerHUD: {fileID: 1673111771}
   ResourceManagerSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
-  initialFoodAmt: 100
-  initialPowerAmt: 100
-  _initialOxygenAmt: 100
-  _initialSunlightAmt: 5
-  HullIntegrity: 50
+  powerAmt: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
+  OxygenAmt: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
+  temperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
+  HullIntegrity: {fileID: 11400000, guid: 0f3a779949c6a194eb29d4238842e52c, type: 2}
   Peas: {fileID: 11400000, guid: 08e2eeee24b0d9e48a2663621443e36f, type: 2}
 --- !u!4 &1370309770
 Transform:
@@ -8042,7 +8042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodText: {fileID: 1532716793}
-  SunlightText: {fileID: 875617110}
+  TemperatureOnShip: {fileID: 0}
   OxygenText: {fileID: 872387449}
   PeasCount: {fileID: 541168931}
   HullIntegrity: {fileID: 631334165}
@@ -9602,6 +9602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ad6fdc55969e34889a2fd3e5aa3e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingPosition: {x: 0, y: 0, z: 0}
+  _weaponsLocation: {x: 0, y: 0, z: 0}
+  InterpTime: 1
 --- !u!1001 &7021503910799721430
 PrefabInstance:
   m_ObjectHideFlags: 0

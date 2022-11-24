@@ -66,6 +66,6 @@ public class HUD : MonoBehaviour
 
     public void UpdateHUDTemp(float temp)
     {
-        TemperatureOnShip.value = temp;
+        if (TemperatureOnShip) TemperatureOnShip.value = temp;
     }
 }
