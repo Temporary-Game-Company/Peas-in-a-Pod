@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1234052777913864254}
   - component: {fileID: 6082112552544456299}
   m_Layer: 7
-  m_Name: Toon Chicken
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
