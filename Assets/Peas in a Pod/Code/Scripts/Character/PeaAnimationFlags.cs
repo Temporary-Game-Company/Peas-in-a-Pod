@@ -22,6 +22,7 @@ public class PeaAnimationFlags : MonoBehaviour
     void OnSelectedChanged(bool value)
     {
         animator.SetBool("Held", value);
+        if (value) animator.SetTrigger("Grab");
     }
 
     void OnWorkingChanged(bool value)
