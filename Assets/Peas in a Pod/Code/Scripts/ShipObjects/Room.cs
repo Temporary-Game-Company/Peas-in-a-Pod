@@ -360,18 +360,19 @@ public class Room : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        UnitRTS other = col.GetComponent<UnitRTS>();
-        if (other != null)
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        if (unit != null)
         {
-            UnitsInside.Add(other);
+            unit.isWorking = true;
+            UnitsInside.Add(unit);
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
-                other.AddToExhuastion(_fatigueValueRepairing);
+                unit.AddToExhuastion(_fatigueValueRepairing);
             }
             else
             {
-                other.AddToExhuastion(_fatigueValueProducing);
+                unit.AddToExhuastion(_fatigueValueProducing);
             }
             
             
@@ -386,6 +387,7 @@ public class Room : MonoBehaviour
         UnitRTS unit = other.GetComponent<UnitRTS>();
         if (unit != null)
         {
+            unit.isWorking = false;
             UnitsInside.Remove(unit);
             if (_isDamaged)
             {
