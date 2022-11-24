@@ -106,6 +106,7 @@ public class UnitRTS : MonoBehaviour
         // checks if the pea is grounded using raycast, and updates isGrounded accordingly
         isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.38f, raycastMask)? true : false;
         Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.0f);
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
