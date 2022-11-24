@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
 
     public TextMeshProUGUI FoodText;
 
-    public TextMeshProUGUI SunlightText;
+    public Slider TemperatureOnShip;
 
     public TextMeshProUGUI OxygenText;
 
@@ -64,8 +64,8 @@ public class HUD : MonoBehaviour
         PowerSlider.value = percent;
     }
 
-    public void UpdateHUDSunlight(float sunlight)
+    public void UpdateHUDTemp(float temp)
     {
-        SunlightText.text = sunlight.ToString();
+        TemperatureOnShip.value = temp;
     }
 }

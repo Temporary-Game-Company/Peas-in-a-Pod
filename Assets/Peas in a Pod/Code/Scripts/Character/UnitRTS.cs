@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TemporaryGameCompany;
+using UnityEngine.UI;
 
 public delegate void BoolChangeDelegate(bool newValue);
 
@@ -18,7 +19,7 @@ public class UnitRTS : MonoBehaviour
 
     private NavMeshAgent NavAgent;
 
-    public HealthBar HealthBar;
+    public Slider FatigueSlider;
 
     private Vector3 DesiredLocation;
 
@@ -54,6 +55,12 @@ public class UnitRTS : MonoBehaviour
         get => _isGrounded;
     }
 
+    private float _exhaustion = 0f;
+
+    private float _exhuastionDelta = 0f;
+
+    public float _maxExhaustion = 20f;
+
     private void Awake()
     {
         Transform t = transform.Find("Selected");
@@ -67,7 +74,7 @@ public class UnitRTS : MonoBehaviour
             
         }
 
-        HealthBar = GetComponentInChildren<HealthBar>();
+        
     }
 
     public void SetSelectedVisible(bool visible)
@@ -85,15 +92,13 @@ public class UnitRTS : MonoBehaviour
 
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
-        if (HealthBar != null)
-        {
-            HealthBar.SetHealth(CurrentHeat, MaximumHeat);
-        }
+        UpdateFatigue();
         
         isWorking = false;
         isGrounded = true;
         //TODO Add self to HUD in Units Tab
     }
+
 
     private void FixedUpdate()
     {
@@ -101,6 +106,65 @@ public class UnitRTS : MonoBehaviour
         // checks if the pea is grounded using raycast, and updates isGrounded accordingly
         isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.38f, raycastMask)? true : false;
         Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.0f);
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, col.transform.localPosition);
+        if (unit != null)
+        {
+            
+            if (r.collider.Equals(col))
+            {
+                AddToExhaustionDelta(-1f);
+                Debug.Log("Peas in a pod");
+            }
+            else
+            {
+                Debug.Log("Obstructed");
+            }
+            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        UnitRTS unit = other.GetComponent<UnitRTS>();
+        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, other.transform.localPosition);
+        if (unit != null && r.collider.Equals(other))
+        {
+            Debug.Log("Pea removed from each other");
+            AddToExhaustionDelta(1f);
+        }
+    }
+
+    private void UpdateFatigue()
+    {
+        if (FatigueSlider != null)
+        {
+            FatigueSlider.value = _exhaustion / _maxExhaustion;
+        }
+    }
+
+    public void AddToExhuastion(float amt)
+    {
+        _exhaustion += amt;
+    }
+
+    private void Update()
+    {
+        HandleFatigue();
+    }
+
+    private void HandleFatigue()
+    {
+        _exhaustion += _exhuastionDelta * Time.deltaTime;
+        UpdateFatigue();
+    }
+
+    public void AddToExhaustionDelta(float value)
+    {
+        _exhuastionDelta += value;
     }
 
     /* private void OnMouseDown()

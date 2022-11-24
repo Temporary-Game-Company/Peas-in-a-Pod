@@ -34,6 +34,8 @@ public class Room : MonoBehaviour
 
     private SpriteRenderer attentionRenderer;
 
+    private GameObject _roomIndicator;
+
     private float damaged;
 
     private float maxdamage;
@@ -54,6 +56,8 @@ public class Room : MonoBehaviour
 
     private RepairBar _repairBar;
 
+    private bool _isSelected;
+    
     public RepairBar _productionBar;
 
     public ParticleSystem damagedParticles;
@@ -61,6 +65,10 @@ public class Room : MonoBehaviour
     public ParticleSystem _repairedParticles;
 
     public ParticleSystem _productionParticles;
+
+    public float _fatigueValueProducing = 2f;
+
+    public float _fatigueValueRepairing = 3f;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -69,7 +77,14 @@ public class Room : MonoBehaviour
     {
         
         _attentionIndicator.SetActive(false);
-        
+
+        Transform t = transform.Find("Hovered");
+        if (t != null)
+        {
+            _roomIndicator = t.gameObject;
+            _roomIndicator.SetActive(false);
+        }
+
         // TODO add self to HUD in rooms tab
     }
 
@@ -135,6 +150,66 @@ public class Room : MonoBehaviour
         if (_resourceManager)
         {
             _resourceManager.changePower(_powerConsumptionPerSecond * -1 * Time.deltaTime);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        _isSelected = true;
+        if (_roomIndicator)
+        {
+            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
+            if (s != null)
+            {
+                s.color = Color.green;
+            }
+        }
+    }
+
+
+    private void OnMouseUp()
+    {
+        if (_roomIndicator)
+        {
+            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
+            if (s != null)
+            {
+                s.color = Color.white;
+            }
+        }
+
+        if (_isSelected && UnitsInside.Count > 0)
+        {
+            _isSelected = false;
+            CameraShake cs = Camera.main.GetComponent<CameraShake>();
+            if (cs != null)
+            {
+                StartCoroutine(cs.GoToLoc(cs._weaponsLocation));
+            }  
+        }
+        
+    }
+
+    private void OnMouseExit()
+    {
+        if (_roomIndicator)
+        {
+            _roomIndicator.SetActive(false);
+        }
+        _isSelected = false;
+    }
+
+    private void OnMouseEnter()
+    {
+        
+        if (_roomIndicator)
+        {
+            _roomIndicator.SetActive(true);
+            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
+            if (s != null)
+            {
+                s.color = Color.yellow;
+            }
         }
     }
 
@@ -242,6 +317,8 @@ public class Room : MonoBehaviour
         foreach (UnitRTS r in UnitsInside)
         {
             _resourceManager.increaseActivePeas();
+            r.AddToExhaustionDelta(_fatigueValueRepairing);
+            r.AddToExhaustionDelta(-_fatigueValueProducing);
         }
         
         //TODO add self to tasks tab
@@ -274,6 +351,8 @@ public class Room : MonoBehaviour
         foreach (UnitRTS r in UnitsInside)
         {
             _resourceManager.decreaseActivePeas();
+            r.AddToExhaustionDelta(-_fatigueValueRepairing);
+            r.AddToExhaustionDelta(_fatigueValueProducing);
         }
         
         //TODO remove self from tasks tab
@@ -289,7 +368,13 @@ public class Room : MonoBehaviour
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
+                other.AddToExhuastion(_fatigueValueRepairing);
             }
+            else
+            {
+                other.AddToExhuastion(_fatigueValueProducing);
+            }
+            
             
             
         }
@@ -307,7 +392,13 @@ public class Room : MonoBehaviour
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();
+                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
             }
+            else
+            {
+                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
+            }
+            
         }
     }
 
