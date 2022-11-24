@@ -368,11 +368,11 @@ public class Room : MonoBehaviour
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
-                other.AddToExhuastion(_fatigueValueRepairing);
+                unit.AddToExhuastion(_fatigueValueRepairing);
             }
             else
             {
-                other.AddToExhuastion(_fatigueValueProducing);
+                unit.AddToExhuastion(_fatigueValueProducing);
             }
             
             
