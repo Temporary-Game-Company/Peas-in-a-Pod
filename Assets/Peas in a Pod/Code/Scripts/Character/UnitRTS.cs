@@ -88,7 +88,8 @@ public class UnitRTS : MonoBehaviour
 
     private void Start()
     {
-        raycastMask = ~LayerMask.GetMask(new string[] {"Player", "ShipExterior"});
+        // raycastMask = ~LayerMask.GetMask(new string[] {"Player", "ShipExterior"});
+        raycastMask = LayerMask.GetMask(new string[] {"Ship"});
 
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
@@ -100,12 +101,22 @@ public class UnitRTS : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void CheckIfGrounded()
     {
         // TODO consider changing this for a more performant option
         // checks if the pea is grounded using raycast, and updates isGrounded accordingly
-        isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.38f, raycastMask)? true : false;
-        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.0f);
+        isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.4f, raycastMask)? true : false;
+        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.1f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        CheckIfGrounded();
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        CheckIfGrounded();
     }
 
     private void OnTriggerEnter2D(Collider2D col)

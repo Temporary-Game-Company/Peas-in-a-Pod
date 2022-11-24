@@ -373,13 +373,17 @@ public class Room : MonoBehaviour
             else
             {
                 unit.AddToExhuastion(_fatigueValueProducing);
-            }
-            
-            
-            
-        }
+            }   
+        }   
+    }
 
-        
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        if (unit != null)
+        {
+            if (!unit.isWorking) unit.isWorking = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
