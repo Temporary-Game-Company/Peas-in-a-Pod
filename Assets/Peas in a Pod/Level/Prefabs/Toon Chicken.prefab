@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 943339980}
   - component: {fileID: 943339979}
   - component: {fileID: 943339978}
+  - component: {fileID: 943339982}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -101,6 +102,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &943339982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943339977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2c9346c5716bf4db7dc62b9751879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &514672109834951820
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +127,7 @@ GameObject:
   - component: {fileID: 8199959930018158997}
   - component: {fileID: 1660056864540467739}
   - component: {fileID: 6079853209110967976}
-  - component: {fileID: 2695284955176603439}
+  - component: {fileID: 1099313342}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -234,7 +248,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2695284955176603439
+--- !u!114 &1099313342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e73817cb041ed145919e7774232ec81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 6079853209110967976}
 --- !u!1 &552550440406713262
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +540,7 @@ GameObject:
   - component: {fileID: 769706767822489080}
   - component: {fileID: 4592949799456220941}
   - component: {fileID: 8790071247556236786}
+  - component: {fileID: 1946807427201192498}
   m_Layer: 0
   m_Name: Toon Chicken
   m_TagString: Untagged
@@ -597,10 +612,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.22589266
-  m_Height: 0.928337
+  m_Radius: 0.6205572
+  m_Height: 1.2411144
   m_Direction: 1
-  m_Center: {x: 0.00435777, y: -0.03583151, z: -0.03839332}
+  m_Center: {x: 0, y: -0.03583151, z: -0.03839332}
 --- !u!212 &375762774228522823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -665,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5884b4313688e3745a462addf22d4df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PeaSet: {fileID: 11400000, guid: 08e2eeee24b0d9e48a2663621443e36f, type: 2}
   Velocity: 0
   HealthBar: {fileID: 0}
   StartingHeat: 50
@@ -707,6 +723,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1946807427201192498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552928027826050392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8802006ec6e9c6a40a772272e8cceeee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &552945158742304370
 GameObject:
   m_ObjectHideFlags: 0

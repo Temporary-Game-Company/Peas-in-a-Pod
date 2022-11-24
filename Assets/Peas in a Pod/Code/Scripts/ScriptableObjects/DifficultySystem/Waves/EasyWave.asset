@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c841c33724ac83b4e880a426504d39a1, type: 3}
+  m_Name: EasyWave
+  m_EditorClassIdentifier: 
+  Events:
+  - Events:
+    - {fileID: 11400000, guid: 4fcfc2ceebbe7774d8a7e2f53828e168, type: 2}
+    - {fileID: 11400000, guid: b38a4a8a71e34ce41a39517c1ead3b63, type: 2}
+    - {fileID: 11400000, guid: bd9c8e899e14d104ba54d7e645b1cbff, type: 2}
+    - {fileID: 11400000, guid: b38a4a8a71e34ce41a39517c1ead3b63, type: 2}
+    - {fileID: 11400000, guid: cced99fd5d0eb0e459bc63c8318e813d, type: 2}
+    - {fileID: 11400000, guid: ac537d1cb4fb42b489502b10dc052531, type: 2}
+    Cooldown: 10
+  - Events:
+    - {fileID: 11400000, guid: d10bcd47db4463f4c9487e9cd7f3d133, type: 2}
+    - {fileID: 11400000, guid: b38a4a8a71e34ce41a39517c1ead3b63, type: 2}
+    - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
+    Cooldown: 12
+  - Events:
+    - {fileID: 11400000, guid: 4fcfc2ceebbe7774d8a7e2f53828e168, type: 2}
+    - {fileID: 11400000, guid: 4b709f61a6042c84489fd33e8bd38134, type: 2}
+    Cooldown: 20
+  - Events:
+    - {fileID: 11400000, guid: 4b709f61a6042c84489fd33e8bd38134, type: 2}
+    - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
+    Cooldown: 35
+  - Events:
+    - {fileID: 11400000, guid: bd9c8e899e14d104ba54d7e645b1cbff, type: 2}
+    Cooldown: 10
+  - Events:
+    - {fileID: 11400000, guid: 163eef0c728a8da43bd59a6ed03733e4, type: 2}
+    Cooldown: 12
+  bLoops: 1
