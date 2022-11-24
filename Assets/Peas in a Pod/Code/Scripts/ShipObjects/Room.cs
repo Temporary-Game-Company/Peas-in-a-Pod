@@ -66,7 +66,9 @@ public class Room : MonoBehaviour
 
     public ParticleSystem _productionParticles;
 
-    public float _fatigueValue = 2f;
+    public float _fatigueValueProducing = 2f;
+
+    public float _fatigueValueRepairing = 3f;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -315,6 +317,8 @@ public class Room : MonoBehaviour
         foreach (UnitRTS r in UnitsInside)
         {
             _resourceManager.increaseActivePeas();
+            r.AddToExhaustionDelta(_fatigueValueRepairing);
+            r.AddToExhaustionDelta(-_fatigueValueProducing);
         }
         
         //TODO add self to tasks tab
@@ -347,6 +351,8 @@ public class Room : MonoBehaviour
         foreach (UnitRTS r in UnitsInside)
         {
             _resourceManager.decreaseActivePeas();
+            r.AddToExhaustionDelta(-_fatigueValueRepairing);
+            r.AddToExhaustionDelta(_fatigueValueProducing);
         }
         
         //TODO remove self from tasks tab
@@ -361,8 +367,13 @@ public class Room : MonoBehaviour
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
+                other.AddToExhuastion(_fatigueValueRepairing);
             }
-            other.AddToExhaustionDelta(_fatigueValue);
+            else
+            {
+                other.AddToExhuastion(_fatigueValueProducing);
+            }
+            
             
             
         }
@@ -379,8 +390,13 @@ public class Room : MonoBehaviour
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();
+                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
             }
-            unit.AddToExhaustionDelta(-_fatigueValue);
+            else
+            {
+                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
+            }
+            
         }
     }
 

@@ -59,13 +59,10 @@ public class ProjectileEvent : MonoBehaviour
             CameraShake s = Camera.main.GetComponent<CameraShake>();
             if (s != null)
             {
-                Debug.Log("Shaking!");
+                
                 s.StartShaking(_shakeTime, _shakeMagnitude);
             }
-            else
-            {
-                Debug.Log("Shake is null");
-            }
+            
         }
 
         if (_resourceManager)

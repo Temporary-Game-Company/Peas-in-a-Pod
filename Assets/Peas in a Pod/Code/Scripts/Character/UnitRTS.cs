@@ -69,6 +69,37 @@ public class UnitRTS : MonoBehaviour
         //TODO Add self to HUD in Units Tab
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, col.transform.localPosition);
+        if (unit != null)
+        {
+            
+            if (r.collider.Equals(col))
+            {
+                AddToExhaustionDelta(-1f);
+                Debug.Log("Peas in a pod");
+            }
+            else
+            {
+                Debug.Log("Obstructed");
+            }
+            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        UnitRTS unit = other.GetComponent<UnitRTS>();
+        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, other.transform.localPosition);
+        if (unit != null && r.collider.Equals(other))
+        {
+            Debug.Log("Pea removed from each other");
+            AddToExhaustionDelta(1f);
+        }
+    }
+
     private void UpdateFatigue()
     {
         if (FatigueSlider != null)

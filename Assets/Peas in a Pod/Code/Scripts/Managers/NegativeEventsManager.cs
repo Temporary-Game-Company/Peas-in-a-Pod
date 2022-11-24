@@ -91,7 +91,7 @@ public class NegativeEventsManager : MonoBehaviour
 
     private void ExecuteFoodEvent(EventConfigSO.Difficulty difficulty)
     {
-        Debug.Log("Doing Food Event");
+        
 
         foreach (NegativeEvent n in NegativeEvents)
         {
@@ -130,12 +130,12 @@ public class NegativeEventsManager : MonoBehaviour
 
     private void ExecuteDamageEvent(EventConfigSO.Difficulty difficulty)
     {
-        Debug.Log("Doing Damage Event");
+       
         foreach (NegativeEvent n in NegativeEvents)
         {
             if (n.EventType == EventConfigSO.EventType.Damage && n.Difficulty == difficulty)
             {
-                Debug.Log("Suitable damage event found");
+               
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
             }
         }
@@ -172,7 +172,7 @@ public class NegativeEventsManager : MonoBehaviour
         {
             if (n.EventType == EventConfigSO.EventType.Power && n.Difficulty == difficulty)
             {
-                Debug.Log("Suitable event found");
+               
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
             }
         }
@@ -206,7 +206,7 @@ public class NegativeEventsManager : MonoBehaviour
     
     private void ExecuteAlienEvent(EventConfigSO.Difficulty difficulty)
     {
-        Debug.Log("Doing Alien Event");
+       
         foreach (NegativeEvent n in NegativeEvents)
         {
             if (n.EventType == EventConfigSO.EventType.Alien && n.Difficulty == difficulty)

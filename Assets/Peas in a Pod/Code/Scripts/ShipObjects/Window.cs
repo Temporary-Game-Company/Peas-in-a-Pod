@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TemporaryGameCompany;
+using TMPro;
 using UnityEngine;
 
 public class Window : MonoBehaviour
@@ -22,6 +23,8 @@ public class Window : MonoBehaviour
     public ManagerRuntimeSet _managers;
 
     private ResourceManager _resourceManager;
+
+    private TextMeshProUGUI _hintText;
     
     
     
@@ -46,8 +49,10 @@ public class Window : MonoBehaviour
             if (_hint)
             {
                 _hint.SetActive(false);
+                _hintText = _hint.GetComponentInChildren<TextMeshProUGUI>();
             }
         }
+        
     }
 
     

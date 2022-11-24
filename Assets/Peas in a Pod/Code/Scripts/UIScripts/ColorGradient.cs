@@ -20,7 +20,7 @@ public class ColorGradient : MonoBehaviour
         if (img)
         {
             img.color = _Gradient.Evaluate(img.fillAmount);
-            Debug.Log(img.fillAmount);
+            
         }
     }
 }
