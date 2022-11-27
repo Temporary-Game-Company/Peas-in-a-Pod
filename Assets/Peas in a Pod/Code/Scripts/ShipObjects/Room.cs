@@ -10,21 +10,13 @@ public class Room : MonoBehaviour
 {
     public RoomRuntimeSet RoomSet;
 
-    public bool _producesFood;
+    public bool _producesGoods = true;
 
-    public bool _producesPower;
+    private bool IsFocused = false;
 
-    public bool _repairsIntegrity;
+    public FloatVariable _resourceProduced;
 
-    public bool _producesOxygen;
-
-    public float _oxygenProductionPerCycle;
-
-    public float _integrityPerProduction;
-
-    public float _foodProducitonPerProduction;
-
-    public float PowerProductionPerCycle;
+    public float _productionAmt = 2f;
 
     private float _timeSinceProduction = 0f;
 
@@ -69,6 +61,10 @@ public class Room : MonoBehaviour
     public float _fatigueValueProducing = 2f;
 
     public float _fatigueValueRepairing = 3f;
+
+    public Vector3 _cameraFocusLoc = new Vector3(0,0,-10);
+
+    public Turret _possessedOnClicked;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -119,15 +115,20 @@ public class Room : MonoBehaviour
         {
             if (UnitsInside.Count == 0)
             {
-                _timeSinceProduction -= Time.deltaTime;
+                _timeSinceProduction = Math.Clamp(_timeSinceProduction - Time.deltaTime, 0, _productionTime + 1);
             }
-            _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
+            else
+            {
+                _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
+            }
+
         }
         
         if (_timeSinceProduction > _productionTime)
         {
-            HandleProduction();
             _timeSinceProduction = 0f;
+            HandleProduction();
+            
         }
 
         if (_productionBar)
@@ -139,6 +140,7 @@ public class Room : MonoBehaviour
         {
             
             HandleRepairs();
+            _timeSinceProduction = Math.Clamp(_timeSinceProduction - Time.deltaTime, 0, _productionTime);
         }
 
         HandlePower();
@@ -149,7 +151,7 @@ public class Room : MonoBehaviour
     {
         if (_resourceManager)
         {
-            _resourceManager.changePower(_powerConsumptionPerSecond * -1 * Time.deltaTime);
+            _resourceManager.ConsumePower(_powerConsumptionPerSecond * Time.deltaTime);
         }
     }
 
@@ -180,12 +182,38 @@ public class Room : MonoBehaviour
 
         if (_isSelected && UnitsInside.Count > 0)
         {
-            _isSelected = false;
-            CameraShake cs = Camera.main.GetComponent<CameraShake>();
-            if (cs != null)
+            if (IsFocused)
             {
-                StartCoroutine(cs.GoToLoc(cs._weaponsLocation));
-            }  
+                IsFocused = false;
+                _isSelected = false;
+                CameraShake cs = Camera.main.GetComponent<CameraShake>();
+                if (cs != null)
+                {
+                    StartCoroutine(cs.BackToStart());
+                }   
+                if (_possessedOnClicked)
+                {
+                    _possessedOnClicked.Unpossess();
+                }
+            }
+            else
+            {
+                IsFocused = true;
+                _isSelected = false;
+                CameraShake cs = Camera.main.GetComponent<CameraShake>();
+                if (cs != null)
+                {
+                    StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
+                    
+                }   
+                if (_possessedOnClicked)
+                {
+                    _possessedOnClicked.Possessed();
+                }
+            }
+
+            
+            
         }
         
     }
@@ -238,64 +266,39 @@ public class Room : MonoBehaviour
         {
             _productionParticles.Play();
         }
-        if (_producesFood)
+
+        if (_producesGoods)
         {
+            if (_resourceProduced != null)
+            {
+                _resourceProduced.ApplyChange(_productionAmt);
+            }
+            else
+            {
+                Debug.Log("No resource produced");
+                if (GetComponent<FoodConsumption>() != null)
+                {
+                    GetComponent<FoodConsumption>().ConsumeFood();
+                    Debug.Log("Comsuuming food");
+                }
+                else
+                {
+                    Debug.Log("No Food consumption");
+                }
+            }
             
-            IncreaseFood(_foodProducitonPerProduction);
-        }
-
-        if (_producesOxygen)
-        {
-            IncreaseOxygen(_oxygenProductionPerCycle);
-        }
-
-        if (_repairsIntegrity)
-        {
-            IncreaseIntegrity(_integrityPerProduction);
-        }
-
-        if (_producesPower)
-        {
-            IncreasePower(PowerProductionPerCycle);
+            if (_resourceManager)
+            {
+                _resourceManager.UpdateAllHUD();
+            }
         }
     }
 
-    private void IncreasePower(float amt)
-    {
-        if (_resourceManager)
-        {
-            _resourceManager.changePower(amt);
-        }
-    }
-
-    private void IncreaseOxygen(float amt)
-    {
-        if (_resourceManager)
-        {
-            _resourceManager.changeOxygen(amt);
-        }
-    }
-
-    private void IncreaseIntegrity(float amt)
-    {
-        if (_resourceManager)
-        {
-            _resourceManager.changeIntegrity(amt);
-        }
-    }
     
-    private void IncreaseFood(float amt)
-    {
-        
-        if (_resourceManager != null)
-        {
-            _resourceManager.changeFood(amt);
-        }
-    }
 
     public void SystemDamaged(float DamageDone)
     {
-        _timeSinceProduction = 0f;
+        
         _isDamaged = true;
         if (damagedParticles)
         {
@@ -360,19 +363,22 @@ public class Room : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
+        
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
             unit.isWorking = true;
+            
             UnitsInside.Add(unit);
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
-                unit.AddToExhuastion(_fatigueValueRepairing);
+                unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
             {
-                unit.AddToExhuastion(_fatigueValueProducing);
+                
+                unit.AddToExhaustionDelta(_fatigueValueProducing);
             }
             
             
@@ -396,7 +402,7 @@ public class Room : MonoBehaviour
             }
             else
             {
-                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
+                unit.AddToExhaustionDelta(-_fatigueValueProducing);
             }
             
         }
