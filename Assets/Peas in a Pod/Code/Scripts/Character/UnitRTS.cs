@@ -29,7 +29,6 @@ public class UnitRTS : MonoBehaviour
 
     private float CurrentHeat;
 
-    static LayerMask raycastMask;
 
    // tracking whether pea is working, providing delegate for catching changes in state
     public BoolChangeDelegate OnWorkingChanged;
@@ -54,6 +53,11 @@ public class UnitRTS : MonoBehaviour
         }
         get => _isGrounded;
     }
+    int _hitCount;
+    RaycastHit2D[] _castHits = new RaycastHit2D[2];
+    static LayerMask raycastMask;
+    static ContactFilter2D contactFilter;
+
 
     private float _exhaustion = 0f;
 
@@ -90,6 +94,9 @@ public class UnitRTS : MonoBehaviour
     {
         // raycastMask = ~LayerMask.GetMask(new string[] {"Player", "ShipExterior"});
         raycastMask = LayerMask.GetMask(new string[] {"Ship"});
+        contactFilter = new ContactFilter2D();
+        contactFilter.useTriggers = false;
+
 
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
@@ -103,9 +110,14 @@ public class UnitRTS : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        // TODO consider changing this for a more performant option
-        // checks if the pea is grounded using raycast, and updates isGrounded accordingly
-        isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.4f, raycastMask)? true : false;
+        // checks if the pea is grounded using circlecast, and updates isGrounded accordingly
+        // circlecast used in place of raycast because it is a bit more tolerant
+        // isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down, 0.4f, raycastMask)? true : false;
+        // isGrounded = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, 0.2f, raycastMask)? true : false;
+        _hitCount = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, contactFilter, _castHits, 0.2f);
+        isGrounded = false;
+        for (int i = 0; i < _hitCount; i++) if (_castHits[i].collider.gameObject != gameObject) isGrounded = true;
+        
         Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.1f);
     }
 
