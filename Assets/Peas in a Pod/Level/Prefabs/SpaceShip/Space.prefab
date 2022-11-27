@@ -630,6 +630,7 @@ MonoBehaviour:
   bIsPossessed: 0
   loc: {fileID: 686928563}
   _toInstantiate: {fileID: 0}
+  _originalSpawn: {x: 0, y: 0, z: 0}
 --- !u!1 &946178710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,46 +2153,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.30000016
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.61251193
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.35331172
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.61251193
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.35331172
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202088448872697390, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -59.955
       objectReference: {fileID: 0}
     - target: {fileID: 4407423149575183730, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
         type: 3}
