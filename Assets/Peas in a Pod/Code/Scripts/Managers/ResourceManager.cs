@@ -34,7 +34,7 @@ public class ResourceManager : MonoBehaviour
 
     public FloatVariable temperature;
 
-    private float _initialTemperature = 50f;
+    private float _initialTemperature = 30f;
 
     public FloatVariable HullIntegrity;
 
@@ -44,46 +44,64 @@ public class ResourceManager : MonoBehaviour
 
     private float _temperatureDelta = 0f;
 
-    
+    public WindowRuntimeSet Windows;
 
-    public void changePower(float delta)
+    public float _timeBetweenHeatCycles = 1f;
+
+    public float _outsideHeatValue = 50f;
+
+    private float _lastHeatThreshold = 30;
+
+    private float _tempCheck = 0f;
+
+    private float _tempCheckTime = 1f;
+
+
+
+    public void changePower(float oldPower, float newPower)
     {
-        powerAmt.Value = Math.Clamp(powerAmt.Value + delta, 0, initialPowerAmt);
+        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, initialPowerAmt);
         
         updateHUDPower();
     }
 
-    public void changeFood(float delta)
+    public void changeFood(float oldAmt, float newAmt)
     {
-        foodAmt.Value += delta;
+        
         updateHUDFood();
     }
 
-    public void changeTemp(float delta)
+    public void changeTemp(float oldTemp, float newTemp)
     {
-        temperature.Value += delta;
+        
         updateHUDTemp();
     }
 
-    public void changeIntegrity(float delta)
+    public void changeIntegrity(float oldValue, float newValue)
     {
-        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value + delta, 0, 100f);
+        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 100f);
         updateHUDIntegrity();
     }
 
-    public void changeOxygen(float delta)
+    public void changeOxygen(float oldValue, float newValue)
     {
-        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value + delta, 0, 100f);
+        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 110f);
         updateHUDOxygen();
     }
     // Start is called before the first frame update
     void Start()
     {
         foodAmt.Value = initialFoodAmt;
+        foodAmt.ValueChanged += changeFood;
+        OxygenAmt.ValueChanged += changeOxygen;
         OxygenAmt.Value = _initialOxygenAmt;
         temperature.Value = _initialTemperature;
+        temperature.ValueChanged += changeTemp;
+        Debug.Log(temperature.Value);
         powerAmt.Value = initialPowerAmt;
+        powerAmt.ValueChanged += changePower;
         HullIntegrity.Value = 100f;
+        HullIntegrity.ValueChanged += changeIntegrity;
         _activePeas = 0;
         updateHUDIntegrity();
         updateHUDFood();
@@ -91,10 +109,26 @@ public class ResourceManager : MonoBehaviour
         updateHUDPower(); 
         updateHUDOxygen();
         updateHUDTemp();
+
         
 
 
     }
+    
+    private void Update()
+    {
+
+        _tempCheck += Time.deltaTime;
+        if (_tempCheck > _tempCheckTime)
+        {
+            _tempCheck = 0f;
+            CalculateHeatChange();
+            HandleHeatTemperature();
+        }
+    }
+
+    
+    
 
     private void updateHUDFood()
     {
@@ -133,7 +167,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDTemp(temperature.Value/100f);
+            playerHUD.UpdateHUDTemp(temperature.Value);
         }
     }
 
@@ -147,6 +181,16 @@ public class ResourceManager : MonoBehaviour
     void OnDisable()
     {
         ResourceManagerSet.Remove(this);
+    }
+
+    public void UpdateAllHUD()
+    {
+        updateHUDIntegrity();
+        updateHUDFood();
+        updateHUDPeas();
+        updateHUDPower(); 
+        updateHUDOxygen();
+        updateHUDTemp();
     }
 
     public void increaseActivePeas()
@@ -179,12 +223,168 @@ public class ResourceManager : MonoBehaviour
         _temperatureDelta -= amt;
     }
 
-    private void Update()
+    public void ApplyShipDamage(float amt)
     {
-        if (_temperatureDelta != 0)
+        if (HullIntegrity)
         {
-            temperature.Value += _temperatureDelta * Time.deltaTime;
+            HullIntegrity.ApplyChange(-amt);
         }
-        updateHUDTemp();
+    }
+
+    public void ConsumePower(float amt)
+    {
+        if (powerAmt)
+        {
+            powerAmt.ApplyChange(-amt);
+        }
+    }
+  
+
+    private void HandleHeatTemperature()
+    {
+        if (temperature.Value > 20 && temperature.Value < 40)
+        {
+            if (_lastHeatThreshold != 30)
+            {
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(-1f);
+                    
+                }
+            }
+            _lastHeatThreshold = 30;
+            return;
+        }
+        if (temperature.Value > 50 && _lastHeatThreshold < 50)
+        {
+            _lastHeatThreshold = 50;
+            if (_lastHeatThreshold == 30)
+            {
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(2f);
+                } 
+            }
+            else
+            {
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(0.5f);
+                }
+            }
+            
+        }else if (temperature.Value > 45)
+        {
+            if (_lastHeatThreshold == 40)
+            {
+                _lastHeatThreshold = 45f;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    
+                    pea.AddToExhaustionDelta(0.5f);
+                }
+            }else if (_lastHeatThreshold == 50)
+            {
+                _lastHeatThreshold = 45;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(-0.5f);
+                    
+                }
+            }
+            else
+            {
+                _lastHeatThreshold = 45;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(1.5f);
+                    
+                }
+            }
+            
+        }else if (temperature.Value > 40)
+        {
+            if (_lastHeatThreshold == 45)
+            {
+                _lastHeatThreshold = 40;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(-0.5f); 
+                }
+            }else if (_lastHeatThreshold == 30)
+            {
+                _lastHeatThreshold = 40;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(1f); 
+                }
+            }
+        }else if (temperature.Value < 10)
+        {
+            if (_lastHeatThreshold == 15)
+            {
+                _lastHeatThreshold = 10;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(0.5f); 
+                }
+            }
+        }else if (temperature.Value < 15)
+        {
+            if (_lastHeatThreshold == 10)
+            {
+                _lastHeatThreshold = 15;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(-0.5f); 
+                }
+            }else if (_lastHeatThreshold == 20)
+            {
+                _lastHeatThreshold = 15;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(0.5f); 
+                }
+            } 
+        }else if (temperature.Value < 20)
+        {
+            if (_lastHeatThreshold == 15)
+            {
+                _lastHeatThreshold = 20;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(-0.5f); 
+                }
+            }else if(_lastHeatThreshold == 30)
+            {
+                _lastHeatThreshold = 20;
+                foreach (UnitRTS pea in Peas.Items)
+                {
+                    pea.AddToExhaustionDelta(1f); 
+                }
+            }
+        }
+    }
+
+    private float CalculateHeatChange()
+    {
+        
+        float toReturn = 0f;
+
+        foreach (Window w in Windows.Items)
+        {
+            if (w._isOpen)
+            {
+                toReturn += 1;
+            }
+            else
+            {
+                toReturn -= 1f;
+            }
+        }
+
+        temperature.ApplyChange(toReturn/10f);
+        
+        return toReturn/10f;
     }
 }

@@ -24,6 +24,8 @@ public class Draggable : MonoBehaviour
         get => _isSelected;
     }
 
+    
+
     void Start()
     {
         isSelected = false;

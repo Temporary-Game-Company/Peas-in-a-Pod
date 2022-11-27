@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TemporaryGameCompany;
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Window : MonoBehaviour
@@ -25,6 +26,8 @@ public class Window : MonoBehaviour
     private ResourceManager _resourceManager;
 
     private TextMeshProUGUI _hintText;
+
+    public WindowRuntimeSet Windows;
     
     
     
@@ -33,14 +36,7 @@ public class Window : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (_isOpen)
-        {
-            _spriteRenderer.color = openColor;
-        }
-        else
-        {
-            _spriteRenderer.color = closedColor;
-        }
+       
 
         Transform t = transform.Find("Pop-Up");
         if (t != null)
@@ -52,18 +48,42 @@ public class Window : MonoBehaviour
                 _hintText = _hint.GetComponentInChildren<TextMeshProUGUI>();
             }
         }
+        if (_isOpen)
+        {
+            _spriteRenderer.color = openColor;
+            if (_hint)
+            {
+                _hint.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+        }
+        else
+        {
+            _spriteRenderer.color = closedColor;
+            if (_hint)
+            {
+                _hint.GetComponent<SpriteRenderer>().color = Color.red;
+            }
+        }
+        Windows.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        
+        Windows.Remove(this);
+    }
+
+
+    void Update()
+    {
         
     }
 
-    
-    void Update()
+    private void OnMouseDown()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_unitsInside > 0)
         {
-            if (_unitsInside > 0)
-            {
-                Toggle();
-            }
+            Toggle();
         }
     }
 
@@ -119,9 +139,10 @@ public class Window : MonoBehaviour
             _resourceManager = _managers.Items[0];
         }
 
-        if (_resourceManager != null)
+        
+        if (_hint)
         {
-            _resourceManager.IncreaseTemperatureDelta(1f);
+            _hint.GetComponent<SpriteRenderer>().color = Color.green;
         }
     }
 
@@ -137,10 +158,12 @@ public class Window : MonoBehaviour
             _resourceManager = _managers.Items[0];
         }
 
-        if (_resourceManager != null)
+        if (_hint)
         {
-            _resourceManager.DecreaseTemperatureDelta(1f);
+            _hint.GetComponent<SpriteRenderer>().color = Color.red;
         }
+
+        
         
     }
 }
