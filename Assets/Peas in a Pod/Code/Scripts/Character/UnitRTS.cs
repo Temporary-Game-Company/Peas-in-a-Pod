@@ -153,11 +153,18 @@ public class UnitRTS : MonoBehaviour
             FatigueSlider.value = _exhaustion / _maxExhaustion;
         }
     }
+    
+    
 
     public void AddToExhuastion(float amt)
     {
         _exhaustion = Math.Clamp(_exhaustion + amt, 0, _maxExhaustion);
         UpdateFatigue();
+    }
+
+    public void ResetExhuastionDelta()
+    {
+        _exhuastionDelta = _initialExhuastionDelta;
     }
 
     private void Update()

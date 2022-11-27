@@ -397,6 +397,7 @@ public class Room : MonoBehaviour
             unit.isWorking = false;
             UnitsInside.Remove(unit);
             unit.LeftRoom();
+            unit.ResetExhuastionDelta();
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();
