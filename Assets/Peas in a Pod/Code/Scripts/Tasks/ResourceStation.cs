@@ -64,7 +64,7 @@ public class ResourceStation : MonoBehaviour
             yield return new WaitForSeconds(1f);
             if (rm != null)
             {
-                rm.changeFood(NumUnitsInside);
+                
                 Debug.Log(NumUnitsInside);
             }
             else

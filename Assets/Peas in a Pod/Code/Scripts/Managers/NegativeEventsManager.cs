@@ -137,6 +137,7 @@ public class NegativeEventsManager : MonoBehaviour
             {
                
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+                
             }
         }
         foreach(Room r in _rooms.Items)
@@ -174,6 +175,7 @@ public class NegativeEventsManager : MonoBehaviour
             {
                
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+                
             }
         }
         foreach(Room r in _rooms.Items)

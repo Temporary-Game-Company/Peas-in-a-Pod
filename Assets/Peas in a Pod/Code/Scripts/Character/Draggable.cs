@@ -26,6 +26,7 @@ public class Draggable : MonoBehaviour
         get => _isSelected;
     }
 
+
     public DirectionChangeDelegate OnDirectionChanged;
     bool _isFacingRight = false;
     public bool isFacingRight 

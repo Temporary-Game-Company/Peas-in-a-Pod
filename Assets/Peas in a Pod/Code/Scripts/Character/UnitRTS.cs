@@ -30,6 +30,8 @@ public class UnitRTS : MonoBehaviour
     private float CurrentHeat;
 
 
+    public FloatVariable _shipTemperature;
+
    // tracking whether pea is working, providing delegate for catching changes in state
     public BoolChangeDelegate OnWorkingChanged;
     bool _isWorking = false;
@@ -63,7 +65,11 @@ public class UnitRTS : MonoBehaviour
 
     private float _exhuastionDelta = 0f;
 
+    public float _initialExhuastionDelta = -1f;
+
     public float _maxExhaustion = 20f;
+
+    private Room _currentRoom;
 
     private void Awake()
     {
@@ -100,6 +106,7 @@ public class UnitRTS : MonoBehaviour
 
         DesiredLocation = transform.position;
         CurrentHeat = StartingHeat;
+        _exhuastionDelta = _initialExhuastionDelta;
         UpdateFatigue();
         
         isWorking = false;
@@ -172,23 +179,34 @@ public class UnitRTS : MonoBehaviour
 
     public void AddToExhuastion(float amt)
     {
-        _exhaustion += amt;
+        _exhaustion = Math.Clamp(_exhaustion + amt, 0, _maxExhaustion);
+        UpdateFatigue();
     }
 
     private void Update()
     {
+        HandleTemperatureExhuastion();
         HandleFatigue();
+    }
+
+    private void HandleTemperatureExhuastion()
+    {
+        if (Math.Abs(_shipTemperature.Value - 30) > 10)
+        {
+            
+        }
     }
 
     private void HandleFatigue()
     {
-        _exhaustion += _exhuastionDelta * Time.deltaTime;
+        _exhaustion = Math.Clamp(_exhaustion + Time.deltaTime * _exhuastionDelta, 0, _maxExhaustion);
         UpdateFatigue();
     }
 
     public void AddToExhaustionDelta(float value)
     {
         _exhuastionDelta += value;
+        
     }
 
     /* private void OnMouseDown()
@@ -213,6 +231,16 @@ public class UnitRTS : MonoBehaviour
     void OnDisable()
     {
         PeaSet.Remove(this);
+    }
+
+    public void EnteredRoom(Room Entered)
+    {
+        _currentRoom = Entered;
+    }
+
+    public void LeftRoom()
+    {
+        _currentRoom = null;
     }
 
 }

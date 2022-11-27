@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3578852102916307585}
   - component: {fileID: 4407423149575183730}
   - component: {fileID: 2419880300461386382}
+  - component: {fileID: 8249918494069922715}
   m_Layer: 7
   m_Name: FrontalMeteor
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyOnHit: 1
   _initialLocation: {x: 6.14, y: 6.46, z: 0}
-  _finalLocation: {x: 3.68, y: 2.3, z: 0}
+  _finalLocation: {x: 4.84, y: 4.07, z: -1.4072504}
   InterpTime: 5
   _particleTrail: {fileID: 4202088448872697385}
   bApplyCameraShake: 1
@@ -109,6 +110,22 @@ MonoBehaviour:
   _shakeTime: 0.4
   dmgAmt: 20
   ManagerRuntimeSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
+--- !u!58 &8249918494069922715
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046334576027872156}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.875
 --- !u!1 &7443883485324438537
 GameObject:
   m_ObjectHideFlags: 0

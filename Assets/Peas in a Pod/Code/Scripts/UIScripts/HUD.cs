@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
 
     public TextMeshProUGUI FoodText;
 
-    public Slider TemperatureOnShip;
+    public TextMeshProUGUI TemperatureText;
 
     public TextMeshProUGUI OxygenText;
 
@@ -66,6 +66,9 @@ public class HUD : MonoBehaviour
 
     public void UpdateHUDTemp(float temp)
     {
-        if (TemperatureOnShip) TemperatureOnShip.value = temp;
+        if (TemperatureText)
+        {
+            TemperatureText.text = Math.Round(temp, 2).ToString() + "C";
+        }
     }
 }
