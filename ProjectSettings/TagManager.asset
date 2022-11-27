@@ -18,6 +18,7 @@ TagManager:
   - Background
   - TaskObject
   - ShipExterior
+  - IgnorePlayer
   - PlayerHitDetection
   - 
   - 

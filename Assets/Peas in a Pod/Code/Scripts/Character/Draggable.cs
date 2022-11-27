@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using TemporaryGameCompany;
 
 public delegate void SelectedChangeDelegate(bool newValue);
+public delegate void DirectionChangeDelegate(bool newValue);
 
 public class Draggable : MonoBehaviour
 {
     private Vector3 _offset;
 
-    [SerializeField] Rigidbody2D RigidBody;
+    [FormerlySerializedAs("RigidBody")] [SerializeField] Rigidbody2D rb2d;
     [SerializeField] FloatReference DragVelocity;
 
     // tracking whether object is being dragged, providing delegate for catching changes in state
@@ -24,12 +26,27 @@ public class Draggable : MonoBehaviour
         get => _isSelected;
     }
 
-    
+
+    public DirectionChangeDelegate OnDirectionChanged;
+    bool _isFacingRight = false;
+    public bool isFacingRight 
+    {
+        private set {
+            if (_isFacingRight != value)
+            {
+                _isFacingRight = value;
+                if (OnDirectionChanged != null) OnDirectionChanged(_isFacingRight);
+            }
+        }
+        get => _isFacingRight;
+    }
+    private const float epsilon = 0.01f; // speed required to flip direction
 
     void Start()
     {
         isSelected = false;
     }
+
 
     void OnMouseDown()
     {
@@ -43,11 +60,16 @@ public class Draggable : MonoBehaviour
     {
         Vector3 targetDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position - _offset;
        
-        RigidBody.velocity = targetDirection * DragVelocity;
+        rb2d.velocity = targetDirection * DragVelocity;
     }
 
     void OnMouseUp()
     {
         isSelected = false;
+    }
+
+    void FixedUpdate()
+    {
+        if (Mathf.Abs(rb2d.velocity.x) > epsilon) isFacingRight = (rb2d.velocity.x > 0); 
     }
 }

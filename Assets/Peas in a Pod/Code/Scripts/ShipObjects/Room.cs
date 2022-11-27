@@ -377,8 +377,7 @@ public class Room : MonoBehaviour
                 unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
-            {
-                
+            {            
                 unit.AddToExhaustionDelta(_fatigueValueProducing);
             }
             
@@ -386,7 +385,14 @@ public class Room : MonoBehaviour
             
         }
 
-        
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        if (unit != null)
+        {
+            if (!unit.isWorking) unit.isWorking = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
