@@ -370,6 +370,7 @@ public class Room : MonoBehaviour
             unit.isWorking = true;
             
             UnitsInside.Add(unit);
+            unit.EnteredRoom(this);
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
@@ -395,6 +396,7 @@ public class Room : MonoBehaviour
         {
             unit.isWorking = false;
             UnitsInside.Remove(unit);
+            unit.LeftRoom();
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();

@@ -65,6 +65,8 @@ public class UnitRTS : MonoBehaviour
 
     public float _maxExhaustion = 20f;
 
+    private Room _currentRoom;
+
     private void Awake()
     {
         Transform t = transform.Find("Selected");
@@ -206,6 +208,16 @@ public class UnitRTS : MonoBehaviour
     void OnDisable()
     {
         PeaSet.Remove(this);
+    }
+
+    public void EnteredRoom(Room Entered)
+    {
+        _currentRoom = Entered;
+    }
+
+    public void LeftRoom()
+    {
+        _currentRoom = null;
     }
 
 
