@@ -13,7 +13,11 @@ public class PeaAnimationFlags : MonoBehaviour
     void OnEnable()
     {
         animator = gameObject.GetComponent<Animator>();
-        gameObject.GetComponent<Draggable>().OnSelectedChanged += OnSelectedChanged;
+
+        Draggable draggable = gameObject.GetComponent<Draggable>();
+        draggable.OnSelectedChanged += OnSelectedChanged;
+        draggable.OnDirectionChanged += OnDirectionChanged;
+
         UnitRTS peaController = gameObject.GetComponent<UnitRTS>();
         peaController.OnWorkingChanged += OnWorkingChanged;
         peaController.OnGroundedChanged += OnGroundedChanged;
@@ -33,5 +37,10 @@ public class PeaAnimationFlags : MonoBehaviour
     void OnGroundedChanged(bool value)
     {
         animator.SetBool("Grounded", value);
+    }
+
+    void OnDirectionChanged(bool value)
+    {
+        animator.SetBool("FacingRight", value);
     }
 }
