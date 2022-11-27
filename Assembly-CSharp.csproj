@@ -111,8 +111,6 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\PlanetManager.cs" />
-     <Compile Include="Assets\Planet.cs" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
