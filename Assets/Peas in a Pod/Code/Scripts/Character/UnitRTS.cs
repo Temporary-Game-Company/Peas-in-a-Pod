@@ -102,6 +102,7 @@ public class UnitRTS : MonoBehaviour
         raycastMask = LayerMask.GetMask(new string[] {"Ship"});
         contactFilter = new ContactFilter2D();
         contactFilter.useTriggers = false;
+        contactFilter.layerMask = raycastMask;
 
 
         DesiredLocation = transform.position;
@@ -123,14 +124,24 @@ public class UnitRTS : MonoBehaviour
         // isGrounded = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, 0.2f, raycastMask)? true : false;
         _hitCount = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, contactFilter, _castHits, 0.2f);
         isGrounded = false;
-        for (int i = 0; i < _hitCount; i++) if (_castHits[i].collider.gameObject != gameObject) isGrounded = true;
+        for (int i = 0; i < _hitCount; i++)
+            if (_castHits[i].collider.gameObject != gameObject)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                Debug.Log(_castHits[i].collider.gameObject);
+            }
+        Debug.Log(_hitCount);
         
-        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.1f);
+        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 3f);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         CheckIfGrounded();
+        Debug.Log("Checking if grounded");
     }
 
     private void OnCollisionExit2D(Collision2D other)

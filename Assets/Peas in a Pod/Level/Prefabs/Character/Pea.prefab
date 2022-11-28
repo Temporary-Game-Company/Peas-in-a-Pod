@@ -191,6 +191,8 @@ GameObject:
   - component: {fileID: 66284344}
   - component: {fileID: 66284342}
   - component: {fileID: 1371614579114363774}
+  - component: {fileID: 2266935683437368960}
+  - component: {fileID: 6177402051581891853}
   m_Layer: 7
   m_Name: Pea
   m_TagString: Untagged
@@ -247,6 +249,7 @@ MonoBehaviour:
   StartingHeat: 50
   MaximumHeat: 100
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
+  _initialExhuastionDelta: -1
   _maxExhaustion: 20
 --- !u!195 &2970746035523545677
 NavMeshAgent:
@@ -319,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c90be151d53e845958147f86728b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBody: {fileID: 66284343}
+  rb2d: {fileID: 66284343}
   DragVelocity:
     UseConstant: 0
     ConstantValue: 0
@@ -350,6 +353,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0272598, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &2266935683437368960
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237152174570477592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d36e324e8b7a68a42a055ec563e414cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6177402051581891853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237152174570477592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e761bd1cdfa43bd4b8fdc988e02db7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237460716900863726
 GameObject:
   m_ObjectHideFlags: 0

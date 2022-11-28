@@ -360,15 +360,15 @@ public class Room : MonoBehaviour
         
         //TODO remove self from tasks tab
     }
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        
+
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
             unit.isWorking = true;
-            
+
             UnitsInside.Add(unit);
             unit.EnteredRoom(this);
             if (_isDamaged)
@@ -377,14 +377,15 @@ public class Room : MonoBehaviour
                 unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
-            {            
+            {
                 unit.AddToExhaustionDelta(_fatigueValueProducing);
             }
-            
-            
-            
+
+
+
         }
 
+    }
 
     private void OnTriggerStay2D(Collider2D col)
     {

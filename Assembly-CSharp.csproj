@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\FoodConsumption.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\Button_UI.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\ObstacleRemover.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\CheckSFXVolume.cs" />
@@ -51,10 +52,12 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Door.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\MonoBehaviours\CameraFollow.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\SelectController.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\WindowRuntimeSet.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\Selectable.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\FlexibleUI.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Managers\NegativeEventsManager.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\HealthBar.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Laser.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\ExtraLinks.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Managers\CameraShake.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\ManagerRuntimeSet.cs" />
@@ -69,6 +72,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\RuntimeSet.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Events\GameEvent.cs" />
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\MainMenuNew.cs" />
+     <Compile Include="Assets\laserScript.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\FlipSprite.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\Element.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\UI_Bar.cs" />
@@ -117,10 +121,6 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\WindowRuntimeSet.cs" />
-     <Compile Include="Assets\laserScript.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Laser.cs" />
-     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\FoodConsumption.cs" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
