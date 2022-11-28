@@ -35,12 +35,10 @@ public class Turret : MonoBehaviour
         
             newPos.z = Math.Clamp(newPos.z, -30, 30);
             float Angle = Vector3.Angle(newPos, _originalSpawn - transform.position);
-            /*
-            if (Angle > 90 || Angle < -90)
+            if (Angle > 30 || Angle < -30)
             {
-                newPos = Vector3.RotateTowards(_originalSpawn - transform.position, newPos, (float)Math.PI/180f * 90f, (float)Math.PI/180f * -90f);
+                newPos = Vector3.RotateTowards(_originalSpawn - transform.position, newPos, (float)Math.PI/180f * 30f, (float)Math.PI/180f * -30f);
             }
-            */
             transform.up = newPos; 
         }
 
