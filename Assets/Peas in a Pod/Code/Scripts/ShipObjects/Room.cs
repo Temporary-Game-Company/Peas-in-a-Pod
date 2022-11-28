@@ -189,7 +189,7 @@ public class Room : MonoBehaviour
                 CameraShake cs = Camera.main.GetComponent<CameraShake>();
                 if (cs != null)
                 {
-                    StartCoroutine(cs.BackToStart());
+                    //StartCoroutine(cs.BackToStart());
                 }   
                 if (_possessedOnClicked)
                 {
@@ -203,7 +203,7 @@ public class Room : MonoBehaviour
                 CameraShake cs = Camera.main.GetComponent<CameraShake>();
                 if (cs != null)
                 {
-                    StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
+                    //StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
                     
                 }   
                 if (_possessedOnClicked)
@@ -386,7 +386,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    }
+    
 
     private void OnTriggerStay2D(Collider2D col)
     {
