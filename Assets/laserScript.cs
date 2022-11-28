@@ -8,8 +8,7 @@ public class laserScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		laserLine = GetComponentInChildren<LineRenderer> ();
-		laserLine.startWidth = .2f;
-		laserLine.endWidth = .2f;
+		laserLine.SetWidth (.2f, .2f);
 	}
 	
 	// Update is called once per frame

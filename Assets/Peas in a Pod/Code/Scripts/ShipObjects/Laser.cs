@@ -13,8 +13,7 @@ public class Laser : MonoBehaviour
     void Start()
     {
         laserLine = GetComponent<LineRenderer>();
-		laserLine.startWidth = .2f;
-		laserLine.endWidth = .2f;
+        laserLine.SetWidth(.2f, .2f);
     }
 
     // Update is called once per frame
