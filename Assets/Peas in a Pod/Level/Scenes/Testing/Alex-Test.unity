@@ -41528,6 +41528,9 @@ MonoBehaviour:
   temperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
   HullIntegrity: {fileID: 11400000, guid: 0f3a779949c6a194eb29d4238842e52c, type: 2}
   Peas: {fileID: 11400000, guid: 08e2eeee24b0d9e48a2663621443e36f, type: 2}
+  Windows: {fileID: 0}
+  _timeBetweenHeatCycles: 1
+  _outsideHeatValue: 50
 --- !u!4 &1370309770
 Transform:
   m_ObjectHideFlags: 0
@@ -42398,7 +42401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodText: {fileID: 1532716793}
-  TemperatureOnShip: {fileID: 1586728603}
+  TemperatureText: {fileID: 0}
   OxygenText: {fileID: 872387449}
   PeasCount: {fileID: 541168931}
   HullIntegrity: {fileID: 631334165}
@@ -42789,7 +42792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1198483457, guid: dddeaecc914163241a4055e77769f04c, type: 3}
       propertyPath: m_CropFrame
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1198483457, guid: dddeaecc914163241a4055e77769f04c, type: 3}
       propertyPath: m_GridSnapping
@@ -42846,7 +42849,7 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: orthographic size
-      value: 6.125
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
@@ -42871,22 +42874,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.1313364
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.1310133
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.7373272
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.73694986
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
