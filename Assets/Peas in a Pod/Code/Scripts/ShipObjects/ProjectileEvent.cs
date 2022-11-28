@@ -67,7 +67,7 @@ public class ProjectileEvent : MonoBehaviour
 
         if (_resourceManager)
         {
-            _resourceManager.changeIntegrity(-1 * dmgAmt);
+            _resourceManager.ApplyShipDamage(dmgAmt);
         }
         if (_destroyOnHit)
         {
