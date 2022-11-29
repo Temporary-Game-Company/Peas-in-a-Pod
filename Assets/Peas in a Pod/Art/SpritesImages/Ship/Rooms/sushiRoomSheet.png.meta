@@ -1,0 +1,1905 @@
+fileFormatVersion: 2
+guid: 5095dafbe8dbf5f49b2498c4046865fb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sushiRoomSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7094d2ff9ea87f4089725758bf72591
+      internalID: 160802317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863209c2f4a59fe4d8c117df08248022
+      internalID: 990031838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd2d6233e1142b4f9acea2b12f6edb1
+      internalID: -1188969437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_3
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f385c69388d454ebbd8fb48ad13ae6
+      internalID: -1539688690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87bbdc0e2aa16a408601044a544d61f
+      internalID: 1581991059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_5
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c45d2053163ea40811b19704d73b1f
+      internalID: 1483735330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_6
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253630910ca7c444e98505277c75a6a0
+      internalID: -209092213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_7
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd0079b0e0455f48a8fa4e1d73159a7
+      internalID: -1350466586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_8
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dec2153820b14e48a2cf57c6f96b348
+      internalID: -2076117380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_9
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5885699fd3ec9d441837bc0b19ff9fd1
+      internalID: 1676092280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_10
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1317b99b3d3ee04aa4619e1e3e02b99
+      internalID: -197905421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_11
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f45ec9f3cad88458724498c0f81a1a
+      internalID: 1456652024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_12
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f8283439b002240abb6f37a598dca2
+      internalID: 1145004614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_13
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 230
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de352b5d65457a04a8bcf94bd7b52fe4
+      internalID: 364644728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6946e5e0f76049740b5adc027a9fbd3c
+      internalID: 1087587998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_15
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72c164163d813646aca79954aeb75c8
+      internalID: 411320979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb2dc1d835e89947bc7509064d47301
+      internalID: 1505778779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c211b6c40a11b942a7da2beb620e179
+      internalID: -1652234824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_18
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdae6ebd46181364e8fc1e621e635f8b
+      internalID: 1352070112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_19
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a8bd8087ea24b4f8d8fe13aefeb070
+      internalID: -1978829916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_20
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dada4d0181da3244a4d2bdc919dfcca
+      internalID: 1655802263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_21
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4adf9b49e4618448cfbd60bf6299b4
+      internalID: -826879321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_22
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3be3227c4d4439489c90e83179a8526
+      internalID: -186109262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_23
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8c309edc7c4af44a5f40870122cee2
+      internalID: -387549000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_24
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e7a7c5f1708674eb57bfa7d44886da
+      internalID: -1160853225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_25
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2448f9592c54a429b86780262f0ff5
+      internalID: 1602574827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_26
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d081eac13d1b454c9d500f259004f49
+      internalID: 860879577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_27
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 184
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa240aaf28952364a81c67072c297bf5
+      internalID: -1247716743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b2de969b2a42645be469526c5c7878
+      internalID: 612407996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_29
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b938fb225a22694f9e84f5c6bf12de6
+      internalID: 1941773562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_30
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbe727c9358d4e48a6de2a727965b2a
+      internalID: 1166251330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_31
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5d976f4de4fdb4baf621e61a21f401
+      internalID: -671549753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_32
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c929c6c23c25542aa939bafe7818e2
+      internalID: -476428223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_33
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66fcfe992f9c0649b076d534c746545
+      internalID: -1253983546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_34
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13fb25df463cd4944a87e300aa7b9f45
+      internalID: 1281783111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_35
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44c8a34345016b49a22a9d14d621db0
+      internalID: -1079143963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_36
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbb9d86cc9597c488413d158f1a873a
+      internalID: 1867772324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_37
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005d637952b581c4186eef00726b3906
+      internalID: 1999446599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_38
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a618c44aafdcd47bdd396d7b4bdb5d
+      internalID: 1250861278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_39
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc2b90f7fa3c9b409251f6df163f18a
+      internalID: -1453782887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_40
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50599a921a23683449881586b67fba10
+      internalID: -273600881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_41
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 138
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90374686509e7864a808c9b6d49153e5
+      internalID: 1108377663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc99b291d8337b4ba595c10a017eaf0
+      internalID: -506869591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_43
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bec70cba6a0fed4f8710ad59e8edb24
+      internalID: 572666165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_44
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14738916838f5c646a6cc136a8480b8d
+      internalID: -184278431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_45
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2950f2c812bc8418b43f987d9be412
+      internalID: -1107704744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_46
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774a4ba994a963f4b84c60836abfa5a5
+      internalID: -398931909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_47
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e598e628d1aeeef4296b84bab8ba508d
+      internalID: -333475166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_48
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46811b189c2a80048ad06522ee9e8350
+      internalID: -1458452045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_49
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8831e275af86e4e8f9bc6da0bb6f38
+      internalID: -951341127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_50
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c909b1c5995024bbe7e2c91806704d
+      internalID: -1791378078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_51
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1fffe168a0aac46b02dacdc64922f4
+      internalID: 1150675596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_52
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5118a74c21b9eae48b21cedfac302f64
+      internalID: 1647564377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_53
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2907eb0d870078c4089a18cf511ba53d
+      internalID: 2040942967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_54
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bc627aee37e1046a7a5be8ef0dfd9a
+      internalID: 1896116978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_55
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 92
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffddae447b9450419e3f27fff440eaf
+      internalID: 1283916587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c225880e8b9b274fbdbb1ef5264a365
+      internalID: -770621290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_57
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0151fcd6955aa46832d68347e8c3d7
+      internalID: -1126994307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_58
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e87ae03077f1f24da002cbe811af4c3
+      internalID: 50733693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_59
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e0b4d85d0e15a48908b9cfb305f8a6
+      internalID: -67866738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_60
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20475999630dbb44a634b03def0b8ae
+      internalID: 1496779343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_61
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f72ee90a14b9e245a942fba887c1a8d
+      internalID: -1561247216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_62
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc853ea59e90fd49a1b5f78f8858231
+      internalID: 175731275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_63
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095f8b9760cb678489920e0556ed39e1
+      internalID: 197846379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_64
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847b62e7fd5a60b48a1659b5f203046b
+      internalID: -1764792216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_65
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a29bc0320157424e85bc59baf7446d4
+      internalID: 940593060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_66
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4482e1cbab89dcf4f81953022582c517
+      internalID: 892824439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_67
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc988f3f6803754ca14d437f67d0d08
+      internalID: 983318777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_68
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef712cfa9212af143b1c53181cf711ab
+      internalID: -1550256079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_69
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 46
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7f0138557bdb24bb5573684a894652
+      internalID: -1013666020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9637de6b367420e40b613c747642f8d3
+      internalID: 1547738705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_71
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5314434751efd445a8a7edfaea46f7e
+      internalID: -1183942158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_72
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c8217d869128942ae13fdf069598ec
+      internalID: -1438446688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_73
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1cde20dc3568646955fe363d680ab8
+      internalID: -1619802673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_74
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af57073e048e114681346279b1c8597
+      internalID: -2081682382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_75
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabcd9a7e523ac44792edeff278facc8
+      internalID: -1438083644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_76
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb801c4bbac9244b9c684a9b36d9abf
+      internalID: -1473123559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_77
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e47f62ec949e974397735699cb3878e
+      internalID: 1289253110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_78
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa5d1b8283fff840badb8b3807c3010
+      internalID: -1054091874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_79
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418329f91441f1a409d17effadaaebb0
+      internalID: 231713031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushiRoomSheet_80
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f534b3af34226d0418523dca9da5a279
+      internalID: -597855164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sushiRoomSheet_36: 1867772324
+      sushiRoomSheet_74: -2081682382
+      sushiRoomSheet_67: 983318777
+      sushiRoomSheet_40: -273600881
+      sushiRoomSheet_32: -476428223
+      sushiRoomSheet_0: 160802317
+      sushiRoomSheet_29: 1941773562
+      sushiRoomSheet_59: -67866738
+      sushiRoomSheet_7: -1350466586
+      sushiRoomSheet_70: 1547738705
+      sushiRoomSheet_78: -1054091874
+      sushiRoomSheet_51: 1150675596
+      sushiRoomSheet_63: 197846379
+      sushiRoomSheet_38: 1250861278
+      sushiRoomSheet_45: -1107704744
+      sushiRoomSheet_19: -1978829916
+      sushiRoomSheet_50: -1791378078
+      sushiRoomSheet_39: -1453782887
+      sushiRoomSheet_11: 1456652024
+      sushiRoomSheet_12: 1145004614
+      sushiRoomSheet_79: 231713031
+      sushiRoomSheet_48: -1458452045
+      sushiRoomSheet_42: -506869591
+      sushiRoomSheet_72: -1438446688
+      sushiRoomSheet_44: -184278431
+      sushiRoomSheet_54: 1896116978
+      sushiRoomSheet_65: 940593060
+      sushiRoomSheet_43: 572666165
+      sushiRoomSheet_71: -1183942158
+      sushiRoomSheet_17: -1652234824
+      sushiRoomSheet_14: 1087587998
+      sushiRoomSheet_49: -951341127
+      sushiRoomSheet_22: -186109262
+      sushiRoomSheet_76: -1473123559
+      sushiRoomSheet_56: -770621290
+      sushiRoomSheet_37: 1999446599
+      sushiRoomSheet_62: 175731275
+      sushiRoomSheet_4: 1581991059
+      sushiRoomSheet_21: -826879321
+      sushiRoomSheet_20: 1655802263
+      sushiRoomSheet_34: 1281783111
+      sushiRoomSheet_15: 411320979
+      sushiRoomSheet_9: 1676092280
+      sushiRoomSheet_1: 990031838
+      sushiRoomSheet_23: -387549000
+      sushiRoomSheet_5: 1483735330
+      sushiRoomSheet_61: -1561247216
+      sushiRoomSheet_25: 1602574827
+      sushiRoomSheet_66: 892824439
+      sushiRoomSheet_60: 1496779343
+      sushiRoomSheet_28: 612407996
+      sushiRoomSheet_30: 1166251330
+      sushiRoomSheet_46: -398931909
+      sushiRoomSheet_57: -1126994307
+      sushiRoomSheet_68: -1550256079
+      sushiRoomSheet_31: -671549753
+      sushiRoomSheet_69: -1013666020
+      sushiRoomSheet_58: 50733693
+      sushiRoomSheet_75: -1438083644
+      sushiRoomSheet_27: -1247716743
+      sushiRoomSheet_64: -1764792216
+      sushiRoomSheet_13: 364644728
+      sushiRoomSheet_33: -1253983546
+      sushiRoomSheet_6: -209092213
+      sushiRoomSheet_10: -197905421
+      sushiRoomSheet_2: -1188969437
+      sushiRoomSheet_26: 860879577
+      sushiRoomSheet_24: -1160853225
+      sushiRoomSheet_8: -2076117380
+      sushiRoomSheet_47: -333475166
+      sushiRoomSheet_41: 1108377663
+      sushiRoomSheet_52: 1647564377
+      sushiRoomSheet_73: -1619802673
+      sushiRoomSheet_80: -597855164
+      sushiRoomSheet_53: 2040942967
+      sushiRoomSheet_35: -1079143963
+      sushiRoomSheet_55: 1283916587
+      sushiRoomSheet_77: 1289253110
+      sushiRoomSheet_16: 1505778779
+      sushiRoomSheet_18: 1352070112
+      sushiRoomSheet_3: -1539688690
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
