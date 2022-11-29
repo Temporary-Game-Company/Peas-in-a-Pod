@@ -386,7 +386,6 @@ public class Room : MonoBehaviour
         }
     }
 
-
     private void OnTriggerStay2D(Collider2D col)
     {
         UnitRTS unit = col.GetComponent<UnitRTS>();
