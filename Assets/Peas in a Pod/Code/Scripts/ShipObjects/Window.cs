@@ -5,6 +5,8 @@ using TemporaryGameCompany;
 using TMPro;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Window : MonoBehaviour
 {
@@ -28,6 +30,9 @@ public class Window : MonoBehaviour
     private TextMeshProUGUI _hintText;
 
     public WindowRuntimeSet Windows;
+
+    public Image _FillImage;
+    
     
     
     
@@ -65,6 +70,10 @@ public class Window : MonoBehaviour
             }
         }
         Windows.Add(this);
+        if (_FillImage)
+        {
+            _FillImage.fillAmount = 0f;
+        }
     }
 
     private void OnDisable()
@@ -92,11 +101,13 @@ public class Window : MonoBehaviour
         if (col.GetComponent<UnitRTS>() != null)
         {
             _unitsInside++;
-            if (_unitsInside > 0)
+            if (_unitsInside == 1)
             {
-                if (_hint)
+                
+
+                if (_FillImage != null)
                 {
-                    _hint.SetActive(true);
+                    StartCoroutine(ToggleAnimation());
                 }
             }
         }
@@ -110,6 +121,11 @@ public class Window : MonoBehaviour
             if (_unitsInside <= 0)
             {
                 _hint.SetActive(false);
+                
+                if (_FillImage)
+                {
+                    _FillImage.fillAmount = 0f;
+                }
             }
         }
     }
@@ -124,6 +140,32 @@ public class Window : MonoBehaviour
         {
             Open();
         }
+    }
+
+    private IEnumerator ToggleAnimation()
+    {
+        
+        while (_FillImage.fillAmount != 1f)
+        {
+            _FillImage.fillAmount += 1f * Time.deltaTime;
+            if (_unitsInside == 0)
+            {
+                if (_FillImage)
+                {
+                    _FillImage.fillAmount = 0f;
+                    break;
+                }
+            }
+            yield return null;
+        }
+
+        if (_unitsInside > 0)
+        {
+            _FillImage.fillAmount = 0f;
+            Toggle();
+        }
+        
+        
     }
 
     private void Open()
@@ -144,6 +186,11 @@ public class Window : MonoBehaviour
         {
             _hint.GetComponent<SpriteRenderer>().color = Color.green;
         }
+
+        if (_FillImage)
+        {
+            _FillImage.color = Color.red;
+        }
     }
 
     private void Close()
@@ -161,6 +208,11 @@ public class Window : MonoBehaviour
         if (_hint)
         {
             _hint.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+
+        if (_FillImage)
+        {
+            _FillImage.color = Color.green;
         }
 
         

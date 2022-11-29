@@ -279,12 +279,9 @@ public class Room : MonoBehaviour
                 if (GetComponent<FoodConsumption>() != null)
                 {
                     GetComponent<FoodConsumption>().ConsumeFood();
-                    Debug.Log("Comsuuming food");
+                    
                 }
-                else
-                {
-                    Debug.Log("No Food consumption");
-                }
+                
             }
             
             if (_resourceManager)
@@ -403,7 +400,11 @@ public class Room : MonoBehaviour
         if (unit != null)
         {
             unit.isWorking = false;
-            UnitsInside.Remove(unit);
+            if (UnitsInside.Contains(unit))
+            {
+                UnitsInside.Remove(unit);
+            }
+            
             unit.LeftRoom();
             unit.ResetExhuastionDelta();
             if (_isDamaged)
@@ -415,7 +416,31 @@ public class Room : MonoBehaviour
             {
                 unit.AddToExhaustionDelta(-_fatigueValueProducing);
             }
+
+            if (UnitsInside.Count == 0)
+            {
+                if (_possessedOnClicked)
+                {
+                    _possessedOnClicked.Unpossess();
+                }
+            }
             
+        }
+    }
+
+    public void RemoveFromWorkers(UnitRTS remove)
+    {
+        if (UnitsInside.Contains(remove))
+        {
+            UnitsInside.Remove(remove);
+        }
+    }
+
+    public void AddToWorkers(UnitRTS toAdd)
+    {
+        if (!UnitsInside.Contains(toAdd))
+        {
+            UnitsInside.Add(toAdd);
         }
     }
 

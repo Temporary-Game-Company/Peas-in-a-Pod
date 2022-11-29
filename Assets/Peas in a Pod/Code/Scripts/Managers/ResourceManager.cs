@@ -23,7 +23,7 @@ public class ResourceManager : MonoBehaviour
 
     public FloatVariable powerAmt;
 
-    private float initialPowerAmt = 100f;
+    private float initialPowerAmt = 30f;
 
 
     private float _initialOxygenAmt = 100f;
@@ -56,6 +56,8 @@ public class ResourceManager : MonoBehaviour
 
     private float _tempCheckTime = 1f;
 
+    private float _oxygenThreshold = 1f;
+
 
 
     public void changePower(float oldPower, float newPower)
@@ -82,12 +84,16 @@ public class ResourceManager : MonoBehaviour
         HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 100f);
         updateHUDIntegrity();
     }
-
+    
     public void changeOxygen(float oldValue, float newValue)
     {
-        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 110f);
+        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 100f);
+        UpdatePassedOut();
         updateHUDOxygen();
     }
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +103,7 @@ public class ResourceManager : MonoBehaviour
         OxygenAmt.Value = _initialOxygenAmt;
         temperature.Value = _initialTemperature;
         temperature.ValueChanged += changeTemp;
-        Debug.Log(temperature.Value);
+        
         powerAmt.Value = initialPowerAmt;
         powerAmt.ValueChanged += changePower;
         HullIntegrity.Value = 100f;
@@ -237,6 +243,11 @@ public class ResourceManager : MonoBehaviour
         {
             powerAmt.ApplyChange(-amt);
         }
+    }
+
+    public void ConsumeOxygen(float amt)
+    {
+        OxygenAmt.Value -= amt;
     }
   
 
@@ -386,5 +397,84 @@ public class ResourceManager : MonoBehaviour
         temperature.ApplyChange(toReturn/10f);
         
         return toReturn/10f;
+    }
+    
+     private void UpdatePassedOut()
+    {
+        float oxy = OxygenAmt.Value / _initialOxygenAmt;
+        if (oxy < 0.66 && oxy > 0.33)
+        {
+            if (_oxygenThreshold == 1f)
+            {
+                _oxygenThreshold = 0.66f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (!r.IsPassedOut())
+                    {
+                        r.PassOut();
+                        break;
+                    }
+                }
+            }
+            else if (_oxygenThreshold == 0.33f)
+            {
+                _oxygenThreshold = 0.66f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
+        else if (oxy < 0.33 && oxy > 0)
+        {
+            if (_oxygenThreshold == 0.66f)
+            {
+                _oxygenThreshold = 0.33f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (!r.IsPassedOut())
+                    {
+                        r.PassOut();
+                        break;
+                    }
+                }
+            }
+            else if (_oxygenThreshold == 0f)
+            {
+                _oxygenThreshold = 0.33f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
+        else if (oxy <= 0.0)
+        {
+            //Lose game
+        }
+        else
+        {
+            // Oxygen is above 0.66
+            if (_oxygenThreshold == 0.66f)
+            {
+                _oxygenThreshold = 1f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

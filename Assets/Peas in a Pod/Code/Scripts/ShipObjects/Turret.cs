@@ -86,7 +86,7 @@ public class Turret : MonoBehaviour
                     l.startPoint = loc.position;
                     l.endPoint = r.point;
                 } 
-                Destroy(l.gameObject, 0.5f);
+                //Destroy(l.gameObject, 2f);
             }
            
             

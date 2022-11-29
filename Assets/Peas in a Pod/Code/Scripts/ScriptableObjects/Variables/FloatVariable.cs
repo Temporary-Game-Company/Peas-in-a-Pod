@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public delegate void ValueChangedDelegate(float oldValue, float newValue);
 namespace TemporaryGameCompany

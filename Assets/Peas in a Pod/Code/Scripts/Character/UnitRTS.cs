@@ -29,6 +29,12 @@ public class UnitRTS : MonoBehaviour
 
     private float CurrentHeat;
 
+    [SerializeField] private float _oxygenConsumptionPerSecond = 0.1f;
+
+    [SerializeField] private FloatVariable _oxygenAmt;
+
+    private bool _isPassedOut = false;
+
 
     public FloatVariable _shipTemperature;
 
@@ -84,7 +90,13 @@ public class UnitRTS : MonoBehaviour
             
         }
 
-        
+        Draggable drag = GetComponent<Draggable>();
+        if (drag != null)
+        {
+            drag.enabled = true;
+        }
+
+
     }
 
     public void SetSelectedVisible(bool visible)
@@ -131,9 +143,9 @@ public class UnitRTS : MonoBehaviour
             }
             else
             {
-                Debug.Log(_castHits[i].collider.gameObject);
+               
             }
-        Debug.Log(_hitCount);
+        
         
         Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 3f);
     }
@@ -141,7 +153,7 @@ public class UnitRTS : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         CheckIfGrounded();
-        Debug.Log("Checking if grounded");
+       
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -156,15 +168,9 @@ public class UnitRTS : MonoBehaviour
         if (unit != null)
         {
             
-            if (r.collider.Equals(col))
-            {
-                AddToExhaustionDelta(-1f);
-                Debug.Log("Peas in a pod");
-            }
-            else
-            {
-                Debug.Log("Obstructed");
-            }
+            
+                //AddToExhaustionDelta(-1f);
+               
             
         }
     }
@@ -176,7 +182,7 @@ public class UnitRTS : MonoBehaviour
         if (unit != null && r.collider.Equals(other))
         {
             Debug.Log("Pea removed from each other");
-            AddToExhaustionDelta(1f);
+            //AddToExhaustionDelta(1f);
         }
     }
 
@@ -205,6 +211,16 @@ public class UnitRTS : MonoBehaviour
     {
         HandleTemperatureExhuastion();
         HandleFatigue();
+
+        HandleOxygen();
+    }
+
+    private void HandleOxygen()
+    {
+        if (_oxygenAmt)
+        {
+            _oxygenAmt.ApplyChange(-Time.deltaTime * _oxygenConsumptionPerSecond);
+        }
     }
 
     private void HandleTemperatureExhuastion()
@@ -259,6 +275,43 @@ public class UnitRTS : MonoBehaviour
     public void LeftRoom()
     {
         _currentRoom = null;
+    }
+
+    public void PassOut()
+    {
+        Debug.Log("snoozin!");
+        _isPassedOut = true;
+        
+        Draggable drag = GetComponent<Draggable>();
+        if (_currentRoom)
+        {
+            _currentRoom.RemoveFromWorkers(this);
+        }
+        if (drag != null)
+        {
+            drag.Disable();
+        }
+    }
+
+    public void WakeUp()
+    {
+        _isPassedOut = false;
+        if (_currentRoom)
+        {
+            _currentRoom.AddToWorkers(this);
+        }
+
+        Draggable drag = GetComponent<Draggable>();
+
+        if (drag != null)
+        {
+            drag.Disable();
+        }
+    }
+
+    public bool IsPassedOut()
+    {
+        return _isPassedOut;
     }
 
 }

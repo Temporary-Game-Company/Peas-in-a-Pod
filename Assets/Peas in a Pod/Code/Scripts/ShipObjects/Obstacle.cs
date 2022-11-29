@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         curHealth = Health;
-        Debug.Log(curHealth);
+        
     }
 
     // Update is called once per frame
