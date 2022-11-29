@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using TemporaryGameCompany;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
@@ -58,11 +60,13 @@ public class ResourceManager : MonoBehaviour
 
     private float _oxygenThreshold = 1f;
 
+    [SerializeField] private Scene _toLoad;
+
 
 
     public void changePower(float oldPower, float newPower)
     {
-        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, initialPowerAmt);
+        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, 100);
         
         updateHUDPower();
     }
@@ -146,9 +150,11 @@ public class ResourceManager : MonoBehaviour
 
     private void updateHUDPower()
     {
+        CheckIfWon();
+        Debug.Log(powerAmt.Value);
         if (playerHUD)
         {
-            playerHUD.UpdateHUDPower(powerAmt.Value/initialPowerAmt);
+            playerHUD.UpdateHUDPower(powerAmt.Value/100f);
             
         }
     }
@@ -203,6 +209,12 @@ public class ResourceManager : MonoBehaviour
     {
         _activePeas++;
         updateHUDPeas();
+    }
+
+    public void ReloadLevel()
+    {
+        
+        SceneManager.LoadScene(1);
     }
 
     private void updateHUDPeas()
@@ -477,4 +489,15 @@ public class ResourceManager : MonoBehaviour
             }
         }
     }
+     
+     private void CheckIfWon(){
+
+         if (powerAmt.Value >= 100f)
+         {
+             if (playerHUD)
+             {
+                 playerHUD.DisplayWinScreen();
+             }
+         }
+     }
 }

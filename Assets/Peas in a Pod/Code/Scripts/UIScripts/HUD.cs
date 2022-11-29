@@ -25,6 +25,8 @@ public class HUD : MonoBehaviour
 
     public Gradient TempGradient;
 
+    public Canvas _winScreen;
+
 
     void Start()
     {
@@ -77,6 +79,14 @@ public class HUD : MonoBehaviour
         if (TemperatureText)
         {
             TemperatureText.text = Math.Round(temp, 2).ToString() + "C";
+        }
+    }
+
+    public void DisplayWinScreen()
+    {
+        if (_winScreen)
+        {
+            _winScreen.gameObject.SetActive(true);
         }
     }
 }
