@@ -16007,7 +16007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
   _producesGoods: 1
-  _resourceProduced: {fileID: 0}
+  _resourceProduced: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
   _productionAmt: 2
   _productionTime: 10
   _attentionIndicator: {fileID: 2598427048886716997}
@@ -16024,6 +16024,7 @@ MonoBehaviour:
   _fatigueValueRepairing: 3
   _cameraFocusLoc: {x: 10, y: -3, z: -10}
   _possessedOnClicked: {fileID: 8682632517693441849}
+  roomAnimator: {fileID: 0}
 --- !u!1 &8654104703529609278
 GameObject:
   m_ObjectHideFlags: 0
