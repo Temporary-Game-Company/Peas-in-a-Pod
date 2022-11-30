@@ -37,7 +37,6 @@ public class Window : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
        
-
         Transform t = transform.Find("Pop-Up");
         if (t != null)
         {
