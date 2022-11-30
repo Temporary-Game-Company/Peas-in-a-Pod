@@ -71,6 +71,23 @@ public class UnitRTS : MonoBehaviour
 
     private Room _currentRoom;
 
+
+    private float _hunger = 0f; // tracks how long since the pea has eaten
+    private float _hungerDelta = 1f; // how much hunger should go up per second
+    public float hunger {
+        private set {
+            _hunger = value;
+            isStarving = (_hunger >= MAX_HUNGER);
+        } 
+        get => _hunger;
+    }
+    public const float MAX_HUNGER = 20f; // max hunger before starving
+    private bool _isStarving = false; // true if the pea is at or above max hunger
+    public bool isStarving {
+        private set; get;
+    }
+    private const float _STARVING_FATIGUE_MULTIPLIER = 4f; // how much faster fatigue is gained when pea is starving
+
     private void Awake()
     {
         Transform t = transform.Find("Selected");
@@ -83,8 +100,6 @@ public class UnitRTS : MonoBehaviour
             }
             
         }
-
-        
     }
 
     public void SetSelectedVisible(bool visible)
@@ -187,6 +202,7 @@ public class UnitRTS : MonoBehaviour
     {
         HandleTemperatureExhuastion();
         HandleFatigue();
+        // Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
     }
 
     private void HandleTemperatureExhuastion()
@@ -199,7 +215,11 @@ public class UnitRTS : MonoBehaviour
 
     private void HandleFatigue()
     {
-        _exhaustion = Math.Clamp(_exhaustion + Time.deltaTime * _exhuastionDelta, 0, _maxExhaustion);
+        hunger += _hungerDelta;
+        if (!isStarving || _exhuastionDelta < 0)
+            _exhaustion = Math.Clamp(_exhaustion + Time.deltaTime * _exhuastionDelta, 0, _maxExhaustion);
+        else
+            _exhaustion = Math.Clamp(_exhaustion + Time.deltaTime * _exhuastionDelta * _STARVING_FATIGUE_MULTIPLIER, 0, _maxExhaustion);
         UpdateFatigue();
     }
 
