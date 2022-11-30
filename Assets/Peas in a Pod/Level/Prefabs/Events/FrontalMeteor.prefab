@@ -336,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: ShapeModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
@@ -411,7 +411,7 @@ PrefabInstance:
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: NoiseModule.strength.scalar
-      value: 0.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
@@ -825,6 +825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
+      propertyPath: NoiseModule.positionAmount.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
       propertyPath: RotationModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
       value: 34
       objectReference: {fileID: 0}
@@ -845,8 +850,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
+      propertyPath: NoiseModule.positionAmount.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
       propertyPath: VelocityModule.speedModifier.maxCurve.m_Curve.Array.data[1].value
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: NoiseModule.positionAmount.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: NoiseModule.positionAmount.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334089, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
