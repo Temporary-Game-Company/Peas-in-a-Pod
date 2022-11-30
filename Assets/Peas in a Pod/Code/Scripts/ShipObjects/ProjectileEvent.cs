@@ -51,6 +51,11 @@ public class ProjectileEvent : MonoBehaviour
        
     }
 
+    private void OnBecameVisible()
+    {
+        
+    }
+
     IEnumerator LifetimeCheck()
     {
         yield return new WaitForSeconds(InterpTime);

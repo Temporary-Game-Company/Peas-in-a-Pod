@@ -248,6 +248,8 @@ MonoBehaviour:
   FatigueSlider: {fileID: 184039856734781404}
   StartingHeat: 50
   MaximumHeat: 100
+  _oxygenConsumptionPerSecond: 0.1
+  _oxygenAmt: {fileID: 0}
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
   _initialExhuastionDelta: -1
   _maxExhaustion: 20
@@ -458,12 +460,12 @@ SpriteRenderer:
   m_SortingLayerID: -2053958747
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03bdd5cadb161fa42b71cddd0065a984, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0bbfbbdae755d2f4cbbba57bb60526e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.875, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

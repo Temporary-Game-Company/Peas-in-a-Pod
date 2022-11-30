@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyOnHit: 1
-  _initialLocation: {x: 6.14, y: 6.46, z: 0}
-  _finalLocation: {x: 4.84, y: 4.07, z: -1.4072504}
+  _initialLocation: {x: 12.87, y: -3.98, z: 0}
+  _finalLocation: {x: 8.16, y: -0.58, z: 0}
   InterpTime: 5
   _particleTrail: {fileID: 4202088448872697385}
   bApplyCameraShake: 1
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7443883485324438537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

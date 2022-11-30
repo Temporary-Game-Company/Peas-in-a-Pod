@@ -114,7 +114,7 @@ public class UnitRTS : MonoBehaviour
         raycastMask = LayerMask.GetMask(new string[] {"Ship"});
         contactFilter = new ContactFilter2D();
         contactFilter.useTriggers = false;
-        contactFilter.layerMask = raycastMask;
+       
 
 
         DesiredLocation = transform.position;
@@ -155,6 +155,8 @@ public class UnitRTS : MonoBehaviour
         CheckIfGrounded();
        
     }
+    
+    
 
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -240,6 +242,7 @@ public class UnitRTS : MonoBehaviour
     public void AddToExhaustionDelta(float value)
     {
         _exhuastionDelta += value;
+        Debug.Log(_exhuastionDelta);
         
     }
 

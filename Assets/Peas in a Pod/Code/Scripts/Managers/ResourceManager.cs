@@ -151,7 +151,7 @@ public class ResourceManager : MonoBehaviour
     private void updateHUDPower()
     {
         CheckIfWon();
-        Debug.Log(powerAmt.Value);
+        
         if (playerHUD)
         {
             playerHUD.UpdateHUDPower(powerAmt.Value/100f);

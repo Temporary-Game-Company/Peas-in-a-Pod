@@ -98,6 +98,7 @@ public class NegativeEventsManager : MonoBehaviour
             if (n.EventType == EventConfigSO.EventType.Food && n.Difficulty == difficulty)
             {
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+                return;
             }
         }
         foreach(Room r in _rooms.Items)
@@ -135,9 +136,10 @@ public class NegativeEventsManager : MonoBehaviour
         {
             if (n.EventType == EventConfigSO.EventType.Damage && n.Difficulty == difficulty)
             {
-               
-                Instantiate(n._toSpawn, n._loc, Quaternion.identity);
-                
+                Debug.Log("Suitable damage event found!");
+                Instantiate(n._toSpawn, n._loc, n._toSpawn.transform.rotation);
+                return;
+
             }
         }
         foreach(Room r in _rooms.Items)
@@ -175,7 +177,8 @@ public class NegativeEventsManager : MonoBehaviour
             {
                
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
-                
+                return;
+
             }
         }
         foreach(Room r in _rooms.Items)
@@ -213,7 +216,9 @@ public class NegativeEventsManager : MonoBehaviour
         {
             if (n.EventType == EventConfigSO.EventType.Alien && n.Difficulty == difficulty)
             {
+                
                 Instantiate(n._toSpawn, n._loc, Quaternion.identity);
+                return;
             }
         }
         foreach(Room r in _rooms.Items)

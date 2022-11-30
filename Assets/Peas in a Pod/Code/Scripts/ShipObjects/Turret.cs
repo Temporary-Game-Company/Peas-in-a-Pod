@@ -35,12 +35,12 @@ public class Turret : MonoBehaviour
         
             newPos.z = Math.Clamp(newPos.z, -30, 30);
             float Angle = Vector3.Angle(newPos, _originalSpawn - transform.position);
-            /*
+            
             if (Angle > 90 || Angle < -90)
             {
                 newPos = Vector3.RotateTowards(_originalSpawn - transform.position, newPos, (float)Math.PI/180f * 90f, (float)Math.PI/180f * -90f);
             }
-            */
+            
             transform.up = newPos; 
         }
 
@@ -80,16 +80,7 @@ public class Turret : MonoBehaviour
                 Debug.DrawLine(loc.position, l.endPoint, Color.red, 2f);
                 Destroy(l.gameObject, 0.5f);
             }
-            else
-            {
-                Laser l = Instantiate<Laser>(_toInstantiate, loc);
-                if (l != null)
-                {
-                    l.startPoint = loc.position;
-                    l.endPoint = r.point;
-                } 
-                //Destroy(l.gameObject, 2f);
-            }
+            
            
             
         }

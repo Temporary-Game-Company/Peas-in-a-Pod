@@ -80,6 +80,11 @@ public class Room : MonoBehaviour
             _roomIndicator = t.gameObject;
             _roomIndicator.SetActive(false);
         }
+        
+        if (_repairBar != null)
+                {
+                    _repairBar.gameObject.SetActive(false);
+                }
 
         // TODO add self to HUD in rooms tab
     }

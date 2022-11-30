@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
-  m_Name: MeteorEvent
+  m_Name: FireEventEasy
   m_EditorClassIdentifier: 
-  Difficulty: 3
-  _toSpawn: {fileID: 6046334576027872156, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
+  Difficulty: 0
+  _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
     type: 3}
   EventType: 3
-  _loc: {x: 0, y: 0, z: 0}
+  _loc: {x: -1.43, y: -2.02, z: 0}
