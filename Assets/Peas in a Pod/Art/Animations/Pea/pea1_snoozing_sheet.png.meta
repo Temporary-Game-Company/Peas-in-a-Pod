@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cdb0d82c019a88e4fa72ba41fd1abc47
+guid: 22bf47ec66fd3fa42a13c1077ba396c7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: extinguishing_spray_sheet_0
+      name: pea1_snoozing_sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 7
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,41 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89952a4d306fa1344b32ccb19d4aac96
-      internalID: -861342570
+      spriteID: 28e36bfdbe14c194492ee71bcf88897b
+      internalID: 417745385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: extinguishing_spray_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 0
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7cc269981cd57b45b09df98671c5612
-      internalID: 1485430475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: extinguishing_spray_sheet_2
+      name: pea1_snoozing_sheet_1
       rect:
         serializedVersion: 2
         x: 14
         y: 0
-        width: 7
-        height: 7
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23751f180bc6e8440a5f6859813b0e98
-      internalID: -1172605902
+      spriteID: d45911a42dcb0624f89936aaa5f293c7
+      internalID: -1507559702
       vertices: []
       indices: 
       edges: []
@@ -178,9 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      extinguishing_spray_sheet_2: -1172605902
-      extinguishing_spray_sheet_0: -861342570
-      extinguishing_spray_sheet_1: 1485430475
+      pea1_snoozing_sheet_0: 417745385
+      pea1_snoozing_sheet_1: -1507559702
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
