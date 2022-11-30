@@ -7,6 +7,7 @@ using TemporaryGameCompany;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileEvent : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,8 +18,6 @@ public class ProjectileEvent : MonoBehaviour
     public Vector3 _finalLocation;
 
     public float InterpTime;
-
-    private Vector3 _toAdd;
 
     public ParticleSystem _particleTrail;
 
@@ -33,20 +32,21 @@ public class ProjectileEvent : MonoBehaviour
     public ManagerRuntimeSet ManagerRuntimeSet;
 
     private ResourceManager _resourceManager;
+    private Rigidbody2D rb2d;
     
     void Start()
     {
         transform.localPosition = _initialLocation;
-        _toAdd = (_finalLocation - _initialLocation) / InterpTime;
-        StartCoroutine(LifetimeCheck());
         _particleTrail.Play();
         _resourceManager = ManagerRuntimeSet.Items[0];
+
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = (_finalLocation - _initialLocation)/InterpTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = transform.localPosition + _toAdd * Time.deltaTime;
 
        
     }
@@ -54,24 +54,31 @@ public class ProjectileEvent : MonoBehaviour
     IEnumerator LifetimeCheck()
     {
         yield return new WaitForSeconds(InterpTime);
-        if (bApplyCameraShake)
-        {
-            CameraShake s = Camera.main.GetComponent<CameraShake>();
-            if (s != null)
-            {
-                
-                s.StartShaking(_shakeTime, _shakeMagnitude);
-            }
-            
-        }
+        
+    }
 
-        if (_resourceManager)
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Ship")
         {
-            _resourceManager.ApplyShipDamage(dmgAmt);
-        }
-        if (_destroyOnHit)
-        {
-            Destroy(gameObject);
+            if (bApplyCameraShake)
+            {
+                CameraShake s = Camera.main.GetComponent<CameraShake>();
+                if (s != null)
+                {
+                    
+                    s.StartShaking(_shakeTime, _shakeMagnitude);
+                }
+                
+            }
+
+            if (_resourceManager)
+            {
+                _resourceManager.ApplyShipDamage(dmgAmt);
+            }
+            if (_destroyOnHit)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
