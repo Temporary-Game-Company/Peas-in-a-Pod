@@ -4955,8 +4955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31101e31a5f62d344a1f577c06c255fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
+  Health: 5
   HealthBar: {fileID: 3364198387458562021}
+  _fatigueWhileInside: 3
   _obstacleType: 0
 --- !u!61 &7200292183374911932
 BoxCollider2D:

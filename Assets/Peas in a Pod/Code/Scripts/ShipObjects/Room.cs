@@ -66,6 +66,8 @@ public class Room : MonoBehaviour
 
     public Turret _possessedOnClicked;
     
+    private float _currentIncreasePerSecond = 0f;
+    
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
     // Start is called before the first frame update
@@ -86,7 +88,16 @@ public class Room : MonoBehaviour
                     _repairBar.gameObject.SetActive(false);
                 }
 
-        // TODO add self to HUD in rooms tab
+        StartCoroutine(UpdateProd());
+    }
+
+    private IEnumerator UpdateProd()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            UpdateProduction();
+        }
     }
 
     private void Awake()
@@ -124,7 +135,7 @@ public class Room : MonoBehaviour
             }
             else
             {
-                _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
+                _timeSinceProduction += Time.deltaTime * _currentIncreasePerSecond; 
             }
 
         }
@@ -211,10 +222,7 @@ public class Room : MonoBehaviour
                     //StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
                     
                 }   
-                if (_possessedOnClicked)
-                {
-                    _possessedOnClicked.Possessed();
-                }
+                
             }
 
             
@@ -296,6 +304,15 @@ public class Room : MonoBehaviour
         }
     }
 
+    public void UpdateProduction()
+    {
+        _currentIncreasePerSecond = 0f;
+        foreach (UnitRTS r in UnitsInside)
+        {
+            _currentIncreasePerSecond += r.GetProductionPercentage();
+        }
+    }
+
     
 
     public void SystemDamaged(float DamageDone)
@@ -370,9 +387,17 @@ public class Room : MonoBehaviour
         if (unit != null)
         {
             unit.isWorking = true;
+            if(!UnitsInside.Contains(unit))
+            {
+                UnitsInside.Add(unit);
+            }
 
-            UnitsInside.Add(unit);
+            if (_possessedOnClicked)
+            {
+                _possessedOnClicked.Possessed();
+            }
             unit.EnteredRoom(this);
+            _currentIncreasePerSecond += unit.GetProductionPercentage();
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
@@ -382,10 +407,13 @@ public class Room : MonoBehaviour
             {
                 unit.AddToExhaustionDelta(_fatigueValueProducing);
             }
-
-
-
+            
         }
+    }
+    
+    private void CalculateProductionPerSecond(){
+    
+    
     }
 
     
@@ -411,7 +439,9 @@ public class Room : MonoBehaviour
             }
             
             unit.LeftRoom();
-            unit.ResetExhuastionDelta();
+            
+            UpdateProduction();
+            
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();

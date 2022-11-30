@@ -35,6 +35,8 @@ public class UnitRTS : MonoBehaviour
 
     private bool _isPassedOut = false;
 
+    private bool _canWork = true;
+
 
     public FloatVariable _shipTemperature;
 
@@ -236,14 +238,33 @@ public class UnitRTS : MonoBehaviour
     private void HandleFatigue()
     {
         _exhaustion = Math.Clamp(_exhaustion + Time.deltaTime * _exhuastionDelta, 0, _maxExhaustion);
+        
         UpdateFatigue();
     }
 
+    
+
     public void AddToExhaustionDelta(float value)
     {
+        Debug.Log(value);
         _exhuastionDelta += value;
         Debug.Log(_exhuastionDelta);
         
+    }
+
+    public float GetProductionPercentage()
+    {
+        if (_exhaustion == _maxExhaustion)
+        {
+            return 0;
+        }else if (_exhaustion / _maxExhaustion < 0.5)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0.5f;
+        }
     }
 
     /* private void OnMouseDown()
@@ -315,6 +336,11 @@ public class UnitRTS : MonoBehaviour
     public bool IsPassedOut()
     {
         return _isPassedOut;
+    }
+
+    public bool CanWork()
+    {
+        return _canWork;
     }
 
 }
