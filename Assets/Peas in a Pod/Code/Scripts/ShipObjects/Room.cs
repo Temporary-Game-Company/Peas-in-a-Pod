@@ -66,6 +66,7 @@ public class Room : MonoBehaviour
 
     public Turret _possessedOnClicked;
     
+    [SerializeField] Animator roomAnimator;
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
     // Start is called before the first frame update
@@ -116,13 +117,14 @@ public class Room : MonoBehaviour
             if (UnitsInside.Count == 0)
             {
                 _timeSinceProduction = Math.Clamp(_timeSinceProduction - Time.deltaTime, 0, _productionTime + 1);
+                if (roomAnimator) roomAnimator.SetBool("isActive", false);
             }
             else
             {
                 _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
+                if (roomAnimator) roomAnimator.SetBool("isActive", true);
             }
-
-        }
+        } else if (roomAnimator) roomAnimator.SetBool("isActive", false);
         
         if (_timeSinceProduction > _productionTime)
         {

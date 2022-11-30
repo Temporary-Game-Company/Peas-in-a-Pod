@@ -202,7 +202,7 @@ public class UnitRTS : MonoBehaviour
     {
         HandleTemperatureExhuastion();
         HandleFatigue();
-        Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
+        // Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
     }
 
     private void HandleTemperatureExhuastion()
