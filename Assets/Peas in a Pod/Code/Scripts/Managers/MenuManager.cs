@@ -5,10 +5,11 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private string gameLevel;
     //[SerializeField] private Slider volumeSlider;
-    [SerializeField] private AudioSource audioSource;
+    //SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private AudioClip clickClip;
-    
-   public void PlayButton()
+
+    public void PlayButton()
    {
         SceneManager.LoadScene(gameLevel);
    }
@@ -25,6 +26,6 @@ public class MenuManager : MonoBehaviour
 
     public void PlayClick()
     {
-        audioSource.PlayOneShot(clickClip);
+        audioManager.PlayClip(clickClip);
     }
 }
