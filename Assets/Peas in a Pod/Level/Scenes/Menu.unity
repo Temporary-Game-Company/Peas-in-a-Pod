@@ -302,10 +302,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.3557292
+    y: 0.035185184
+    width: 0.33333334
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2157,7 +2157,7 @@ PrefabInstance:
     - target: {fileID: 8042881826781446297, guid: 075ebf6e20bb10348843e47c18954ead,
         type: 3}
       propertyPath: m_Volume
-      value: 0.6
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8042881826781446298, guid: 075ebf6e20bb10348843e47c18954ead,
         type: 3}
