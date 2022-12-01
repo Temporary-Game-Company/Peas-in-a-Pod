@@ -32,7 +32,7 @@ public class Room : MonoBehaviour
 
     private float maxdamage;
 
-    public float _powerConsumptionPerSecond = 0.5f;
+    public float _powerConsumptionPerSecond = 0.005f;
 
     public EventConfigSO.EventType affectedEvent;
 
@@ -287,11 +287,11 @@ public class Room : MonoBehaviour
             }
             else
             {
-                Debug.Log("No resource produced");
+                //Debug.Log("No resource produced");
                 if (GetComponent<FoodConsumption>() != null)
                 {
                     GetComponent<FoodConsumption>().ConsumeFood();
-                    
+                    //Debug.Log("Consuming food");
                 }
                 
             }
@@ -337,7 +337,6 @@ public class Room : MonoBehaviour
         }
         foreach (UnitRTS r in UnitsInside)
         {
-            _resourceManager.increaseActivePeas();
             r.AddToExhaustionDelta(_fatigueValueRepairing);
             r.AddToExhaustionDelta(-_fatigueValueProducing);
         }
@@ -371,7 +370,6 @@ public class Room : MonoBehaviour
 
         foreach (UnitRTS r in UnitsInside)
         {
-            _resourceManager.decreaseActivePeas();
             r.AddToExhaustionDelta(-_fatigueValueRepairing);
             r.AddToExhaustionDelta(_fatigueValueProducing);
         }
@@ -399,7 +397,6 @@ public class Room : MonoBehaviour
             _currentIncreasePerSecond += unit.GetProductionPercentage();
             if (_isDamaged)
             {
-                _resourceManager.increaseActivePeas();
                 unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
@@ -443,7 +440,6 @@ public class Room : MonoBehaviour
             
             if (_isDamaged)
             {
-                _resourceManager.decreaseActivePeas();
                 unit.AddToExhaustionDelta(-_fatigueValueRepairing);
             }
             else

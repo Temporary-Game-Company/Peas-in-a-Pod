@@ -1,85 +1,37 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TemporaryGameCompany;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Image hullIntegrityFill;
+    [SerializeField] private Image powerFill;
+    [SerializeField] private Image oxygenFill;
+    [SerializeField] private Image temperatureFill;
 
-    public TextMeshProUGUI FoodText;
-
-    public TextMeshProUGUI TemperatureText;
-
-    public TextMeshProUGUI OxygenText;
-
-    public TextMeshProUGUI PeasCount;
-
-    public TextMeshProUGUI HullIntegrity;
-
-    public Slider PowerSlider;
-
-    public Gradient TempGradient;
-
-    public Canvas _winScreen;
-
-
-    void Start()
+    public void UpdateHUDIntegrity(float integrity) // 0-100
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-   
-
-    public void UpdateHUDFood(float value)
-    {
-        FoodText.text = Math.Round(value).ToString();
-    }
-
-    public void UpdateHUDActivePeas(float active, float total)
-    {
-        PeasCount.text = active.ToString() + "/" + total.ToString();
-    }
-
-    public void UpdateHUDOxygen(float percent)
-    {
-        OxygenText.text = Math.Round((percent * 100), 1).ToString() + "%";
-    }
-
-    public void UpdateHUDIntegrity(float amt)
-    {
-        HullIntegrity.text = amt.ToString();
+        hullIntegrityFill.fillAmount = integrity;
+        //Debug.Log(integrity);
     }
     
-    
-
-
-    public void UpdateHUDPower(float percent)
+    public void UpdateHUDPower(float power) // 0-1
     {
-        PowerSlider.value = percent;
+        powerFill.fillAmount = power;
+        //Debug.Log(power);
+    }
+    
+    public void UpdateHUDOxygen(float oxygen) // 0-1
+    {
+        oxygenFill.fillAmount = oxygen;
+        //Debug.Log(oxygen);
     }
 
-    public void UpdateHUDTemp(float temp)
+    public void UpdateHUDTemp(float temp) // 0-1 30 normal 50 too hot 10 too cold
     {
-        if (TempGradient != null)
-        {
-            TemperatureText.color = TempGradient.Evaluate(temp/60);
-        }
-        TemperatureText.fontSize = (48 + Math.Abs(temp - 30) * 2);
-        if (TemperatureText)
-        {
-            TemperatureText.text = Math.Round(temp, 2).ToString() + "C";
-        }
+        float scaledTemp = (1f / 120f) * temp + 0.25f;
+        temperatureFill.fillAmount = scaledTemp;
+        Debug.Log(scaledTemp);
     }
 
     public void DisplayWinScreen()

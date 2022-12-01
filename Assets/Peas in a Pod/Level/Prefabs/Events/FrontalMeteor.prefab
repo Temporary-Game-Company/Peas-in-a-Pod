@@ -108,7 +108,7 @@ MonoBehaviour:
   bApplyCameraShake: 1
   _shakeMagnitude: 2
   _shakeTime: 0.4
-  dmgAmt: 20
+  dmgAmt: 0.2
   ManagerRuntimeSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
   _hitsRequired: 3
 --- !u!58 &8249918494069922715
