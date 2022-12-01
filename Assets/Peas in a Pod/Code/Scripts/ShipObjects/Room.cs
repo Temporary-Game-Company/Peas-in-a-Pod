@@ -22,7 +22,7 @@ public class Room : MonoBehaviour
 
     public float _productionTime = 2f;
 
-    public GameObject _attentionIndicator;
+    
 
     private SpriteRenderer attentionRenderer;
 
@@ -68,28 +68,31 @@ public class Room : MonoBehaviour
     
     [SerializeField] Animator roomAnimator;
     private float _currentIncreasePerSecond = 0f;
+
+    [SerializeField] private AudioClip _peaEnteredSound;
+
+    [SerializeField] private AudioClip _productionSound;
+
+    [SerializeField] private AudioClip _damagedSound;
+
+    [SerializeField] private AudioClip _repairedSound;
+
+    private AudioSource _audioSource;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
     // Start is called before the first frame update
     void Start()
     {
-        
-        _attentionIndicator.SetActive(false);
-
-        Transform t = transform.Find("Hovered");
-        if (t != null)
-        {
-            _roomIndicator = t.gameObject;
-            _roomIndicator.SetActive(false);
-        }
-        
         if (_repairBar != null)
-                {
-                    _repairBar.gameObject.SetActive(false);
-                }
+        {
+            _repairBar.gameObject.SetActive(false);
+        }
 
         StartCoroutine(UpdateProd());
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
     }
 
     private IEnumerator UpdateProd()
@@ -107,10 +110,7 @@ public class Room : MonoBehaviour
         _isDamaged = false;
         damaged = 0;
         usedThisWave = true;
-        if (_attentionIndicator)
-        {
-            attentionRenderer = _attentionIndicator.GetComponent<SpriteRenderer>();
-        }
+        
 
         _repairBar = GetComponentInChildren<RepairBar>();
         if (_repairBar == null)
@@ -140,6 +140,7 @@ public class Room : MonoBehaviour
             else
             {
                 if (roomAnimator) roomAnimator.SetBool("isActive", true);
+                HandlePower();
                 _timeSinceProduction += Time.deltaTime * _currentIncreasePerSecond; 
             }
         } else if (roomAnimator) roomAnimator.SetBool("isActive", false);
@@ -151,7 +152,7 @@ public class Room : MonoBehaviour
             
         }
 
-        if (_productionBar && _producesGoods)
+        if (_productionBar)
         {
             _productionBar.updateFill(_timeSinceProduction/_productionTime);
         }
@@ -163,7 +164,7 @@ public class Room : MonoBehaviour
             _timeSinceProduction = Math.Clamp(_timeSinceProduction - Time.deltaTime, 0, _productionTime);
         }
 
-        HandlePower();
+        
 
     }
 
@@ -177,88 +178,31 @@ public class Room : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _isSelected = true;
-        if (_roomIndicator)
-        {
-            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
-            if (s != null)
-            {
-                s.color = Color.green;
-            }
-        }
+        
     }
 
 
     private void OnMouseUp()
     {
-        if (_roomIndicator)
-        {
-            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
-            if (s != null)
-            {
-                s.color = Color.white;
-            }
-        }
-
-        if (_isSelected && UnitsInside.Count > 0)
-        {
-            if (IsFocused)
-            {
-                IsFocused = false;
-                _isSelected = false;
-                CameraShake cs = Camera.main.GetComponent<CameraShake>();
-                if (cs != null)
-                {
-                    //StartCoroutine(cs.BackToStart());
-                }   
-                
-            }
-            else
-            {
-                IsFocused = true;
-                _isSelected = false;
-                CameraShake cs = Camera.main.GetComponent<CameraShake>();
-                if (cs != null)
-                {
-                    //StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
-                    
-                }   
-                
-            }
-
-            
-            
-        }
+        
         
     }
 
     private void OnMouseExit()
     {
-        if (_roomIndicator)
-        {
-            _roomIndicator.SetActive(false);
-        }
-        _isSelected = false;
+        
     }
 
     private void OnMouseEnter()
     {
         
-        if (_roomIndicator)
-        {
-            _roomIndicator.SetActive(true);
-            SpriteRenderer s = _roomIndicator.GetComponent<SpriteRenderer>();
-            if (s != null)
-            {
-                s.color = Color.yellow;
-            }
-        }
+        
     }
 
     private void HandleRepairs()
     {
         
-        damaged = (float) Math.Clamp(damaged - UnitsInside.Count * Time.deltaTime, 0, 100000.0);
+        damaged = (float) Math.Clamp(damaged - _currentIncreasePerSecond * Time.deltaTime, 0, 100000.0);
         if (_repairBar != null)
         {
             _repairBar.updateFill((maxdamage - damaged)/maxdamage);
@@ -276,6 +220,14 @@ public class Room : MonoBehaviour
 
     private void HandleProduction()
     {
+        if (_productionSound)
+        {
+            if (_audioSource)
+            {
+                _audioSource.clip = _productionSound;
+                _audioSource.Play();
+            }
+        }
         if (_productionParticles)
         {
             _productionParticles.Play();
@@ -289,11 +241,11 @@ public class Room : MonoBehaviour
             }
             else
             {
-                //Debug.Log("No resource produced");
+                Debug.Log("No resource produced");
                 if (GetComponent<FoodConsumption>() != null)
                 {
                     GetComponent<FoodConsumption>().ConsumeFood();
-                    //Debug.Log("Consuming food");
+                    
                 }
                 
             }
@@ -324,6 +276,19 @@ public class Room : MonoBehaviour
         {
             damagedParticles.Play();
         }
+        if (_damagedSound)
+        {
+            if (_audioSource)
+            {
+                _audioSource.clip = _damagedSound;
+                _audioSource.Play();
+            }
+        }
+
+        if (_possessedOnClicked)
+        {
+            _possessedOnClicked.Unpossess();
+        }
         damaged += DamageDone;
         maxdamage = damaged;
         bProducing = false;
@@ -333,12 +298,10 @@ public class Room : MonoBehaviour
         }
         
         
-        if (_attentionIndicator != null)
-        {
-            //_attentionIndicator.SetActive(true);
-        }
+        
         foreach (UnitRTS r in UnitsInside)
         {
+           
             r.AddToExhaustionDelta(_fatigueValueRepairing);
             r.AddToExhaustionDelta(-_fatigueValueProducing);
         }
@@ -350,6 +313,14 @@ public class Room : MonoBehaviour
 
     void SystemRepaired()
     {
+        if (_repairedSound)
+        {
+            if (_audioSource)
+            {
+                _audioSource.clip = _repairedSound;
+                _audioSource.Play();
+            }
+        }
         bProducing = true;
         if (attentionRenderer)
         {
@@ -360,18 +331,22 @@ public class Room : MonoBehaviour
             _repairBar.gameObject.SetActive(false);
         }
         _isDamaged = false;
-        if (_attentionIndicator != null)
-        {
-            _attentionIndicator.SetActive(false);
-        }
+        
 
         if (_repairedParticles)
         {
             _repairedParticles.Play();
         }
 
+        if (_possessedOnClicked && UnitsInside.Count != 0)
+        {
+            _possessedOnClicked.Possessed();
+            
+        }
+
         foreach (UnitRTS r in UnitsInside)
         {
+           
             r.AddToExhaustionDelta(-_fatigueValueRepairing);
             r.AddToExhaustionDelta(_fatigueValueProducing);
         }
@@ -385,13 +360,21 @@ public class Room : MonoBehaviour
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
+            if (_peaEnteredSound)
+            {
+                if (_audioSource)
+                {
+                    _audioSource.clip = _peaEnteredSound;
+                    _audioSource.Play();
+                }
+            }
             unit.isWorking = true;
             if(!UnitsInside.Contains(unit))
             {
                 UnitsInside.Add(unit);
             }
 
-            if (_possessedOnClicked)
+            if (_possessedOnClicked && !_isDamaged)
             {
                 _possessedOnClicked.Possessed();
             }
@@ -399,6 +382,7 @@ public class Room : MonoBehaviour
             _currentIncreasePerSecond += unit.GetProductionPercentage();
             if (_isDamaged)
             {
+                
                 unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
@@ -436,12 +420,14 @@ public class Room : MonoBehaviour
                 UnitsInside.Remove(unit);
             }
             
+            
             unit.LeftRoom();
             
             UpdateProduction();
             
             if (_isDamaged)
             {
+               
                 unit.AddToExhaustionDelta(-_fatigueValueRepairing);
             }
             else

@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
                 
             }
 
-            other.SetSelectedVisible(true);
+           
         }
     }
 
@@ -59,7 +59,7 @@ public class Door : MonoBehaviour
                     _renderer.material = _unlit;
                 }
             }
-            unit.SetSelectedVisible(false);
+            
         }
     }
 

@@ -50,6 +50,10 @@ public class UnitRTS : MonoBehaviour
 
     public FloatVariable _shipTemperature;
 
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _eatingNoise;
+
    // tracking whether pea is working, providing delegate for catching changes in state
     public BoolChangeDelegate OnWorkingChanged;
     bool _isWorking = false;
@@ -95,6 +99,13 @@ public class UnitRTS : MonoBehaviour
     public float hunger {
         private set {
             _hunger = value;
+            if (_hunger / MAX_HUNGER > 0.2)
+            {
+                if (_selectedGameObject)
+                {
+                    _selectedGameObject.SetActive(true);
+                }
+            }
             isStarving = (_hunger >= MAX_HUNGER);
         } 
         get => _hunger;
@@ -153,7 +164,9 @@ public class UnitRTS : MonoBehaviour
         
         isWorking = false;
         isGrounded = true;
-        //TODO Add self to HUD in Units Tab
+
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
     }
 
 
@@ -200,7 +213,7 @@ public class UnitRTS : MonoBehaviour
         {
             
             
-                //AddToExhaustionDelta(-1f);
+                
                
             
         }
@@ -213,7 +226,7 @@ public class UnitRTS : MonoBehaviour
         if (unit != null && r.collider.Equals(other))
         {
             Debug.Log("Pea removed from each other");
-            //AddToExhaustionDelta(1f);
+            
         }
     }
 
@@ -278,13 +291,17 @@ public class UnitRTS : MonoBehaviour
     public void AddToExhaustionDelta(float value)
     {
         // Debug.Log(value);
-        _exhuastionDelta += value;
+        _exhuastionDelta = Math.Clamp(_exhuastionDelta + value, _initialExhuastionDelta, 100f);
         // Debug.Log(_exhuastionDelta);
         
     }
 
     public float GetProductionPercentage()
     {
+        if (_isPassedOut)
+        {
+            return 0;
+        }
         if (_exhaustion == _maxExhaustion)
         {
             return 0;
@@ -377,6 +394,16 @@ public class UnitRTS : MonoBehaviour
 
     public void Eat()
     {
+        if (_audioSource && _eatingNoise)
+        {
+            _audioSource.clip = _eatingNoise;
+            _audioSource.Play();
+
+        }
+        if (_selectedGameObject)
+        {
+            _selectedGameObject.SetActive(false);
+        }
         hunger = 0;
     }
 }
