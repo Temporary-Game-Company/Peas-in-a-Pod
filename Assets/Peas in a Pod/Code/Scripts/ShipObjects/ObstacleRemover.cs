@@ -24,7 +24,14 @@ public class ObstacleRemover : MonoBehaviour
 
     private BoxCollider2D _boxCollider;
 
-    public bool isActive{ private set; get; }
+    private bool _isEquipped;
+    public bool isEquipped{ 
+        private set 
+        {
+            _isEquipped = value;
+        } 
+        get => _isEquipped; 
+    }
 
     private Rigidbody2D _rb;
     // Start is called before the first frame update
@@ -54,6 +61,7 @@ public class ObstacleRemover : MonoBehaviour
         if (active && unit && !owner)
         {
             owner = unit;
+            isEquipped = true;
             _rb.velocity = Vector2.zero;
             _rb.Sleep();
             emission.enabled = true;
@@ -72,6 +80,7 @@ public class ObstacleRemover : MonoBehaviour
         if (ownerDraggable) ownerDraggable.OnDirectionChanged -= OnChangeDirections;
         emission.enabled = false;
         _rb.WakeUp();
+        isEquipped = false;
     }
 
     private void OnChangeDirections(bool value) {
