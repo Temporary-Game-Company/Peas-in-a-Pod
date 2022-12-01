@@ -33,7 +33,17 @@ public class UnitRTS : MonoBehaviour
 
     [SerializeField] private FloatVariable _oxygenAmt;
 
+    public BoolChangeDelegate OnPassedOutChanged;
     private bool _isPassedOut = false;
+    public bool isPassedOut {
+        private set {
+            if (value != _isPassedOut) {
+                _isPassedOut = value;
+                if (OnPassedOutChanged != null) OnPassedOutChanged(_isPassedOut);
+            }
+        }
+        get => _isPassedOut;
+    }
 
     private bool _canWork = true;
 
@@ -325,7 +335,7 @@ public class UnitRTS : MonoBehaviour
     public void PassOut()
     {
         
-        _isPassedOut = true;
+        isPassedOut = true;
         
         Draggable drag = GetComponent<Draggable>();
         if (_currentRoom)
@@ -340,7 +350,7 @@ public class UnitRTS : MonoBehaviour
 
     public void WakeUp()
     {
-        _isPassedOut = false;
+        isPassedOut = false;
         if (_currentRoom)
         {
             _currentRoom.AddToWorkers(this);
@@ -356,7 +366,7 @@ public class UnitRTS : MonoBehaviour
 
     public bool IsPassedOut()
     {
-        return _isPassedOut;
+        return isPassedOut;
     }
 
     public bool CanWork()

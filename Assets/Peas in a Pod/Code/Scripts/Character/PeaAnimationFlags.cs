@@ -21,6 +21,7 @@ public class PeaAnimationFlags : MonoBehaviour
         UnitRTS peaController = gameObject.GetComponent<UnitRTS>();
         peaController.OnWorkingChanged += OnWorkingChanged;
         peaController.OnGroundedChanged += OnGroundedChanged;
+        peaController.OnPassedOutChanged += OnPassedOutChanged;
     }
 
     void OnSelectedChanged(bool value)
@@ -42,5 +43,10 @@ public class PeaAnimationFlags : MonoBehaviour
     void OnDirectionChanged(bool value)
     {
         animator.SetBool("FacingRight", value);
+    }
+
+    void OnPassedOutChanged (bool value)
+    {
+        animator.SetBool("Sleeping", value);
     }
 }

@@ -4893,9 +4893,9 @@ MonoBehaviour:
   _fatigueWhileInside: 2
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
-  initialDrainRate: 0
+  initialDrainRate: -0.15
   maxDrainRate: 1
-  drainAcceleration: 0.3
+  drainAcceleration: 0.15
   _obstacleType: 1
 --- !u!58 &7764327696690603571
 CircleCollider2D:
