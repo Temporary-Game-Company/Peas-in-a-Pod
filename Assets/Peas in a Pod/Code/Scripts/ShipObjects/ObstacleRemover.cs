@@ -77,7 +77,11 @@ public class ObstacleRemover : MonoBehaviour
 
     public void Unequip(){
         Draggable ownerDraggable = owner? owner.gameObject.GetComponent<Draggable>() : null;
-        owner.equipment = null;
+        if (owner != null)
+        {
+            owner.equipment = null;
+        }
+        
         owner = null;
         if (ownerDraggable) ownerDraggable.OnDirectionChanged -= OnChangeDirections;
         emission.enabled = false;

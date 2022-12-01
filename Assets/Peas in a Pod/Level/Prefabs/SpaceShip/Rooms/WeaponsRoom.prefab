@@ -6565,7 +6565,6 @@ MonoBehaviour:
   _resourceProduced: {fileID: 0}
   _productionAmt: 0
   _productionTime: 3
-  _attentionIndicator: {fileID: 2098333989294569715}
   _powerConsumptionPerSecond: 0.05
   affectedEvent: 3
   bProducing: 1
@@ -6577,9 +6576,14 @@ MonoBehaviour:
   _productionParticles: {fileID: 841158405365051799}
   _fatigueValueProducing: 2
   _fatigueValueRepairing: 3
+  _restRoom: 0
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 3004304181485105324}
   roomAnimator: {fileID: 3226353964505502549}
+  _peaEnteredSound: {fileID: 0}
+  _productionSound: {fileID: 0}
+  _damagedSound: {fileID: 0}
+  _repairedSound: {fileID: 0}
 --- !u!1 &7041192735536005524
 GameObject:
   m_ObjectHideFlags: 0
@@ -11509,7 +11513,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -192660613
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &4755515877795707249
 MonoBehaviour:

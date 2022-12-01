@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TemporaryGameCompany;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +40,10 @@ public class Turret : MonoBehaviour
     public AudioSource _chargeSound;
 
     public AudioSource _fireSound;
-    
+
+    [SerializeField] private float _powerCostToFire = 1f;
+
+    [SerializeField] private FloatVariable _powerAmt;
     
 
     private Quaternion originalRotation;
@@ -140,6 +144,7 @@ public class Turret : MonoBehaviour
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
         if (r.collider == null) return true;
+        if (_powerAmt && _powerAmt.Value < _powerCostToFire) return false; 
         return (r.collider.gameObject.GetComponent<ProjectileEvent>() != null);
     }
         
@@ -180,6 +185,11 @@ public class Turret : MonoBehaviour
             _fireSound.volume = width;
             
             _fireSound.Play();
+        }
+
+        if (_powerAmt )
+        {
+            _powerAmt.ApplyChange(-_powerCostToFire);
         }
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);

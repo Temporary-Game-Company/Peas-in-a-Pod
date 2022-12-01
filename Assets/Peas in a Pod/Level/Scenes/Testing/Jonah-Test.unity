@@ -475,6 +475,11 @@ PrefabInstance:
       propertyPath: _productionSound
       value: 
       objectReference: {fileID: 8300000, guid: b98c66310a9a4f14493d47a86d0945e8, type: 3}
+    - target: {fileID: 468780706586609438, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _fatigueValueProducing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 523546227350819890, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: _fatigueValueProducing
@@ -540,6 +545,11 @@ PrefabInstance:
       propertyPath: _damagedSound
       value: 
       objectReference: {fileID: 8300000, guid: 57cd814865abcdb438e56dedfb7bd06c, type: 3}
+    - target: {fileID: 2099190496254363628, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _repairedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da0475931ca66bb4cb576e2e9c89e084, type: 3}
     - target: {fileID: 2099190496254363628, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: _fatigueValueProducing
@@ -960,6 +970,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8834335897240964107, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8895758349012938439, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1368,22 +1383,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.061987236
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.06158833
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.87511396
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.8752026
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}

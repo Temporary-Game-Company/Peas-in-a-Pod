@@ -4866,6 +4866,7 @@ MonoBehaviour:
   initialDrainRate: 0.5
   maxDrainRate: 1.5
   drainAcceleration: 0.05
+  _spawnedClip: {fileID: 8300000, guid: 0dd79cdd9fb437c4c801a2090a505064, type: 3}
   obstacleType: 0
 --- !u!61 &5026466957324189794
 BoxCollider2D:
