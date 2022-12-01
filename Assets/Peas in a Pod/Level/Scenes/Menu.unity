@@ -302,10 +302,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3557292
-    y: 0.035185184
-    width: 0.33333334
-    height: 0.3333333
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -736,7 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameLevel: DesignScene
-  audioManager: {fileID: 436407389}
+  audioManager: {fileID: 8042881826781446296, guid: 075ebf6e20bb10348843e47c18954ead,
+    type: 3}
   clickClip: {fileID: 8300000, guid: bb1769d25629e6343ba4b733d2fb30ea, type: 3}
 --- !u!4 &239749004
 Transform:
@@ -1190,18 +1191,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359708753}
   m_CullTransparentMesh: 1
---- !u!114 &436407389 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8042881826781446296, guid: 075ebf6e20bb10348843e47c18954ead,
-    type: 3}
-  m_PrefabInstance: {fileID: 749627500}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2e79d6dc84fc34abde767fe522f067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &470756271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,80 +2081,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715603692}
   m_CullTransparentMesh: 1
---- !u!1001 &749627500
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.91656053
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.6693542
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0152308475
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446295, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446297, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042881826781446298, guid: 075ebf6e20bb10348843e47c18954ead,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 075ebf6e20bb10348843e47c18954ead, type: 3}
 --- !u!1 &752095601
 GameObject:
   m_ObjectHideFlags: 0
