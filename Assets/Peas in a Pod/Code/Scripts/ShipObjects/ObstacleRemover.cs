@@ -8,9 +8,16 @@ public class ObstacleRemover : MonoBehaviour
 
     public Obstacle.ObstacleTypes _removerType;
 
-    private UnitRTS owner;
+    private UnitRTS owner = null;
+    private bool isFacingRight;
 
-    public bool active; // true if it can be picked up right now
+    private Quaternion leftRotation = Quaternion.Euler(0f, 0, 0f);
+    private Quaternion rightRotation = Quaternion.Euler(0f, 180f, 0f);
+
+    [SerializeField] ParticleSystem particles;
+    private ParticleSystem.EmissionModule emission;
+
+    [HideInInspector] public bool active = true; // true if it can be picked up right now
 
     public Vector3 offset;
 
@@ -20,17 +27,19 @@ public class ObstacleRemover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _boxCollider = GetComponent<BoxCollider2D>();
-        _rb = GetComponent<Rigidbody2D>();
+        active = true;
+        emission = particles.emission;
+        emission.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        // Debug.Log(owner);
         if (owner != null)
         {
-            transform.localPosition = owner.transform.localPosition + offset;
+            transform.position = owner.transform.position + (isFacingRight? -offset : offset);
+            transform.rotation = isFacingRight? rightRotation : leftRotation;
         }
         
     }
@@ -41,11 +50,25 @@ public class ObstacleRemover : MonoBehaviour
         if (active && unit && !owner)
         {
             owner = unit;
+            emission.enabled = true;
+            Draggable ownerDraggable = owner.gameObject.GetComponent<Draggable>();
+            if (ownerDraggable) 
+            {
+                ownerDraggable.OnDirectionChanged += OnChangeDirections;
+                isFacingRight = ownerDraggable.isFacingRight;
+            }
         }
     }
 
     public void Unequip(){
+        Draggable ownerDraggable = owner? owner.gameObject.GetComponent<Draggable>() : null;
         owner = null;
+        if (ownerDraggable) ownerDraggable.OnDirectionChanged -= OnChangeDirections;
+        emission.enabled = false;
+    }
+
+    private void OnChangeDirections(bool value) {
+        isFacingRight = value;
     }
 }
 
