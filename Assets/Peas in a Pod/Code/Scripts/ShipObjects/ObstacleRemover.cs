@@ -10,6 +10,8 @@ public class ObstacleRemover : MonoBehaviour
 
     private UnitRTS owner;
 
+    public bool active; // true if it can be picked up right now
+
     public Vector3 offset;
 
     private BoxCollider2D _boxCollider;
@@ -25,6 +27,7 @@ public class ObstacleRemover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(owner);
         if (owner != null)
         {
             transform.localPosition = owner.transform.localPosition + offset;
@@ -32,29 +35,17 @@ public class ObstacleRemover : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
         UnitRTS unit = col.GetComponent<UnitRTS>();
-        if (unit)
+        if (active && unit && !owner)
         {
             owner = unit;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        UnitRTS unit = col.gameObject.GetComponent<UnitRTS>();
-        if (unit != null)
-        {
-            if (_boxCollider)
-            {
-                _boxCollider.isTrigger = true;
-            }
-
-            owner = unit;
-            _rb.gravityScale = 0f;
-
-        }
+    public void Unequip(){
+        owner = null;
     }
 }
 

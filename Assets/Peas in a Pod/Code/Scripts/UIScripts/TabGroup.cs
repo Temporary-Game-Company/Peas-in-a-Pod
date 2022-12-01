@@ -10,7 +10,7 @@ using Vector3 = UnityEngine.Vector3;
 public class TabGroup : MonoBehaviour
 {
 
-    public List<TabButton> tabs;
+    public List<MyTabButton> tabs;
 
     public Sprite tabIdle;
 
@@ -18,7 +18,7 @@ public class TabGroup : MonoBehaviour
     
     public Sprite tabActive;
 
-    public TabButton selected;
+    public MyTabButton selected;
 
     private Vector3 dest;
 
@@ -32,17 +32,17 @@ public class TabGroup : MonoBehaviour
 
     private RectTransform _transform;
 
-    public void Subscribe(TabButton button)
+    public void Subscribe(MyTabButton button)
     {
         if (tabs == null)
         {
-            tabs = new List<TabButton>();
+            tabs = new List<MyTabButton>();
         }
         
         tabs.Add(button);
     }
 
-    public void OnTabEnter(TabButton button)
+    public void OnTabEnter(MyTabButton button)
     {
         if (selected == null)
         {
@@ -56,7 +56,7 @@ public class TabGroup : MonoBehaviour
         }
     }
 
-    public void OnTabExit(TabButton button)
+    public void OnTabExit(MyTabButton button)
     {
         if (selected == null)
         {
@@ -84,7 +84,7 @@ public class TabGroup : MonoBehaviour
         _transform.localPosition = Vector3.Lerp(transform.localPosition, dest, interpspeed);
     }
 
-    public void OnTabSelected(TabButton button)
+    public void OnTabSelected(MyTabButton button)
     {
         dest = Top;
         if (selected == button)
@@ -102,7 +102,7 @@ public class TabGroup : MonoBehaviour
     // Start is called before the first frame update
     void ResetTabs()
     {
-        foreach(TabButton button in tabs)
+        foreach(MyTabButton button in tabs)
         {
             if (selected != null && button == selected)
             {

@@ -95,6 +95,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\ElementRuntimeSet.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Events\NegativeEvent.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\Selected.cs" />
+     <Compile Include="Assets\FoodSpawner.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionUpdater.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionTimer.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\PeaUI.cs" />
@@ -121,7 +122,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\FoodSpawner.cs" />
+     <Compile Include="Assets\Food.cs" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

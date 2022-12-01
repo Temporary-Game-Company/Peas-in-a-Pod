@@ -66,6 +66,7 @@ public class Room : MonoBehaviour
 
     public Turret _possessedOnClicked;
     
+    [SerializeField] Animator roomAnimator;
     private float _currentIncreasePerSecond = 0f;
     
 
@@ -132,13 +133,14 @@ public class Room : MonoBehaviour
             if (UnitsInside.Count == 0)
             {
                 _timeSinceProduction = Math.Clamp(_timeSinceProduction - Time.deltaTime, 0, _productionTime + 1);
+                if (roomAnimator) roomAnimator.SetBool("isActive", false);
             }
             else
             {
+                if (roomAnimator) roomAnimator.SetBool("isActive", true);
                 _timeSinceProduction += Time.deltaTime * _currentIncreasePerSecond; 
             }
-
-        }
+        } else if (roomAnimator) roomAnimator.SetBool("isActive", false);
         
         if (_timeSinceProduction > _productionTime)
         {
