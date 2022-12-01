@@ -803,3 +803,5 @@ MonoBehaviour:
   _maxChargeTime: 1
   _chargeSlider: {fileID: 0}
   _cooldownTime: 1
+  _chargeSound: {fileID: 0}
+  _fireSound: {fileID: 0}

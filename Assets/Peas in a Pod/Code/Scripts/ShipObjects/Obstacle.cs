@@ -54,7 +54,7 @@ public class Obstacle : MonoBehaviour
     private void HandleRemoval()
     {
         if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
-        Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
+        // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
         if (HealthBar)
         {
             HealthBar.value = curHealth / Health;
