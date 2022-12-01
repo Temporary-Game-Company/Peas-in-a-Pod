@@ -62,6 +62,8 @@ public class Room : MonoBehaviour
 
     public float _fatigueValueRepairing = 3f;
 
+    public bool _restRoom = false;
+
     public Vector3 _cameraFocusLoc = new Vector3(0,0,-10);
 
     public Turret _possessedOnClicked;
@@ -266,16 +268,17 @@ public class Room : MonoBehaviour
         }
     }
 
-    
+
 
     public void SystemDamaged(float DamageDone)
     {
-        
+
         _isDamaged = true;
         if (damagedParticles)
         {
             damagedParticles.Play();
         }
+
         if (_damagedSound)
         {
             if (_audioSource)
@@ -285,7 +288,15 @@ public class Room : MonoBehaviour
             }
         }
 
-        if (_possessedOnClicked)
+        if (_restRoom)
+        {
+            foreach (UnitRTS r in UnitsInside)
+            {
+              r.SetIsResting(false);  
+            }
+        }
+
+            if (_possessedOnClicked)
         {
             _possessedOnClicked.Unpossess();
         }
@@ -319,6 +330,13 @@ public class Room : MonoBehaviour
             {
                 _audioSource.clip = _repairedSound;
                 _audioSource.Play();
+            }
+        }
+        if (_restRoom)
+        {
+            foreach (UnitRTS r in UnitsInside)
+            {
+                r.SetIsResting(false);  
             }
         }
         bProducing = true;
@@ -374,6 +392,10 @@ public class Room : MonoBehaviour
                 UnitsInside.Add(unit);
             }
 
+            if (_restRoom)
+            {
+                unit.SetIsResting(true);
+            }
             if (_possessedOnClicked && !_isDamaged)
             {
                 _possessedOnClicked.Possessed();
@@ -419,8 +441,11 @@ public class Room : MonoBehaviour
             {
                 UnitsInside.Remove(unit);
             }
-            
-            
+
+            if (_restRoom)
+            {
+                unit.SetIsResting(false);
+            }
             unit.LeftRoom();
             
             UpdateProduction();
