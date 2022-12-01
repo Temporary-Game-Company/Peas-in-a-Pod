@@ -53,6 +53,7 @@ public class Obstacle : MonoBehaviour
         HandleRemoval();
     }
 
+    ObstacleRemover remover;
     private void HandleRemoval()
     {
         curHealth = curHealth - removersInside * Time.deltaTime;
