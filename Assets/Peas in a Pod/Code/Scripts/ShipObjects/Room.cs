@@ -32,7 +32,7 @@ public class Room : MonoBehaviour
 
     private float maxdamage;
 
-    public float _powerConsumptionPerSecond = 0.005f;
+    public float _powerConsumptionPerSecond = 0.5f;
 
     public EventConfigSO.EventType affectedEvent;
 
