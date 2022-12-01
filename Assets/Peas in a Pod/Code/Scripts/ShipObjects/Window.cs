@@ -11,9 +11,9 @@ using UnityEngine.UI;
 public class Window : MonoBehaviour
 {
 
-    public Sprite openSprite;
+    public Color openColor;
 
-    public Sprite closedSprite;
+    public Color closedColor;
 
     public bool _isOpen = false;
 
@@ -27,16 +27,22 @@ public class Window : MonoBehaviour
 
     private ResourceManager _resourceManager;
 
-    private TextMeshProUGUI _hintText;
+   
 
     public WindowRuntimeSet Windows;
 
     public Image _FillImage;
-    
-    
-    
-    
-   
+
+    [SerializeField] private Sprite _openSprite;
+
+    [SerializeField] private Sprite _closedSprite;
+
+
+
+
+
+
+
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -49,20 +55,22 @@ public class Window : MonoBehaviour
             if (_hint)
             {
                 _hint.SetActive(false);
-                _hintText = _hint.GetComponentInChildren<TextMeshProUGUI>();
+                
             }
         }
         if (_isOpen)
         {
-            _spriteRenderer.sprite = openSprite;
-            if (_hint)
+            if (_spriteRenderer)
             {
-                _hint.GetComponent<SpriteRenderer>().color = Color.green;
+                _spriteRenderer.sprite = _openSprite;
             }
         }
         else
         {
-            _spriteRenderer.sprite = closedSprite;
+            if (_spriteRenderer)
+            {
+                _spriteRenderer.sprite = _closedSprite;
+            }
             if (_hint)
             {
                 _hint.GetComponent<SpriteRenderer>().color = Color.red;
@@ -172,7 +180,7 @@ public class Window : MonoBehaviour
         _isOpen = true;
         if (_spriteRenderer)
         {
-            _spriteRenderer.sprite = openSprite;
+            _spriteRenderer.sprite = _openSprite;
         }
 
         if (_resourceManager == null)
@@ -197,7 +205,7 @@ public class Window : MonoBehaviour
         _isOpen = false;
         if (_spriteRenderer)
         {
-            _spriteRenderer.sprite = closedSprite;
+            _spriteRenderer.sprite = _closedSprite;
         }
         if (_resourceManager == null)
         {

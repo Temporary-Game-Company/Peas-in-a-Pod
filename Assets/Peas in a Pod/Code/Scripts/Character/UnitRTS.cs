@@ -200,7 +200,7 @@ public class UnitRTS : MonoBehaviour
         {
             
             
-                //AddToExhaustionDelta(-1f);
+                
                
             
         }
@@ -213,7 +213,7 @@ public class UnitRTS : MonoBehaviour
         if (unit != null && r.collider.Equals(other))
         {
             Debug.Log("Pea removed from each other");
-            //AddToExhaustionDelta(1f);
+            
         }
     }
 
@@ -278,13 +278,17 @@ public class UnitRTS : MonoBehaviour
     public void AddToExhaustionDelta(float value)
     {
         // Debug.Log(value);
-        _exhuastionDelta += value;
+        _exhuastionDelta = Math.Clamp(_exhuastionDelta + value, _initialExhuastionDelta, 100f);
         // Debug.Log(_exhuastionDelta);
         
     }
 
     public float GetProductionPercentage()
     {
+        if (_isPassedOut)
+        {
+            return 0;
+        }
         if (_exhaustion == _maxExhaustion)
         {
             return 0;

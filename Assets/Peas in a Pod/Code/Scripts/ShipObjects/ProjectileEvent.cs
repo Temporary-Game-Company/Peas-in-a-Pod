@@ -34,6 +34,8 @@ public class ProjectileEvent : MonoBehaviour
     private ResourceManager _resourceManager;
     private Rigidbody2D rb2d;
 
+    public AudioSource _onHit;
+
     [SerializeField] private float _hitsRequired = 3;
 
     private float _hitsTaken = 0f;
@@ -68,6 +70,10 @@ public class ProjectileEvent : MonoBehaviour
 
     public void Hit()
     {
+        if (_onHit)
+        {
+            _onHit.Play();
+        }
         _hitsTaken++;
         if (_hitsTaken >= _hitsRequired)
         {
