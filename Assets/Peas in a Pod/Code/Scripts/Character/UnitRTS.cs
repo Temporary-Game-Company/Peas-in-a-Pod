@@ -298,8 +298,8 @@ public class UnitRTS : MonoBehaviour
     public void AddToExhaustionDelta(float value)
     {
         // Debug.Log(value);
-        _exhuastionDelta = Math.Clamp(_exhuastionDelta + value, _initialExhuastionDelta, 100f);
-        // Debug.Log(_exhuastionDelta);
+        _exhuastionDelta = Math.Clamp(_exhuastionDelta + value, -100, 100f);
+        Debug.Log(_exhuastionDelta);
         
     }
 
@@ -368,7 +368,7 @@ public class UnitRTS : MonoBehaviour
         }
         if (drag != null)
         {
-            drag.Disable();
+            drag.Enable();
         }
     }
 

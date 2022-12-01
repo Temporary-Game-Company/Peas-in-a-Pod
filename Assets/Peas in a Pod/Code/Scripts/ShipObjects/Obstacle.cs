@@ -21,7 +21,7 @@ public class Obstacle : MonoBehaviour
 
     public float _fatigueWhileInside = 3f;
 
-    private ObstacleRemover remover;
+    
 
     [SerializeField] bool drainsResource;
     [SerializeField] FloatVariable resourceAffected;
