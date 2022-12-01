@@ -16,12 +16,9 @@ public class Obstacle : MonoBehaviour
 
     public Slider HealthBar;
 
-    private int removersInside = 0;
 
 
     public float _fatigueWhileInside = 3f;
-
-    
 
     [SerializeField] bool drainsResource;
     [SerializeField] FloatVariable resourceAffected;
@@ -36,7 +33,7 @@ public class Obstacle : MonoBehaviour
         AirLeak
     }
 
-    public ObstacleTypes _obstacleType;
+    public ObstacleTypes obstacleType;
     
     void Start()
     {
@@ -53,12 +50,11 @@ public class Obstacle : MonoBehaviour
         HandleRemoval();
     }
 
-    ObstacleRemover remover;
+    ObstacleRemover _remover = null;
     private void HandleRemoval()
     {
-        curHealth = curHealth - removersInside * Time.deltaTime;
        
-        if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
+        if (_remover && _remover.isEquipped) curHealth -= Time.deltaTime;
         // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
         if (HealthBar)
         {
@@ -66,18 +62,18 @@ public class Obstacle : MonoBehaviour
         }
         if (curHealth <= 0)
         {
-            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        remover = col.GetComponent<ObstacleRemover>();
+        ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
-            if (remover._removerType == _obstacleType)
+            if (remover.removerType == obstacleType)
             {
-                removersInside++;
+                this._remover = remover;
             }
         }
 
@@ -98,9 +94,9 @@ public class Obstacle : MonoBehaviour
         ObstacleRemover remover = other.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
-            if (remover._removerType == _obstacleType)
+            if (remover.removerType == obstacleType)
             {
-                removersInside--;
+                _remover = null;
             }
         }
     }

@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738840907252977835}
   m_LocalRotation: {x: -0.00027766003, y: -0.00027766003, z: 0.7071067, w: 0.7071067}
-  m_LocalPosition: {x: -0.8, y: -1.18, z: 0.02}
+  m_LocalPosition: {x: -0.84375, y: -1.1875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: -192660613
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4e654b4a244203a4e9893a80ef069f03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6854b84f48285dd4eb33bbdf1922e6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -223,7 +223,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1875, y: 1.125}
+    oldSize: {x: 0.1875, y: 1.5}
     newSize: {x: 0.1875, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   _resourceProduced: {fileID: 0}
   _productionAmt: 2
   _productionTime: 2
+  _attentionIndicator: {fileID: 6189245138370154686}
   _powerConsumptionPerSecond: 0
   affectedEvent: 3
   bProducing: 1
@@ -464,14 +465,9 @@ MonoBehaviour:
   _productionParticles: {fileID: 2311723960001791066}
   _fatigueValueProducing: 0
   _fatigueValueRepairing: 3
-  _restRoom: 0
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 0}
-  _peaEnteredSound: {fileID: 0}
-  _productionSound: {fileID: 0}
-  _damagedSound: {fileID: 0}
-  _repairedSound: {fileID: 0}
 --- !u!114 &4693662361738599447
 MonoBehaviour:
   m_ObjectHideFlags: 0

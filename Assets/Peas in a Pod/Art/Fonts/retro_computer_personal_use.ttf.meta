@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 1925f5f18109b1847ad7134cf572aed0
+guid: 99599fa3eb88a764fad17621b128b7ff
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 14
   forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Minecraft
+  - Retro Computer
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

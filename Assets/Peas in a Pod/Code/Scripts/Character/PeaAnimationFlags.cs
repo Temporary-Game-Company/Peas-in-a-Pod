@@ -8,6 +8,7 @@ using UnityEngine;
 public class PeaAnimationFlags : MonoBehaviour
 {
     private Animator animator;
+    UnitRTS peaController;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -18,10 +19,11 @@ public class PeaAnimationFlags : MonoBehaviour
         draggable.OnSelectedChanged += OnSelectedChanged;
         draggable.OnDirectionChanged += OnDirectionChanged;
 
-        UnitRTS peaController = gameObject.GetComponent<UnitRTS>();
+        peaController = gameObject.GetComponent<UnitRTS>();
         peaController.OnWorkingChanged += OnWorkingChanged;
         peaController.OnGroundedChanged += OnGroundedChanged;
-        peaController.OnPassedOutChanged += OnPassedOutChanged;
+        peaController.OnPassedOutChanged += UpdateSleeping;
+        peaController.OnRestingChanged += UpdateSleeping;
     }
 
     void OnSelectedChanged(bool value)
@@ -45,8 +47,8 @@ public class PeaAnimationFlags : MonoBehaviour
         animator.SetBool("FacingRight", value);
     }
 
-    void OnPassedOutChanged (bool value)
+    void UpdateSleeping (bool value)
     {
-        animator.SetBool("Sleeping", value);
+        animator.SetBool("Sleeping", peaController.isPassedOut || peaController.isResting);
     }
 }

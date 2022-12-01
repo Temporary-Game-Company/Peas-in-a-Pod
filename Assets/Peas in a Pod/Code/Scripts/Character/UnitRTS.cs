@@ -33,7 +33,17 @@ public class UnitRTS : MonoBehaviour
 
     [SerializeField] private FloatVariable _oxygenAmt;
     
+    public BoolChangeDelegate OnRestingChanged;
     private bool _isResting;
+    public bool isResting{
+        private set {
+            if (value != _isResting) {
+                _isResting = value;
+                if (OnRestingChanged != null) OnRestingChanged(_isResting);
+            }
+        }
+        get => _isResting;
+    }
 
     public BoolChangeDelegate OnPassedOutChanged;
     private bool _isPassedOut = false;
@@ -255,7 +265,7 @@ public class UnitRTS : MonoBehaviour
 
     public void SetIsResting(bool bIsresting)
     {
-        _isResting = bIsresting;
+        isResting = bIsresting;
     }
 
     private void Update()
