@@ -248,7 +248,7 @@ MonoBehaviour:
   FatigueSlider: {fileID: 184039856734781404}
   StartingHeat: 50
   MaximumHeat: 100
-  _oxygenConsumptionPerSecond: 0.005
+  _oxygenConsumptionPerSecond: 0.5
   _oxygenAmt: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
   _eatingNoise: {fileID: 8300000, guid: 0f0bffd3ce2d4c228c0fd66af0d4a7f7, type: 3}
@@ -337,7 +337,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237152174570477592}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -354,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0272598, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!95 &2266935683437368960
 Animator:
