@@ -14915,7 +14915,7 @@ SpriteRenderer:
   m_SortingLayerID: -192660613
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4e654b4a244203a4e9893a80ef069f03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6854b84f48285dd4eb33bbdf1922e6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14957,7 +14957,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1875, y: 1.125}
+    oldSize: {x: 0.1875, y: 1.5}
     newSize: {x: 0.1875, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15109,7 +15109,8 @@ MonoBehaviour:
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   _productionAmt: 1
-  _productionTime: 0.1
+  _productionTime: 0.25
+  _attentionIndicator: {fileID: 8997601509635291094}
   _powerConsumptionPerSecond: 0.05
   affectedEvent: 3
   bProducing: 1
@@ -15119,16 +15120,11 @@ MonoBehaviour:
   damagedParticles: {fileID: 7745804304973672240}
   _repairedParticles: {fileID: 2394486410193151701}
   _productionParticles: {fileID: 7669423867123580594}
-  _fatigueValueProducing: 3
-  _fatigueValueRepairing: 4
-  _restRoom: 0
+  _fatigueValueProducing: 2
+  _fatigueValueRepairing: 3
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 2415138786324059240}
-  _peaEnteredSound: {fileID: 0}
-  _productionSound: {fileID: 0}
-  _damagedSound: {fileID: 0}
-  _repairedSound: {fileID: 0}
 --- !u!1 &4693753679475221836
 GameObject:
   m_ObjectHideFlags: 0

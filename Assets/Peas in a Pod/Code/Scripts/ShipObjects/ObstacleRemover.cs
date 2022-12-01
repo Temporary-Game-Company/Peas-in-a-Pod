@@ -7,7 +7,7 @@ using UnityEngine;
 public class ObstacleRemover : MonoBehaviour
 {
 
-    public Obstacle.ObstacleTypes _removerType;
+    public Obstacle.ObstacleTypes removerType;
 
     private UnitRTS owner = null;
     private bool isFacingRight;
