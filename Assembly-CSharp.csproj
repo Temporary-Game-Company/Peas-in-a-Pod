@@ -90,7 +90,7 @@
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Sets\ElementRuntimeSet.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\Events\NegativeEvent.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\Selected.cs" />
-     <Compile Include="Assets\FoodSpawner.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\FoodSpawner.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionUpdater.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionTimer.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\PeaUI.cs" />
@@ -111,7 +111,7 @@
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\FlexibleUIElement.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\DifficultySystem\WaveConfigSO.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\GlobalSelection.cs" />
-     <Compile Include="Assets\Food.cs" />
+     <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Food.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\HUD.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\MonoBehaviours\ComponentActions.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />

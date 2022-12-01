@@ -15,4 +15,4 @@ MonoBehaviour:
   Difficulty: 1
   _toSpawn: {fileID: 214331752055513907, guid: fc8889df1685f2e4d85b1549070fef8a, type: 3}
   EventType: 3
-  _loc: {x: -2.82, y: -3.2, z: 8}
+  _loc: {x: -2, y: -2, z: -1}
