@@ -5518,7 +5518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &898474364
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -10438,6 +10438,8 @@ MonoBehaviour:
   Windows: {fileID: 11400000, guid: db94b6e0aa6fcd34e95552f089b88cfc, type: 2}
   _timeBetweenHeatCycles: 1
   _outsideHeatValue: 50
+  _toLoad:
+    m_Handle: 0
 --- !u!4 &1370309770
 Transform:
   m_ObjectHideFlags: 0
