@@ -37,6 +37,12 @@ public class Window : MonoBehaviour
 
     [SerializeField] private Sprite _closedSprite;
 
+    [SerializeField] private AudioClip _openSound;
+
+    [SerializeField] private AudioClip _closeSound;
+
+    private AudioSource _audioSource;
+
 
 
 
@@ -81,6 +87,9 @@ public class Window : MonoBehaviour
         {
             _FillImage.fillAmount = 0f;
         }
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
     }
 
     private void OnDisable()
@@ -177,6 +186,11 @@ public class Window : MonoBehaviour
 
     private void Open()
     {
+        if (_audioSource && _openSound)
+        {
+            _audioSource.clip = _openSound;
+            _audioSource.Play();
+        }
         _isOpen = true;
         if (_spriteRenderer)
         {
@@ -202,6 +216,11 @@ public class Window : MonoBehaviour
 
     private void Close()
     {
+        if (_audioSource && _closeSound)
+        {
+            _audioSource.clip = _closeSound;
+            _audioSource.Play();
+        }
         _isOpen = false;
         if (_spriteRenderer)
         {

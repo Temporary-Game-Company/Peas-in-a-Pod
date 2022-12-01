@@ -5648,7 +5648,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 363d97f1ad8965742b2401bb5b77d984, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15435,7 +15435,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c6a7e519659b46b0e7b2e4b23dd30, type: 2}
+  - {fileID: 2100000, guid: 363d97f1ad8965742b2401bb5b77d984, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15770,6 +15770,10 @@ MonoBehaviour:
   _cameraFocusLoc: {x: 10, y: -3, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 1417337449299201711}
+  _peaEnteredSound: {fileID: 0}
+  _productionSound: {fileID: 0}
+  _damagedSound: {fileID: 0}
+  _repairedSound: {fileID: 0}
 --- !u!1 &8654104703529609278
 GameObject:
   m_ObjectHideFlags: 0

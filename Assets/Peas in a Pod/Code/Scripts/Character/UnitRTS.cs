@@ -50,6 +50,10 @@ public class UnitRTS : MonoBehaviour
 
     public FloatVariable _shipTemperature;
 
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _eatingNoise;
+
    // tracking whether pea is working, providing delegate for catching changes in state
     public BoolChangeDelegate OnWorkingChanged;
     bool _isWorking = false;
@@ -95,6 +99,13 @@ public class UnitRTS : MonoBehaviour
     public float hunger {
         private set {
             _hunger = value;
+            if (_hunger / MAX_HUNGER > 0.2)
+            {
+                if (_selectedGameObject)
+                {
+                    _selectedGameObject.SetActive(true);
+                }
+            }
             isStarving = (_hunger >= MAX_HUNGER);
         } 
         get => _hunger;
@@ -153,7 +164,9 @@ public class UnitRTS : MonoBehaviour
         
         isWorking = false;
         isGrounded = true;
-        //TODO Add self to HUD in Units Tab
+
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
     }
 
 
@@ -381,6 +394,15 @@ public class UnitRTS : MonoBehaviour
 
     public void Eat()
     {
+        if (_audioSource && _eatingNoise)
+        {
+            _audioSource.clip = _eatingNoise;
+            
+        }
+        if (_selectedGameObject)
+        {
+            _selectedGameObject.SetActive(false);
+        }
         hunger = 0;
     }
 }

@@ -15205,11 +15205,15 @@ MonoBehaviour:
   damagedParticles: {fileID: 7745804304973672240}
   _repairedParticles: {fileID: 2394486410193151701}
   _productionParticles: {fileID: 7669423867123580594}
-  _fatigueValueProducing: 2
-  _fatigueValueRepairing: 3
+  _fatigueValueProducing: 3
+  _fatigueValueRepairing: 4
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 2415138786324059240}
+  _peaEnteredSound: {fileID: 0}
+  _productionSound: {fileID: 0}
+  _damagedSound: {fileID: 0}
+  _repairedSound: {fileID: 0}
 --- !u!1 &4693753679475221836
 GameObject:
   m_ObjectHideFlags: 0

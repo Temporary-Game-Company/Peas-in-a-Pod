@@ -16,4 +16,4 @@ MonoBehaviour:
   _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
     type: 3}
   EventType: 3
-  _loc: {x: -1.814, y: 0.127, z: 0}
+  _loc: {x: -0.066, y: -0.431, z: 0}

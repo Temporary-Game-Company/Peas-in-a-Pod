@@ -134,6 +134,8 @@ MonoBehaviour:
   _FillImage: {fileID: 5743950682839282648}
   _openSprite: {fileID: 21300000, guid: 49c104bcb2fd48138e07aa1f409366ae, type: 3}
   _closedSprite: {fileID: 21300000, guid: 245783f0bf7d4290807e102279b35f8a, type: 3}
+  _openSound: {fileID: 8300000, guid: 29b561709def8a3498e461b25704052b, type: 3}
+  _closeSound: {fileID: 8300000, guid: 50d3b78442354074eb645fbacc4bc85e, type: 3}
 --- !u!1 &4018365017649124022
 GameObject:
   m_ObjectHideFlags: 0

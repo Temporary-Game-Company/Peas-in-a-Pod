@@ -69,13 +69,15 @@ public class Room : MonoBehaviour
     [SerializeField] Animator roomAnimator;
     private float _currentIncreasePerSecond = 0f;
 
-    [SerializeField] private AudioSource _peaEnteredSound;
+    [SerializeField] private AudioClip _peaEnteredSound;
 
-    [SerializeField] private AudioSource _productionSound;
+    [SerializeField] private AudioClip _productionSound;
 
-    [SerializeField] private AudioSource _damagedSound;
+    [SerializeField] private AudioClip _damagedSound;
 
-    [SerializeField] private AudioSource _repairedSound;
+    [SerializeField] private AudioClip _repairedSound;
+
+    private AudioSource _audioSource;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -88,6 +90,9 @@ public class Room : MonoBehaviour
         }
 
         StartCoroutine(UpdateProd());
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
     }
 
     private IEnumerator UpdateProd()
@@ -195,7 +200,7 @@ public class Room : MonoBehaviour
     private void HandleRepairs()
     {
         
-        damaged = (float) Math.Clamp(damaged - UnitsInside.Count * Time.deltaTime, 0, 100000.0);
+        damaged = (float) Math.Clamp(damaged - _currentIncreasePerSecond * Time.deltaTime, 0, 100000.0);
         if (_repairBar != null)
         {
             _repairBar.updateFill((maxdamage - damaged)/maxdamage);
@@ -215,7 +220,11 @@ public class Room : MonoBehaviour
     {
         if (_productionSound)
         {
-            
+            if (_audioSource)
+            {
+                _audioSource.clip = _productionSound;
+                _audioSource.Play();
+            }
         }
         if (_productionParticles)
         {
@@ -259,11 +268,24 @@ public class Room : MonoBehaviour
 
     public void SystemDamaged(float DamageDone)
     {
-        if(_)
+        
         _isDamaged = true;
         if (damagedParticles)
         {
             damagedParticles.Play();
+        }
+        if (_damagedSound)
+        {
+            if (_audioSource)
+            {
+                _audioSource.clip = _damagedSound;
+                _audioSource.Play();
+            }
+        }
+
+        if (_possessedOnClicked)
+        {
+            _possessedOnClicked.Unpossess();
         }
         damaged += DamageDone;
         maxdamage = damaged;
@@ -289,6 +311,14 @@ public class Room : MonoBehaviour
 
     void SystemRepaired()
     {
+        if (_repairedSound)
+        {
+            if (_audioSource)
+            {
+                _audioSource.clip = _repairedSound;
+                _audioSource.Play();
+            }
+        }
         bProducing = true;
         if (attentionRenderer)
         {
@@ -304,6 +334,12 @@ public class Room : MonoBehaviour
         if (_repairedParticles)
         {
             _repairedParticles.Play();
+        }
+
+        if (_possessedOnClicked && UnitsInside.Count != 0)
+        {
+            _possessedOnClicked.Possessed();
+            
         }
 
         foreach (UnitRTS r in UnitsInside)
@@ -322,13 +358,21 @@ public class Room : MonoBehaviour
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
+            if (_peaEnteredSound)
+            {
+                if (_audioSource)
+                {
+                    _audioSource.clip = _peaEnteredSound;
+                    _audioSource.Play();
+                }
+            }
             unit.isWorking = true;
             if(!UnitsInside.Contains(unit))
             {
                 UnitsInside.Add(unit);
             }
 
-            if (_possessedOnClicked)
+            if (_possessedOnClicked && !_isDamaged)
             {
                 _possessedOnClicked.Possessed();
             }
@@ -373,6 +417,7 @@ public class Room : MonoBehaviour
             {
                 UnitsInside.Remove(unit);
             }
+            
             
             unit.LeftRoom();
             
