@@ -15751,7 +15751,6 @@ MonoBehaviour:
   _resourceProduced: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
   _productionAmt: 10
   _productionTime: 2
-  _attentionIndicator: {fileID: 2582898112117627979}
   _powerConsumptionPerSecond: -0.1
   affectedEvent: 3
   bProducing: 1
@@ -15761,11 +15760,15 @@ MonoBehaviour:
   damagedParticles: {fileID: 3241928153494272435}
   _repairedParticles: {fileID: 4351234289265721839}
   _productionParticles: {fileID: 3186890364587705893}
-  _fatigueValueProducing: 2
-  _fatigueValueRepairing: 3
+  _fatigueValueProducing: 1
+  _fatigueValueRepairing: 1.5
   _cameraFocusLoc: {x: 10, y: -3, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 7951147982602873116}
+  _peaEnteredSound: {fileID: 0}
+  _productionSound: {fileID: 0}
+  _damagedSound: {fileID: 0}
+  _repairedSound: {fileID: 0}
 --- !u!1 &7305423408366368295
 GameObject:
   m_ObjectHideFlags: 0

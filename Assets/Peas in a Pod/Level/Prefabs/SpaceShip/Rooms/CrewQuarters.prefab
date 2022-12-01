@@ -538,7 +538,6 @@ MonoBehaviour:
   _resourceProduced: {fileID: 0}
   _productionAmt: 2
   _productionTime: 2
-  _attentionIndicator: {fileID: 6189245138370154686}
   _powerConsumptionPerSecond: 0
   affectedEvent: 3
   bProducing: 1
@@ -548,11 +547,15 @@ MonoBehaviour:
   damagedParticles: {fileID: 4929759174374828812}
   _repairedParticles: {fileID: 930362703527901491}
   _productionParticles: {fileID: 2311723960001791066}
-  _fatigueValueProducing: 0
-  _fatigueValueRepairing: 3
+  _fatigueValueProducing: -1
+  _fatigueValueRepairing: 1.5
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 0}
+  _peaEnteredSound: {fileID: 0}
+  _productionSound: {fileID: 0}
+  _damagedSound: {fileID: 0}
+  _repairedSound: {fileID: 0}
 --- !u!114 &4693662361738599447
 MonoBehaviour:
   m_ObjectHideFlags: 0
