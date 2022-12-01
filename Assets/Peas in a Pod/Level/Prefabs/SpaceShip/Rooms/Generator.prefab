@@ -15564,7 +15564,7 @@ MonoBehaviour:
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
-  _productionAmt: 10
+  _productionAmt: 5
   _productionTime: 2
   _powerConsumptionPerSecond: -0.1
   affectedEvent: 3
