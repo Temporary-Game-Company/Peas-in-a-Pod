@@ -21,6 +21,8 @@ public class Obstacle : MonoBehaviour
 
     public float _fatigueWhileInside = 3f;
 
+    private ObstacleRemover remover;
+
     [SerializeField] bool drainsResource;
     [SerializeField] FloatVariable resourceAffected;
     float _drainRate;
@@ -64,7 +66,7 @@ public class Obstacle : MonoBehaviour
         }
         if (curHealth <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 

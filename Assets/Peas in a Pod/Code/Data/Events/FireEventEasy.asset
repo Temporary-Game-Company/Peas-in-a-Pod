@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
   m_Name: FireEventEasy
   m_EditorClassIdentifier: 
-  Difficulty: 2
+  Difficulty: 0
   _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
     type: 3}
   EventType: 3
