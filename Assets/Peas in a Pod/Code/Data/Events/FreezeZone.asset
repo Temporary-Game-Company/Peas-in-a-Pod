@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FreezeZone
   m_EditorClassIdentifier: 
   Difficulty: 1
-  _toSpawn: {fileID: 5088321374296631062, guid: bd0deb7217815194ca55ae4a41d0df96,
+  _toSpawn: {fileID: 5088321374296631062, guid: 5ef99d04a29e7164885ce84b7bd93a36,
     type: 3}
   EventType: 4
   _loc: {x: 0, y: 0, z: 0}

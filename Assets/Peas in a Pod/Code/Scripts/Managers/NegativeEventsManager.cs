@@ -84,14 +84,22 @@ public class NegativeEventsManager : MonoBehaviour
             return;
         }
 
+        List<Room> correspondingRooms = new List<Room>();
         foreach(Room r in _rooms.Items)
         {
-            if (r.affectedEvent.Equals(EventConfigSO.EventType.Food) && !r.usedThisWave)
+            if (r.affectedEvent.Equals(type) && !r.usedThisWave)
             {
-                r.usedThisWave = true;
-                r.SystemDamaged(DamageAmounts[(int)difficulty]);
-                return;
+                correspondingRooms.Add(r);
             }
+        }
+        
+        if (correspondingRooms.Count > 0)
+        {
+            Room chosenRoom = correspondingRooms[Random.Range(0, correspondingRooms.Count)];
+            
+            chosenRoom.usedThisWave = true;
+            chosenRoom.SystemDamaged(DamageAmounts[(int)difficulty]);
+            return;
         }
     }
 

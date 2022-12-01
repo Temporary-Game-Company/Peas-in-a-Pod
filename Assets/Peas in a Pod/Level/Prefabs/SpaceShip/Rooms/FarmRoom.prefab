@@ -9873,7 +9873,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.1875, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9911,7 +9911,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.1875, y: 1.125}
-    newSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.1875, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -14962,7 +14962,7 @@ MonoBehaviour:
   _productionAmt: 25
   _productionTime: 3
   _attentionIndicator: {fileID: 9208946905905746739}
-  _powerConsumptionPerSecond: 0.5
+  _powerConsumptionPerSecond: 0.005
   affectedEvent: 0
   bProducing: 1
   resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}

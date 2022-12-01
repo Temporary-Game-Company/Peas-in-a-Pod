@@ -15519,7 +15519,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c6a7e519659b46b0e7b2e4b23dd30, type: 2}
+  - {fileID: 2100000, guid: 363d97f1ad8965742b2401bb5b77d984, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15924,8 +15924,8 @@ MonoBehaviour:
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
-  _productionAmt: 0.02
-  _productionTime: 10
+  _productionAmt: 10
+  _productionTime: 2
   _attentionIndicator: {fileID: 2598427048886716997}
   _powerConsumptionPerSecond: 0.5
   affectedEvent: 2

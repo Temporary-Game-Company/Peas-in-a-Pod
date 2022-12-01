@@ -10,21 +10,21 @@ public class HUD : MonoBehaviour
 
     public void UpdateHUDIntegrity(float integrity) // 0-100
     {
-        float scaledIntegrity = integrity / 100f;
+        float scaledIntegrity = integrity;
         hullIntegrityFill.fillAmount = scaledIntegrity;
         //Debug.Log(scaledIntegrity);
     }
     
     public void UpdateHUDPower(float power) // 0-1
     {
-        float scaledPower = power / 100f;
+        float scaledPower = power;
         powerFill.fillAmount = scaledPower;
         //Debug.Log(scaledPower);
     }
     
     public void UpdateHUDOxygen(float oxygen) // 0-1
     {
-        float scaledOxygen = oxygen / 100f;
+        float scaledOxygen = oxygen;
         oxygenFill.fillAmount = scaledOxygen;
         //Debug.Log(scaledOxygen);
     }
@@ -33,6 +33,5 @@ public class HUD : MonoBehaviour
     {
         float scaledTemp = (1f / 120f) * temp + 0.25f;
         temperatureFill.fillAmount = scaledTemp;
-        Debug.Log(scaledTemp);
     }
 }

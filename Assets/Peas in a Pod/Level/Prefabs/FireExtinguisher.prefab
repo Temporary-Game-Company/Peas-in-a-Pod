@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1579220834033436577}
   - component: {fileID: 1579220834033436576}
   - component: {fileID: 3987369779190861989}
+  - component: {fileID: 1965449107}
   m_Layer: 10
   m_Name: FireExtinguisher
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579220834033436589}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.7, y: 1.41, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -143,6 +144,32 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 021d8f46d8d34fa4785cdcfa0843382b, type: 2}
+--- !u!61 &1965449107
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579220834033436589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1875, y: 0.625}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1875, y: 0.625}
+  m_EdgeRadius: 0
 --- !u!1001 &1948059723605122634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,6 +230,11 @@ PrefabInstance:
     - target: {fileID: 302716001672160040, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018860815871041770, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,
+        type: 3}
+      propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7487453658559003744, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,

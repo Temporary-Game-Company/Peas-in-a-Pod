@@ -53,7 +53,8 @@ public class Obstacle : MonoBehaviour
 
     private void HandleRemoval()
     {
-        curHealth = Math.Clamp(curHealth - removersInside * Time.deltaTime, 0, Health);
+        curHealth = curHealth - removersInside * Time.deltaTime;
+        Debug.Log(curHealth + "   " + removersInside);
         if (HealthBar)
         {
             HealthBar.value = curHealth / Health;
@@ -66,14 +67,11 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("entered");
         ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
             if (remover._removerType == _obstacleType)
             {
-                Debug.Log("Removing");
-                Debug.Log(removersInside);
                 removersInside++;
             }
         }

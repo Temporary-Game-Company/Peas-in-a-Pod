@@ -9,10 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333066020181334094}
-  - component: {fileID: 1333066020181334089}
-  - component: {fileID: 1333066020181334088}
-  - component: {fileID: 7578275104498029528}
-  - component: {fileID: 7200292183374911932}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -27,21 +23,57 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333066020181334091}
-  m_LocalRotation: {x: -0.14519681, y: 0.0795501, z: -0.98613006, w: -0.011712877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.65, y: 0, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2351055394492604800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 170.776, y: 196.752, z: 0}
---- !u!198 &1333066020181334089
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7987268821119642979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2351055394492604800}
+  - component: {fileID: 7989225525323419204}
+  - component: {fileID: 9107587435649248169}
+  - component: {fileID: 5987456624011926747}
+  - component: {fileID: 5026466957324189794}
+  m_Layer: 0
+  m_Name: Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2351055394492604800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987268821119642979}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1333066020181334094}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!198 &7989225525323419204
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333066020181334091}
+  m_GameObject: {fileID: 7987268821119642979}
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
@@ -4742,14 +4774,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &1333066020181334088
+--- !u!199 &9107587435649248169
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333066020181334091}
+  m_GameObject: {fileID: 7987268821119642979}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4814,20 +4846,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &7578275104498029528
+--- !u!114 &5987456624011926747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333066020181334091}
+  m_GameObject: {fileID: 7987268821119642979}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31101e31a5f62d344a1f577c06c255fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  HealthBar: {fileID: 3364198387458562021}
+  HealthBar: {fileID: 0}
   _fatigueWhileInside: 2
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
@@ -4835,13 +4867,13 @@ MonoBehaviour:
   maxDrainRate: 1
   drainAcceleration: 0.05
   _obstacleType: 0
---- !u!61 &7200292183374911932
+--- !u!61 &5026466957324189794
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333066020181334091}
+  m_GameObject: {fileID: 7987268821119642979}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

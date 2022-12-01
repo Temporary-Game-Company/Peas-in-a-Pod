@@ -149,7 +149,7 @@ public class Room : MonoBehaviour
             
         }
 
-        if (_productionBar)
+        if (_productionBar && _producesGoods)
         {
             _productionBar.updateFill(_timeSinceProduction/_productionTime);
         }

@@ -70,6 +70,8 @@ MonoBehaviour:
   FatigueSlider: {fileID: 0}
   StartingHeat: 50
   MaximumHeat: 100
+  _oxygenConsumptionPerSecond: 0.03
+  _oxygenAmt: {fileID: 0}
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
   _initialExhuastionDelta: -1
   _maxExhaustion: 20
