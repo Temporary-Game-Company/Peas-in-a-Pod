@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
-  m_Name: FireEventHard
+  m_Name: AirLeak 1
   m_EditorClassIdentifier: 
-  Difficulty: 1
-  _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
+  Difficulty: 0
+  _toSpawn: {fileID: 7764327696690603577, guid: b70a11ab325145f44ae3baa55a72fb60,
     type: 3}
-  EventType: 3
-  _loc: {x: -1.46, y: -2.01, z: 0}
+  EventType: 5
+  _loc: {x: 6.58, y: 1.4, z: 0}

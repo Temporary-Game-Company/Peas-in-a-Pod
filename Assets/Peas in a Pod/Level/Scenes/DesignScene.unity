@@ -164,9 +164,14 @@ MonoBehaviour:
   - 50
   NegativeEvents:
   - {fileID: 11400000, guid: 78948a36f0049b644b4edd6cf92dcf30, type: 2}
+  - {fileID: 11400000, guid: 867bfbd5de458374cb1799f7298f964e, type: 2}
+  - {fileID: 11400000, guid: 092e32bacf79df540a3afd7fa389cee0, type: 2}
   - {fileID: 11400000, guid: cc532916dfdc77047a426d6ada2186e9, type: 2}
   - {fileID: 11400000, guid: 5647972ac3ecd8740b4a9da69589169c, type: 2}
   - {fileID: 11400000, guid: 132440c00734f8346a32440c18743a95, type: 2}
+  - {fileID: 11400000, guid: 52df3fa5ddc7ec043bf6eed548cee091, type: 2}
+  - {fileID: 11400000, guid: 114c8f632660fe8419d4931a111cdef3, type: 2}
+  - {fileID: 11400000, guid: 05f143697c786c3488a2432a26682e29, type: 2}
   _timeBetweenEvents: 3
 --- !u!114 &10210407
 MonoBehaviour:
@@ -211,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10210405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.48, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -311,22 +316,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.098997496
+      value: -0.012820513
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.09799555
+      value: -0.011363637
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.802005
+      value: 1.0256411
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8017818
+      value: 1.0227273
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}

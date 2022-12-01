@@ -14,11 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - Events:
-    - {fileID: 11400000, guid: ac537d1cb4fb42b489502b10dc052531, type: 2}
-    Cooldown: 20
+    - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
+    Cooldown: 7
+  - Events:
+    - {fileID: 11400000, guid: bd9c8e899e14d104ba54d7e645b1cbff, type: 2}
+    Cooldown: 13
+  - Events:
+    - {fileID: 11400000, guid: a1e15eb9d2ea71045b0ca76e121a53fe, type: 2}
+    Cooldown: 18
+  - Events:
+    - {fileID: 11400000, guid: 230d084c107087f4fa6b4c5c488428bf, type: 2}
+    Cooldown: 18
   - Events:
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
-    - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
-    Cooldown: 20
+    Cooldown: 16
+  - Events:
+    - {fileID: 11400000, guid: cced99fd5d0eb0e459bc63c8318e813d, type: 2}
+    Cooldown: 14
+  - Events:
+    - {fileID: 11400000, guid: 48785e8478a1413ba8cce1ad75c647b3, type: 2}
+    Cooldown: 14
   bLoops: 0
