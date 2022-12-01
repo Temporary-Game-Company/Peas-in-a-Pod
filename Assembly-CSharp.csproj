@@ -111,12 +111,12 @@
      <Compile Include="Assets\Peas in a Pod\Imported Packages\SlimUI\Modern Menu 1\Scripts\FlexibleUIElement.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ScriptableObjects\DifficultySystem\WaveConfigSO.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\Character\GlobalSelection.cs" />
+     <Compile Include="Assets\Food.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\UIScripts\HUD.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\MonoBehaviours\ComponentActions.cs" />
      <Compile Include="Assets\Peas in a Pod\Code\Scripts\ShipObjects\Obstacle.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\ThirdParty\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\Food.cs" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
