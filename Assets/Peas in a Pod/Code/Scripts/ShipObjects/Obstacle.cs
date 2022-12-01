@@ -48,7 +48,11 @@ public class Obstacle : MonoBehaviour
     {
         // Debug.Log(resourceAffected.Value);
         _drainRate = Mathf.Min(maxDrainRate, _drainRate + drainAcceleration * Time.deltaTime);
-        resourceAffected.ApplyChange(Mathf.Min(0f, -_drainRate * Time.deltaTime));
+        if (resourceAffected != null)
+        {
+            resourceAffected.ApplyChange(Mathf.Min(0f, -_drainRate * Time.deltaTime)); 
+        }
+        
         HandleRemoval();
     }
 

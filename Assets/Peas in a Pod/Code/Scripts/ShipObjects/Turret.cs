@@ -35,6 +35,10 @@ public class Turret : MonoBehaviour
     private float _cooldownRemaining = 0f;
 
     private Laser myLaser;
+
+    public AudioSource _chargeSound;
+
+    public AudioSource _fireSound;
     
     
 
@@ -112,7 +116,14 @@ public class Turret : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && _cooldownRemaining == 0)
         {
-            
+            if (!CanFire())
+            {
+                return;
+            }
+            if (_chargeSound != null)
+            {
+                _chargeSound.Play();
+            }
             _timeSinceBeganFiring = 0.1f;
             _returnAfterFiring = loc.localPosition;
             IsFiring = true;
@@ -123,6 +134,16 @@ public class Turret : MonoBehaviour
 
         
     }
+
+    private bool CanFire()
+    {
+        RaycastHit2D r = Physics2D.Raycast(loc.position,
+            loc.position + _forwardVector * 20f);
+        if (r.collider == null) return true;
+        return (r.collider.GetComponent<ProjectileEvent>() == null);
+    }
+        
+    
 
     private void HandleRotation()
     {
@@ -150,6 +171,16 @@ public class Turret : MonoBehaviour
 
     private void Fire(float width)
     {
+        if (_fireSound != null)
+        {
+            if (_chargeSound && _chargeSound.isPlaying)
+            {
+                _chargeSound.Stop();
+            }
+            _fireSound.volume = width;
+            
+            _fireSound.Play();
+        }
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
 
