@@ -133,13 +133,11 @@ public class ResourceManager : MonoBehaviour
 
     private void updateHUDPower()
     {
-        CheckIfWon();
-        
         if (playerHUD)
         {
             playerHUD.UpdateHUDPower(powerAmt.Value/100f);
-            
         }
+        CheckIfWon();
     }
 
     private void updateHUDIntegrity()
@@ -148,6 +146,7 @@ public class ResourceManager : MonoBehaviour
         {
             playerHUD.UpdateHUDIntegrity(HullIntegrity.Value/100f);
         }
+        CheckIfLoss();
     }
 
     private void updateHUDOxygen()
@@ -156,6 +155,7 @@ public class ResourceManager : MonoBehaviour
         {
             playerHUD.UpdateHUDOxygen(OxygenAmt.Value/_initialOxygenAmt);
         }
+        CheckIfLoss();
     }
 
     private void updateHUDTemp()
@@ -207,6 +207,7 @@ public class ResourceManager : MonoBehaviour
         if (HullIntegrity)
         {
             HullIntegrity.ApplyChange(-amt);
+            CheckIfLoss();
         }
     }
 
@@ -221,6 +222,7 @@ public class ResourceManager : MonoBehaviour
     public void ConsumeOxygen(float amt)
     {
         OxygenAmt.Value -= amt;
+        CheckIfLoss();
     }
   
 
@@ -451,14 +453,22 @@ public class ResourceManager : MonoBehaviour
         }
     }
      
-     private void CheckIfWon(){
-
-         if (powerAmt.Value >= 100f)
+     private void CheckIfWon()
+     {
+        Debug.Log(powerAmt.Value);
+         if (powerAmt.Value > 99f)
          {
-             if (playerHUD)
-             {
-                //  playerHUD.DisplayWinScreen();
-             }
+            SceneManager.LoadScene("WinScreen");
          }
      }
+     
+     private void CheckIfLoss(){
+
+         if (OxygenAmt.Value <= 0f || HullIntegrity.Value <= 0f)
+         {
+            SceneManager.LoadScene("LossScreen");
+         }
+     }
+
+
 }
