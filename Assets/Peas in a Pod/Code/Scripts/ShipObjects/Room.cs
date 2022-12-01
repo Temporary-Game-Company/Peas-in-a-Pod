@@ -122,7 +122,7 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.name == "WeaponsRoom") Debug.Log($"bProducing: {bProducing}  Units: {UnitsInside.Count}");
+        // if (gameObject.name == "WeaponsRoom") Debug.Log($"bProducing: {bProducing}  Units: {UnitsInside.Count}");
 
         if (_resourceManager == null)
         {
