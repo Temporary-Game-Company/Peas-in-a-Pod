@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1237152174570477592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1234052777913864254}
@@ -67,9 +67,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PeaSet: {fileID: 11400000, guid: 08e2eeee24b0d9e48a2663621443e36f, type: 2}
   Velocity: 0
-  HealthBar: {fileID: 0}
+  FatigueSlider: {fileID: 0}
   StartingHeat: 50
   MaximumHeat: 100
+  _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
+  _initialExhuastionDelta: -1
+  _maxExhaustion: 20
 --- !u!195 &2970746035523545677
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -125,7 +128,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: ded3aa3408f50da489534b1dd1c5d95b, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -141,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c90be151d53e845958147f86728b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBody: {fileID: 66284343}
+  rb2d: {fileID: 66284343}
   DragVelocity:
     UseConstant: 0
     ConstantValue: 0
