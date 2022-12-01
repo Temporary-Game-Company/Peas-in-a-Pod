@@ -6539,11 +6539,11 @@ MonoBehaviour:
   _fatigueValueRepairing: 3
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 3004304181485105324}
-  roomAnimator: {fileID: 0}
   _peaEnteredSound: {fileID: 0}
   _productionSound: {fileID: 0}
   _damagedSound: {fileID: 0}
   _repairedSound: {fileID: 0}
+  roomAnimator: {fileID: 3226353964505502549}
 --- !u!1 &7041192735536005524
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,6 +56,10 @@ public class Obstacle : MonoBehaviour
         curHealth = curHealth - removersInside * Time.deltaTime;
        
         if (HealthBar){
+        if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
+        // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
+        if (HealthBar)
+        {
             HealthBar.value = curHealth / Health;
         }
         if (curHealth <= 0)

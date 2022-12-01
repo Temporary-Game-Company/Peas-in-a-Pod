@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1489704405264385767}
   - component: {fileID: 1489704405264385760}
-  - component: {fileID: 1489704405264385761}
   - component: {fileID: 1489704405264385766}
+  - component: {fileID: 572671713524221419}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
