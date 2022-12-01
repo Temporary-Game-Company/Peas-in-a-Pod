@@ -5206,6 +5206,10 @@ PrefabInstance:
       propertyPath: particles
       value: 
       objectReference: {fileID: 485910320}
+    - target: {fileID: 2102830939, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.28125
+      objectReference: {fileID: 0}
     - target: {fileID: 56423491187719206, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_IsActive

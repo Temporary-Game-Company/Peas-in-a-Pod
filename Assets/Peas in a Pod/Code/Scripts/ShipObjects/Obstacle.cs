@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
+using TemporaryGameCompany;
 
 public class Obstacle : MonoBehaviour
 {
@@ -17,7 +18,15 @@ public class Obstacle : MonoBehaviour
 
     private int removersInside = 0;
 
+
     public float _fatigueWhileInside = 3f;
+
+    [SerializeField] bool drainsResource;
+    [SerializeField] FloatVariable resourceAffected;
+    float _drainRate;
+    [SerializeField] float initialDrainRate;
+    [SerializeField] float maxDrainRate;
+    [SerializeField] float drainAcceleration;
 
     public enum ObstacleTypes
     {
@@ -29,12 +38,16 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         curHealth = Health;
-        
+        Debug.Log(curHealth);
+        _drainRate = initialDrainRate;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(resourceAffected.Value);
+        _drainRate = Mathf.Min(maxDrainRate, _drainRate + drainAcceleration * Time.deltaTime);
+        resourceAffected.ApplyChange(Mathf.Min(0f, -_drainRate * Time.deltaTime));
         HandleRemoval();
     }
 
@@ -53,11 +66,14 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("entered");
         ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
             if (remover._removerType == _obstacleType)
             {
+                Debug.Log("Removing");
+                Debug.Log(removersInside);
                 removersInside++;
             }
         }
