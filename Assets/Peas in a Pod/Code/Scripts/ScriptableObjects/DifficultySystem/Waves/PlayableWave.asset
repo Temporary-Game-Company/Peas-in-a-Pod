@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - Events:
+    - {fileID: 11400000, guid: ac537d1cb4fb42b489502b10dc052531, type: 2}
+    Cooldown: 20
+  - Events:
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}

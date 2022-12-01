@@ -5857,7 +5857,7 @@ SpriteRenderer:
   m_SortingLayerID: -192660613
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 209211261, guid: f38c248f63946f24a85f350feb19449c, type: 3}
+  m_Sprite: {fileID: 391030241, guid: adee0cea3a0b2b4438d46b2446b1511c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15927,8 +15927,8 @@ MonoBehaviour:
   _productionAmt: 10
   _productionTime: 2
   _attentionIndicator: {fileID: 2598427048886716997}
-  _powerConsumptionPerSecond: 0.5
-  affectedEvent: 2
+  _powerConsumptionPerSecond: -0.1
+  affectedEvent: 3
   bProducing: 1
   resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
   usedThisWave: 0

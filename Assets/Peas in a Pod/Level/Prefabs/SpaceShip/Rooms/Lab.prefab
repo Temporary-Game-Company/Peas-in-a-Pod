@@ -15193,11 +15193,11 @@ MonoBehaviour:
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
-  _productionAmt: 0.05
+  _productionAmt: 5
   _productionTime: 1.5
   _attentionIndicator: {fileID: 8997601509635291094}
-  _powerConsumptionPerSecond: 0.5
-  affectedEvent: 1
+  _powerConsumptionPerSecond: 0.05
+  affectedEvent: 3
   bProducing: 1
   resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
   usedThisWave: 0

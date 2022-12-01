@@ -15822,7 +15822,7 @@ MonoBehaviour:
   _productionAmt: 2
   _productionTime: 2
   _attentionIndicator: {fileID: 2749258770585656840}
-  _powerConsumptionPerSecond: 0.5
+  _powerConsumptionPerSecond: 0
   affectedEvent: 3
   bProducing: 1
   resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}

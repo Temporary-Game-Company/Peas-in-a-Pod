@@ -11,9 +11,9 @@ using UnityEngine.UI;
 public class Window : MonoBehaviour
 {
 
-    public Color openColor;
+    public Sprite openSprite;
 
-    public Color closedColor;
+    public Sprite closedSprite;
 
     public bool _isOpen = false;
 
@@ -54,7 +54,7 @@ public class Window : MonoBehaviour
         }
         if (_isOpen)
         {
-            _spriteRenderer.color = openColor;
+            _spriteRenderer.sprite = openSprite;
             if (_hint)
             {
                 _hint.GetComponent<SpriteRenderer>().color = Color.green;
@@ -62,7 +62,7 @@ public class Window : MonoBehaviour
         }
         else
         {
-            _spriteRenderer.color = closedColor;
+            _spriteRenderer.sprite = closedSprite;
             if (_hint)
             {
                 _hint.GetComponent<SpriteRenderer>().color = Color.red;
@@ -172,7 +172,7 @@ public class Window : MonoBehaviour
         _isOpen = true;
         if (_spriteRenderer)
         {
-            _spriteRenderer.color = openColor;
+            _spriteRenderer.sprite = openSprite;
         }
 
         if (_resourceManager == null)
@@ -197,7 +197,7 @@ public class Window : MonoBehaviour
         _isOpen = false;
         if (_spriteRenderer)
         {
-            _spriteRenderer.color = closedColor;
+            _spriteRenderer.sprite = closedSprite;
         }
         if (_resourceManager == null)
         {

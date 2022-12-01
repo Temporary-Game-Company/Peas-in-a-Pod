@@ -310,6 +310,11 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4727563614544631734, guid: ffccab4636cb5bf448bd3d436b54aaa5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1481553413
+      objectReference: {fileID: 0}
     - target: {fileID: 4727563614544631735, guid: ffccab4636cb5bf448bd3d436b54aaa5,
         type: 3}
       propertyPath: m_Pivot.x
@@ -508,38 +513,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1198483457, guid: dddeaecc914163241a4055e77769f04c, type: 3}
-      propertyPath: m_CropFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198483457, guid: dddeaecc914163241a4055e77769f04c, type: 3}
-      propertyPath: m_GridSnapping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5.625
-      objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.004636785
+      value: -0.81147534
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0054945056
+      value: -0.79710144
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9891808
+      value: 2.6229506
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.989011
+      value: 2.6086957
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
@@ -610,6 +602,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2102830937, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102830939, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102830939, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 341802041821668773, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -624,6 +628,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503791830254653753, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503791830254653753, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503791830254653753, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -192660613
       objectReference: {fileID: 0}
     - target: {fileID: 3567741303130044263, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
