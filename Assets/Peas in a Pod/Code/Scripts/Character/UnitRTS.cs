@@ -397,7 +397,8 @@ public class UnitRTS : MonoBehaviour
         if (_audioSource && _eatingNoise)
         {
             _audioSource.clip = _eatingNoise;
-            
+            _audioSource.Play();
+
         }
         if (_selectedGameObject)
         {

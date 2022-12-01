@@ -4862,7 +4862,7 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   _fatigueWhileInside: 2
   drainsResource: 1
-  resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
+  resourceAffected: {fileID: 11400000, guid: 0f3a779949c6a194eb29d4238842e52c, type: 2}
   initialDrainRate: 0.5
   maxDrainRate: 1
   drainAcceleration: 0.05

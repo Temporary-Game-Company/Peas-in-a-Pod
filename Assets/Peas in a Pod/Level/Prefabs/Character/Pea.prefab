@@ -251,6 +251,7 @@ MonoBehaviour:
   _oxygenConsumptionPerSecond: 0.005
   _oxygenAmt: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
+  _eatingNoise: {fileID: 8300000, guid: 0f0bffd3ce2d4c228c0fd66af0d4a7f7, type: 3}
   _initialExhuastionDelta: -2
   _maxExhaustion: 20
 --- !u!195 &2970746035523545677

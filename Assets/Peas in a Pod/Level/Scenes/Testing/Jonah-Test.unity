@@ -1202,6 +1202,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78948a36f0049b644b4edd6cf92dcf30, type: 2}
   - {fileID: 11400000, guid: 867bfbd5de458374cb1799f7298f964e, type: 2}
   - {fileID: 11400000, guid: cc532916dfdc77047a426d6ada2186e9, type: 2}
+  - {fileID: 11400000, guid: 5647972ac3ecd8740b4a9da69589169c, type: 2}
+  - {fileID: 11400000, guid: 132440c00734f8346a32440c18743a95, type: 2}
+  - {fileID: 11400000, guid: 132440c00734f8346a32440c18743a95, type: 2}
+  - {fileID: 11400000, guid: 52df3fa5ddc7ec043bf6eed548cee091, type: 2}
   _timeBetweenEvents: 3
 --- !u!1001 &1832466324
 PrefabInstance:
@@ -1269,22 +1273,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.061987236
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.06158833
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.87511396
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.8752026
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
