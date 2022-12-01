@@ -16,7 +16,7 @@ public class Obstacle : MonoBehaviour
 
     public Slider HealthBar;
 
-    private ObstacleRemover remover = null;
+    private int removersInside = 0;
 
 
     public float _fatigueWhileInside = 3f;
@@ -51,8 +51,11 @@ public class Obstacle : MonoBehaviour
         HandleRemoval();
     }
 
+    ObstacleRemover remover;
     private void HandleRemoval()
     {
+        curHealth = curHealth - removersInside * Time.deltaTime;
+       
         if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
         // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
         if (HealthBar)
@@ -67,13 +70,12 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name);
-        ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
+        remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
             if (remover._removerType == _obstacleType)
             {
-                this.remover = remover;
+                removersInside++;
             }
         }
 
@@ -96,7 +98,7 @@ public class Obstacle : MonoBehaviour
         {
             if (remover._removerType == _obstacleType)
             {
-                this.remover = null;
+                removersInside--;
             }
         }
     }
