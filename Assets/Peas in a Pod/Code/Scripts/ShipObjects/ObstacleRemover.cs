@@ -10,6 +10,8 @@ public class ObstacleRemover : MonoBehaviour
 
     private UnitRTS owner;
 
+    public bool active; // true if it can be picked up right now
+
     public Vector3 offset;
     // Start is called before the first frame update
     void Start()
@@ -20,19 +22,24 @@ public class ObstacleRemover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(owner);
         if (owner != null)
         {
             transform.localPosition = owner.transform.localPosition + offset;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
         UnitRTS unit = col.GetComponent<UnitRTS>();
-        if (unit)
+        if (active && unit && !owner)
         {
             owner = unit;
         }
+    }
+
+    public void Unequip(){
+        owner = null;
     }
 }
 

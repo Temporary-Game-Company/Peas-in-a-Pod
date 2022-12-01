@@ -26,6 +26,7 @@ public class Draggable : MonoBehaviour
         get => _isSelected;
     }
 
+    ObstacleRemover _obstacleRemover; // if this object has an obstacle remover attached, put it here
 
     public DirectionChangeDelegate OnDirectionChanged;
     bool _isFacingRight = false;
@@ -45,13 +46,17 @@ public class Draggable : MonoBehaviour
     void Start()
     {
         isSelected = false;
+        _obstacleRemover = gameObject.GetComponent<ObstacleRemover>();
     }
 
 
     void OnMouseDown()
     {
         // set offsets to where on the screen you clicked.
-        
+        if (_obstacleRemover) {
+            _obstacleRemover.active = false;
+            _obstacleRemover.Unequip();
+        }
         _offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         isSelected = true;
     }
@@ -65,6 +70,7 @@ public class Draggable : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (_obstacleRemover) _obstacleRemover.active = true;
         isSelected = false;
     }
 
