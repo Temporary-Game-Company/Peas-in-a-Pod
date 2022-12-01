@@ -56,9 +56,7 @@ public class AudioManager : MonoBehaviour
     {
         while (Set.Get() != null)
         {
-            var oldManager = Set.Get();
-            Set.Remove(oldManager);
-            Destroy(oldManager);
+            Set.Get().OnDisable();
         }
         Set.Add(this);
     }
@@ -66,6 +64,6 @@ public class AudioManager : MonoBehaviour
     private void OnDisable()
     {
         Set.Remove(this);
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

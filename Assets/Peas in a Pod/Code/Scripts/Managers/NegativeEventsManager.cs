@@ -26,43 +26,8 @@ public class NegativeEventsManager : MonoBehaviour
     IEnumerator startWaves()
     {
         yield return new WaitForSeconds(0.2f);
-        DoFirstEvent();
-    }
-
-    private void DoFirstEvent()
-    {
-        foreach (Room r in _rooms.Items)
-        {
-            r.usedThisWave = false;
-        }
-        _currentEvent = Wave.Events[0];
-        for(int i = 0; i < _currentEvent.Events.Count; i++)
-        {
-            EventConfigSO Event = _currentEvent.Events[i];
-            ExecuteEvent(Event.difficulty, Event.type);
-        }
-
-        
-        StartCoroutine(DoAnEvent(_currentEvent.Cooldown, 1));
-    }
-
-    private void NextEvent(int i)
-    {
-        if (i == Wave.Events.Count)
-        {
-            // For now just loop but this can be a win condition
-            i = 0;
-        }
-        foreach (Room r in _rooms.Items)
-        {
-            r.usedThisWave = false;
-        }
-        _currentEvent = Wave.Events[i];
-        for(int j = 0; j < _currentEvent.Events.Count; j++)
-        {
-            EventConfigSO Event = _currentEvent.Events[j];
-            ExecuteEvent(Event.difficulty, Event.type);
-        }
+    
+        StartCoroutine(DoAnEvent(RandomEvent()));
     }
 
     private void ExecuteEvent(EventConfigSO.Difficulty difficulty, EventConfigSO.EventType type)
@@ -103,26 +68,25 @@ public class NegativeEventsManager : MonoBehaviour
         }
     }
 
-    IEnumerator DoAnEvent(float TimeToWait, int eventIndex)
+    IEnumerator DoAnEvent(EventPair currentEvent)
     {
-        yield return new WaitForSeconds(TimeToWait);
-        if (eventIndex == Wave.Events.Count)
-        {
-            // For now just loop but this can be a win condition
-            eventIndex = 0;
-        }
         foreach (Room r in _rooms.Items)
         {
             r.usedThisWave = false;
         }
-        _currentEvent = Wave.Events[eventIndex];
-        for(int i = 0; i < _currentEvent.Events.Count; i++)
+        for(int i = 0; i < currentEvent.Events.Count; i++)
         {
-            EventConfigSO Event = _currentEvent.Events[i];
+            EventConfigSO Event = currentEvent.Events[i];
             ExecuteEvent(Event.difficulty, Event.type);
         }
 
-        StartCoroutine(DoAnEvent(_currentEvent.Cooldown, eventIndex + 1));
+        yield return new WaitForSeconds(currentEvent.Cooldown);
+        StartCoroutine(DoAnEvent(RandomEvent()));
+    }
+
+    private EventPair RandomEvent()
+    {
+        return Wave.Events[Random.Range(0, Wave.Events.Count)];
     }
 
     private void DamageSystem(Room toDamage)
