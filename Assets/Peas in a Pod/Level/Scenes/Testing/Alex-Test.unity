@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4984,6 +4984,10 @@ MonoBehaviour:
   loc: {fileID: 734665894}
   _toInstantiate: {fileID: 0}
   _originalSpawn: {x: 0, y: 0, z: 0}
+  _laserRetentionTime: 0.5
+  _maxChargeTime: 1
+  _chargeSlider: {fileID: 0}
+  _cooldownTime: 1
 --- !u!1 &734665892
 GameObject:
   m_ObjectHideFlags: 0
@@ -5166,6 +5170,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1380204899808075031, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426114115155656479, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426114115155656479, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10631,22 +10645,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.061987236
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.06158833
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.87511396
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.8752026
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
