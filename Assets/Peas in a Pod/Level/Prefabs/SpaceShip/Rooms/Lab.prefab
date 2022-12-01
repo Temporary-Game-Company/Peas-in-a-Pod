@@ -14855,7 +14855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8790396809895300061
 Transform:
   m_ObjectHideFlags: 0
@@ -14999,7 +14999,7 @@ SpriteRenderer:
   m_SortingLayerID: -192660613
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4e654b4a244203a4e9893a80ef069f03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6854b84f48285dd4eb33bbdf1922e6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15041,7 +15041,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1875, y: 1.125}
+    oldSize: {x: 0.1875, y: 1.5}
     newSize: {x: 0.1875, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15194,7 +15194,7 @@ MonoBehaviour:
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   _productionAmt: 1
-  _productionTime: 0.1
+  _productionTime: 0.25
   _attentionIndicator: {fileID: 8997601509635291094}
   _powerConsumptionPerSecond: 0.05
   affectedEvent: 3
