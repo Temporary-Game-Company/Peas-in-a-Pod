@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1925f5f18109b1847ad7134cf572aed0
+guid: 9b9a913e66e2828469ac17f92dcdd209
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Minecraft
+  - kollectionbitmap
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2
