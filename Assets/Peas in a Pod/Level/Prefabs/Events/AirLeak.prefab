@@ -4890,6 +4890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   HealthBar: {fileID: 0}
+  _fatigueWhileInside: 2
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   initialDrainRate: 0

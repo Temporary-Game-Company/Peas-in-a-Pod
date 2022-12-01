@@ -4957,7 +4957,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   HealthBar: {fileID: 3364198387458562021}
-  _fatigueWhileInside: 3
+  _fatigueWhileInside: 2
+  drainsResource: 1
+  resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
+  initialDrainRate: 0.5
+  maxDrainRate: 1
+  drainAcceleration: 0.05
   _obstacleType: 0
 --- !u!61 &7200292183374911932
 BoxCollider2D:
