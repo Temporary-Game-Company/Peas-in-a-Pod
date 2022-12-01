@@ -26,7 +26,7 @@ public class ResourceManager : MonoBehaviour
     private float initialPowerAmt = 100f;
 
 
-    private float _initialOxygenAmt = 100f;
+    private float _initialOxygenAmt = 1f;
 
     public FloatVariable OxygenAmt;
 
@@ -68,7 +68,6 @@ public class ResourceManager : MonoBehaviour
     public void changeFood(float oldAmt, float newAmt)
     {
         
-        updateHUDFood();
     }
 
     public void changeTemp(float oldTemp, float newTemp)
@@ -79,13 +78,13 @@ public class ResourceManager : MonoBehaviour
 
     public void changeIntegrity(float oldValue, float newValue)
     {
-        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 100f);
+        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 1f);
         updateHUDIntegrity();
     }
 
     public void changeOxygen(float oldValue, float newValue)
     {
-        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 110f);
+        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 1f);
         updateHUDOxygen();
     }
     // Start is called before the first frame update
@@ -97,15 +96,12 @@ public class ResourceManager : MonoBehaviour
         OxygenAmt.Value = _initialOxygenAmt;
         temperature.Value = _initialTemperature;
         temperature.ValueChanged += changeTemp;
-        Debug.Log(temperature.Value);
         powerAmt.Value = initialPowerAmt;
         powerAmt.ValueChanged += changePower;
-        HullIntegrity.Value = 100f;
+        HullIntegrity.Value = 1f;
         HullIntegrity.ValueChanged += changeIntegrity;
         _activePeas = 0;
         updateHUDIntegrity();
-        updateHUDFood();
-        updateHUDPeas();
         updateHUDPower(); 
         updateHUDOxygen();
         updateHUDTemp();
@@ -124,17 +120,6 @@ public class ResourceManager : MonoBehaviour
             _tempCheck = 0f;
             CalculateHeatChange();
             HandleHeatTemperature();
-        }
-    }
-
-    
-    
-
-    private void updateHUDFood()
-    {
-        if (playerHUD)
-        {
-            playerHUD.UpdateHUDFood(foodAmt.Value);
         }
     }
 
@@ -186,31 +171,9 @@ public class ResourceManager : MonoBehaviour
     public void UpdateAllHUD()
     {
         updateHUDIntegrity();
-        updateHUDFood();
-        updateHUDPeas();
         updateHUDPower(); 
         updateHUDOxygen();
         updateHUDTemp();
-    }
-
-    public void increaseActivePeas()
-    {
-        _activePeas++;
-        updateHUDPeas();
-    }
-
-    private void updateHUDPeas()
-    {
-        if (playerHUD)
-        {
-            playerHUD.UpdateHUDActivePeas(_activePeas, Peas.Items.Count);
-        }
-    }
-
-    public void decreaseActivePeas()
-    {
-        _activePeas--;
-        updateHUDPeas();
     }
 
     public void IncreaseTemperatureDelta(float amt)

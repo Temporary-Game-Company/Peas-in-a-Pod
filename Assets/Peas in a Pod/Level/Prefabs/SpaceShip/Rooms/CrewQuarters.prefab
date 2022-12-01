@@ -15822,7 +15822,7 @@ MonoBehaviour:
   _productionAmt: 2
   _productionTime: 2
   _attentionIndicator: {fileID: 2749258770585656840}
-  _powerConsumptionPerSecond: 0.5
+  _powerConsumptionPerSecond: 0.005
   affectedEvent: 3
   bProducing: 1
   resourceManager: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
@@ -15835,6 +15835,7 @@ MonoBehaviour:
   _fatigueValueRepairing: 3
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
+  roomAnimator: {fileID: 0}
 --- !u!114 &4817091194824625753
 MonoBehaviour:
   m_ObjectHideFlags: 0

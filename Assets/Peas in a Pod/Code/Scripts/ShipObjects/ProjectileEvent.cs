@@ -27,7 +27,7 @@ public class ProjectileEvent : MonoBehaviour
 
     public float _shakeTime = 0f;
 
-    public float dmgAmt = 20f;
+    public float dmgAmt = 0.2f;
 
     public ManagerRuntimeSet ManagerRuntimeSet;
 
