@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -31,14 +30,6 @@ public class HUD : MonoBehaviour
     {
         float scaledTemp = (1f / 120f) * temp + 0.25f;
         temperatureFill.fillAmount = scaledTemp;
-        Debug.Log(scaledTemp);
-    }
-
-    public void DisplayWinScreen()
-    {
-        if (_winScreen)
-        {
-            _winScreen.gameObject.SetActive(true);
-        }
+        //Debug.Log(scaledTemp);
     }
 }
