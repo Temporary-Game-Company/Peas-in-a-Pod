@@ -30,7 +30,7 @@ public class FoodSpawner : MonoBehaviour
     void SpawnFood(float oldValue, float newValue)
     // enable one food from the pool 
     {
-        Debug.Log($"{oldValue}, {newValue}");
+        // Debug.Log($"{oldValue}, {newValue}");
         if (newValue > oldValue)
             foreach (GameObject foodObject in foodPool) if (foodObject.activeSelf == false) {
                 foodObject.transform.position = spawnPoint.position;

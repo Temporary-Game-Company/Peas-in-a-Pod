@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1579220834033436591}
   - component: {fileID: 1579220834033436590}
   - component: {fileID: 1579220834033436576}
+  - component: {fileID: 3987369779190861989}
   m_Layer: 10
   m_Name: FireExtinguisher
   m_TagString: Untagged
@@ -175,7 +176,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _removerType: 0
-  offset: {x: -0.333, y: 0, z: -0.05}
+  active: 0
+  offset: {x: -0.47, y: 0, z: 0}
+--- !u!114 &3987369779190861989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579220834033436589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c90be151d53e845958147f86728b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 1579220834033436577}
+  DragVelocity:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 021d8f46d8d34fa4785cdcfa0843382b, type: 2}
 --- !u!1 &8998230065747665450
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +857,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 20
+    angle: 30
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1160,9 +1179,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 2
-          outSlope: 2
+          value: 0.5
+          inSlope: 1
+          outSlope: 1
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -1170,8 +1189,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0.5
           value: 1
-          inSlope: 0.0017251968
-          outSlope: 0.0017251968
+          inSlope: -0.48285717
+          outSlope: -0.48285717
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -1179,8 +1198,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0.017142856
-          inSlope: -1.9965496
-          outSlope: -1.9965496
+          inSlope: -1.9657143
+          outSlope: -1.9657143
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -3797,10 +3816,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -3862,7 +3881,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3967,12 +3986,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 1
+    radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 64
     maxCollisionShapes: 256
-    quality: 0
+    quality: 1
     voxelSize: 0.5
     collisionMessages: 0
     collidesWithDynamic: 1
