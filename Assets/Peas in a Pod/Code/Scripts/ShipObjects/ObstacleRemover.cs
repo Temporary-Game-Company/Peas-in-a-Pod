@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ObstacleRemover : MonoBehaviour
 {
 
@@ -23,6 +24,8 @@ public class ObstacleRemover : MonoBehaviour
 
     private BoxCollider2D _boxCollider;
 
+    public bool isActive{ private set; get; }
+
     private Rigidbody2D _rb;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class ObstacleRemover : MonoBehaviour
         active = true;
         emission = particles.emission;
         emission.enabled = false;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -50,6 +54,8 @@ public class ObstacleRemover : MonoBehaviour
         if (active && unit && !owner)
         {
             owner = unit;
+            _rb.velocity = Vector2.zero;
+            _rb.Sleep();
             emission.enabled = true;
             Draggable ownerDraggable = owner.gameObject.GetComponent<Draggable>();
             if (ownerDraggable) 
@@ -65,6 +71,7 @@ public class ObstacleRemover : MonoBehaviour
         owner = null;
         if (ownerDraggable) ownerDraggable.OnDirectionChanged -= OnChangeDirections;
         emission.enabled = false;
+        _rb.WakeUp();
     }
 
     private void OnChangeDirections(bool value) {

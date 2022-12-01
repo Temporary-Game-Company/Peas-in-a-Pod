@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   _removerType: 0
   particles: {fileID: 3228299600175595168}
   active: 0
-  offset: {x: -0.47, y: 0, z: 0}
+  offset: {x: -0.48, y: 0, z: 0}
 --- !u!114 &3987369779190861989
 MonoBehaviour:
   m_ObjectHideFlags: 0
