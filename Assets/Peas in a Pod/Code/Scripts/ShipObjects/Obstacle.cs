@@ -27,6 +27,8 @@ public class Obstacle : MonoBehaviour
     [SerializeField] float maxDrainRate;
     [SerializeField] float drainAcceleration;
 
+    private List<UnitRTS> UnitsInside = new List<UnitRTS>();
+
     public enum ObstacleTypes
     {
         Fire,
@@ -80,7 +82,12 @@ public class Obstacle : MonoBehaviour
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
-            unit.AddToExhaustionDelta(_fatigueWhileInside);
+            if (!UnitsInside.Contains(unit))
+            {
+                UnitsInside.Add(unit);
+                unit.AddToExhaustionDelta(_fatigueWhileInside);
+            }
+            
         }
     }
 
@@ -89,7 +96,11 @@ public class Obstacle : MonoBehaviour
         UnitRTS unit = other.GetComponent<UnitRTS>();
         if (unit != null)
         {
-            unit.AddToExhaustionDelta(-_fatigueWhileInside);
+            if (UnitsInside.Contains(unit))
+            {
+                UnitsInside.Remove(unit);
+                unit.AddToExhaustionDelta(-_fatigueWhileInside);
+            }
         }
         ObstacleRemover remover = other.GetComponent<ObstacleRemover>();
         if (remover != null)
@@ -98,6 +109,15 @@ public class Obstacle : MonoBehaviour
             {
                 _remover = null;
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (UnitRTS r in UnitsInside)
+        {
+            r.AddToExhaustionDelta(-_fatigueWhileInside);
+            UnitsInside.Remove(r);
         }
     }
 }

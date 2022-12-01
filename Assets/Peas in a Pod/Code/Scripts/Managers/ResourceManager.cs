@@ -455,7 +455,7 @@ public class ResourceManager : MonoBehaviour
      
      private void CheckIfWon()
      {
-        Debug.Log(powerAmt.Value);
+        
          if (powerAmt.Value > 99f)
          {
             SceneManager.LoadScene("WinScreen");

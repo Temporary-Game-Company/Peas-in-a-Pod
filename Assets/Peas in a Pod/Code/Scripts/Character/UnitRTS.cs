@@ -378,7 +378,7 @@ public class UnitRTS : MonoBehaviour
         }
         if (drag != null)
         {
-            drag.Enable();
+            drag.Disable();
         }
     }
 
@@ -394,7 +394,7 @@ public class UnitRTS : MonoBehaviour
 
         if (drag != null)
         {
-            drag.Disable();
+            drag.Enable();
         }
     }
 

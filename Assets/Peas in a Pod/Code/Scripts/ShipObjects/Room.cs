@@ -391,6 +391,15 @@ public class Room : MonoBehaviour
             if(!UnitsInside.Contains(unit))
             {
                 UnitsInside.Add(unit);
+                if (_isDamaged)
+                {
+                
+                    unit.AddToExhaustionDelta(_fatigueValueRepairing);
+                }
+                else
+                {
+                    unit.AddToExhaustionDelta(_fatigueValueProducing);
+                }
             }
 
             if (_restRoom)
@@ -403,15 +412,7 @@ public class Room : MonoBehaviour
             }
             unit.EnteredRoom(this);
             _currentIncreasePerSecond += unit.GetProductionPercentage();
-            if (_isDamaged)
-            {
-                
-                unit.AddToExhaustionDelta(_fatigueValueRepairing);
-            }
-            else
-            {
-                unit.AddToExhaustionDelta(_fatigueValueProducing);
-            }
+            
             
         }
     }
@@ -441,6 +442,15 @@ public class Room : MonoBehaviour
             if (UnitsInside.Contains(unit))
             {
                 UnitsInside.Remove(unit);
+                if (_isDamaged)
+                {
+               
+                    unit.AddToExhaustionDelta(-_fatigueValueRepairing);
+                }
+                else
+                {
+                    unit.AddToExhaustionDelta(-_fatigueValueProducing);
+                }
             }
 
             if (_restRoom)
@@ -451,15 +461,7 @@ public class Room : MonoBehaviour
             
             UpdateProduction();
             
-            if (_isDamaged)
-            {
-               
-                unit.AddToExhaustionDelta(-_fatigueValueRepairing);
-            }
-            else
-            {
-                unit.AddToExhaustionDelta(-_fatigueValueProducing);
-            }
+            
 
             if (UnitsInside.Count == 0)
             {

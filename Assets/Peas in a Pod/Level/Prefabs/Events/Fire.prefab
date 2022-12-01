@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31101e31a5f62d344a1f577c06c255fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 3
   HealthBar: {fileID: 0}
   _fatigueWhileInside: 2
   drainsResource: 1
@@ -4866,7 +4866,7 @@ MonoBehaviour:
   initialDrainRate: 0.5
   maxDrainRate: 1.5
   drainAcceleration: 0.05
-  _obstacleType: 0
+  obstacleType: 0
 --- !u!61 &5026466957324189794
 BoxCollider2D:
   m_ObjectHideFlags: 0
