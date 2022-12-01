@@ -10,7 +10,7 @@ public class ObstacleRemover : MonoBehaviour
 
     private UnitRTS owner;
 
-    public bool active; // true if it can be picked up right now
+    public bool active = true; // true if it can be picked up right now
 
     public Vector3 offset;
     // Start is called before the first frame update
