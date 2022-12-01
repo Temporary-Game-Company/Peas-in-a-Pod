@@ -21,7 +21,7 @@ public class ResourceManager : MonoBehaviour
     
     
 
-    private float initialFoodAmt = 100f;
+    private float initialFoodAmt = 0f;
 
     public FloatVariable powerAmt;
 
@@ -163,7 +163,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDIntegrity(HullIntegrity.Value);
+            playerHUD.UpdateHUDIntegrity(HullIntegrity.Value/100f);
         }
     }
 

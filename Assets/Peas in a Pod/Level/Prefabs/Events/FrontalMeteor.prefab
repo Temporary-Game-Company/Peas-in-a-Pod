@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyOnHit: 1
-  _initialLocation: {x: 12, y: 10, z: 0}
-  _finalLocation: {x: 4.84, y: 4.07, z: -1.4072504}
+  _initialLocation: {x: 4.08, y: 6.44, z: 0}
+  _finalLocation: {x: 5.67, y: 3.29, z: 0}
   InterpTime: 10
   _particleTrail: {fileID: 4202088448872697385}
   bApplyCameraShake: 1
@@ -173,12 +173,12 @@ PrefabInstance:
     - target: {fileID: 997682710604150570, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 997682710604150570, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334088, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
@@ -1030,6 +1030,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334094, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1048,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 1333066020181334094, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1333066020181334094, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
@@ -1088,6 +1093,16 @@ PrefabInstance:
     - target: {fileID: 7178875347334528890, guid: f1778167011d5f14d8244c182335ae8e,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200292183374911932, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578275104498029528, guid: f1778167011d5f14d8244c182335ae8e,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

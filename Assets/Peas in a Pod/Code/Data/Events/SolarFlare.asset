@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
   m_Name: SolarFlare
   m_EditorClassIdentifier: 
-  Difficulty: 3
+  Difficulty: 1
   _toSpawn: {fileID: 0}
   EventType: 1
   _loc: {x: 0, y: 0, z: 0}

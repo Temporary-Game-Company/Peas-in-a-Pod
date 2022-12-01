@@ -248,8 +248,8 @@ MonoBehaviour:
   FatigueSlider: {fileID: 184039856734781404}
   StartingHeat: 50
   MaximumHeat: 100
-  _oxygenConsumptionPerSecond: 0.1
-  _oxygenAmt: {fileID: 0}
+  _oxygenConsumptionPerSecond: 0.5
+  _oxygenAmt: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
   _shipTemperature: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
   _initialExhuastionDelta: -1
   _maxExhaustion: 20
@@ -311,7 +311,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.03}
   serializedVersion: 2
-  m_Radius: 0.42
+  m_Radius: 0.3
 --- !u!114 &66284342
 MonoBehaviour:
   m_ObjectHideFlags: 0

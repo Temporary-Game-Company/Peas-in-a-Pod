@@ -17,6 +17,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ac537d1cb4fb42b489502b10dc052531, type: 2}
     - {fileID: 11400000, guid: cced99fd5d0eb0e459bc63c8318e813d, type: 2}
     - {fileID: 11400000, guid: 265e4407610b8784287c71f9a9cd3a4d, type: 2}
+    - {fileID: 11400000, guid: 543d4957ba5900d4191a99d23cecbcf5, type: 2}
+    - {fileID: 11400000, guid: bd9c8e899e14d104ba54d7e645b1cbff, type: 2}
     Cooldown: 10
   - Events:
     - {fileID: 11400000, guid: d10bcd47db4463f4c9487e9cd7f3d133, type: 2}

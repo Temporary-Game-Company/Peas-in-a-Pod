@@ -324,7 +324,7 @@ public class UnitRTS : MonoBehaviour
 
     public void PassOut()
     {
-        Debug.Log("snoozin!");
+        
         _isPassedOut = true;
         
         Draggable drag = GetComponent<Draggable>();

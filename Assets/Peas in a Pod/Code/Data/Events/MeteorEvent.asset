@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
   m_Name: MeteorEvent
   m_EditorClassIdentifier: 
-  Difficulty: 3
+  Difficulty: 0
   _toSpawn: {fileID: 6046334576027872156, guid: 07dbc0b3aa31f2f4494dadd0b8b7baa3,
     type: 3}
-  EventType: 3
+  EventType: 2
   _loc: {x: 0, y: 0, z: 0}

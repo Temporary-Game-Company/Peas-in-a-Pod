@@ -140,7 +140,7 @@ public class Turret : MonoBehaviour
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
         if (r.collider == null) return true;
-        return (r.collider.GetComponent<ProjectileEvent>() == null);
+        return (r.collider.gameObject.GetComponent<ProjectileEvent>() != null);
     }
         
     
@@ -183,7 +183,8 @@ public class Turret : MonoBehaviour
         }
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
-
+        Debug.DrawLine(loc.position, loc.position + _forwardVector * 20f, Color.red,
+            10f);
 
         if (r.collider == null)
         {
@@ -196,8 +197,7 @@ public class Turret : MonoBehaviour
                 l.SetLaserLineWidth(width);
             }
 
-            Debug.DrawLine(loc.position, loc.position + (loc.position - transform.position).normalized * 10f, Color.red,
-                2f);
+            
             Destroy(l.gameObject, _laserRetentionTime);
             return;
         }
@@ -214,7 +214,7 @@ public class Turret : MonoBehaviour
                 l.SetLaserLineWidth(width);
             }
 
-            Debug.DrawLine(loc.position, l.endPoint, Color.red, 2f);
+            Debug.DrawLine(loc.position, l.endPoint, Color.green, 10f);
             Destroy(l.gameObject, _laserRetentionTime);
         }
     }
