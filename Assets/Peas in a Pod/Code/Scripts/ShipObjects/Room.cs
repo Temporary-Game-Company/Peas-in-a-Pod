@@ -68,6 +68,14 @@ public class Room : MonoBehaviour
     
     [SerializeField] Animator roomAnimator;
     private float _currentIncreasePerSecond = 0f;
+
+    [SerializeField] private AudioSource _peaEnteredSound;
+
+    [SerializeField] private AudioSource _productionSound;
+
+    [SerializeField] private AudioSource _damagedSound;
+
+    [SerializeField] private AudioSource _repairedSound;
     
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
@@ -205,6 +213,10 @@ public class Room : MonoBehaviour
 
     private void HandleProduction()
     {
+        if (_productionSound)
+        {
+            
+        }
         if (_productionParticles)
         {
             _productionParticles.Play();
@@ -247,7 +259,7 @@ public class Room : MonoBehaviour
 
     public void SystemDamaged(float DamageDone)
     {
-        
+        if(_)
         _isDamaged = true;
         if (damagedParticles)
         {
