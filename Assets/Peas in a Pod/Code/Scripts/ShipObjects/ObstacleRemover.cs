@@ -58,9 +58,10 @@ public class ObstacleRemover : MonoBehaviour
     private void OnTriggerStay2D(Collider2D col)
     {
         UnitRTS unit = col.GetComponent<UnitRTS>();
-        if (active && unit && !owner)
+        if (active && unit && !unit.equipment && !owner)
         {
             owner = unit;
+            owner.equipment = this;
             isEquipped = true;
             _rb.velocity = Vector2.zero;
             _rb.Sleep();
@@ -76,6 +77,7 @@ public class ObstacleRemover : MonoBehaviour
 
     public void Unequip(){
         Draggable ownerDraggable = owner? owner.gameObject.GetComponent<Draggable>() : null;
+        owner.equipment = null;
         owner = null;
         if (ownerDraggable) ownerDraggable.OnDirectionChanged -= OnChangeDirections;
         emission.enabled = false;
