@@ -27,7 +27,7 @@ public class ObstacleRemover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(owner);
+       
         if (owner != null)
         {
             transform.localPosition = owner.transform.localPosition + offset;

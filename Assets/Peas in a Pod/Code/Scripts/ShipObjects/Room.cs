@@ -209,10 +209,7 @@ public class Room : MonoBehaviour
                 {
                     //StartCoroutine(cs.BackToStart());
                 }   
-                if (_possessedOnClicked)
-                {
-                    _possessedOnClicked.Unpossess();
-                }
+                
             }
             else
             {
