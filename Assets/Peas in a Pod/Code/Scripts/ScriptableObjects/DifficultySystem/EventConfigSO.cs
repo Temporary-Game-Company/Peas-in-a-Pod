@@ -12,7 +12,7 @@ public class EventConfigSO : ScriptableObject
 
     public enum EventType
     {
-        Food, Power, Alien, Damage
+        Food, Power, Alien, Damage, Temperature
     }
 
     public EventType type;

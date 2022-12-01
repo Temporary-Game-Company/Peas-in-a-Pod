@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
-  m_Name: SolarFlare
+  m_Name: FreezeZone
   m_EditorClassIdentifier: 
   Difficulty: 1
   _toSpawn: {fileID: 5088321374296631062, guid: bd0deb7217815194ca55ae4a41d0df96,

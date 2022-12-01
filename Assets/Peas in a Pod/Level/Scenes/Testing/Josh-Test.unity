@@ -222,6 +222,7 @@ MonoBehaviour:
   NegativeEvents:
   - {fileID: 11400000, guid: 092e32bacf79df540a3afd7fa389cee0, type: 2}
   - {fileID: 11400000, guid: cc532916dfdc77047a426d6ada2186e9, type: 2}
+  - {fileID: 11400000, guid: 5647972ac3ecd8740b4a9da69589169c, type: 2}
   _timeBetweenEvents: 3
 --- !u!114 &845276699
 MonoBehaviour:
@@ -526,22 +527,22 @@ PrefabInstance:
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.13203214
+      value: 0.0061633284
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.13265306
+      value: 0.005479452
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7347876
+      value: 0.98613256
       objectReference: {fileID: 0}
     - target: {fileID: 1403864888874826549, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.7346938
+      value: 0.9863014
       objectReference: {fileID: 0}
     - target: {fileID: 6301411724606900025, guid: dddeaecc914163241a4055e77769f04c,
         type: 3}
