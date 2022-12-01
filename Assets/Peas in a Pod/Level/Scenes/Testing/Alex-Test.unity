@@ -5061,18 +5061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2102830937, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102830937, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102830937, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 341802041821668773, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5083,10 +5071,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1579220834160312171, guid: 85b4bb3066a04614cbed3795e80bcf30,
+    - target: {fileID: 2099190496254363628, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
+      propertyPath: _productionTime
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2426114115155656479, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}

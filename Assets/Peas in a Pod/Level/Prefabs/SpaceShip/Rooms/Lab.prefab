@@ -15193,8 +15193,8 @@ MonoBehaviour:
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
   _producesGoods: 1
   _resourceProduced: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
-  _productionAmt: 5
-  _productionTime: 1.5
+  _productionAmt: 1
+  _productionTime: 0.1
   _attentionIndicator: {fileID: 8997601509635291094}
   _powerConsumptionPerSecond: 0.05
   affectedEvent: 3

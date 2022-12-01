@@ -145,7 +145,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pea_still
-  m_Speed: 0.25
+  m_Speed: 0.125
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4561926361576616070}
