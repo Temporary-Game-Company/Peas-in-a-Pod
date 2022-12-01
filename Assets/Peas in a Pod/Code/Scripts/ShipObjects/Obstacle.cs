@@ -29,6 +29,10 @@ public class Obstacle : MonoBehaviour
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
 
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _spawnedClip;
+
     public enum ObstacleTypes
     {
         Fire,
@@ -39,8 +43,16 @@ public class Obstacle : MonoBehaviour
     
     void Start()
     {
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.loop = false;
+        _audioSource.playOnAwake = false;
         curHealth = Health;
         _drainRate = initialDrainRate;
+        if (_audioSource)
+        {
+            _audioSource.clip = _spawnedClip;
+            _audioSource.Play();
+        }
     }
 
     // Update is called once per frame

@@ -312,6 +312,8 @@ MonoBehaviour:
   _cooldownTime: 1
   _chargeSound: {fileID: 1303476350186767441}
   _fireSound: {fileID: 2232565720602338890}
+  _powerCostToFire: 1
+  _powerAmt: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
 --- !u!82 &1303476350186767441
 AudioSource:
   m_ObjectHideFlags: 0
