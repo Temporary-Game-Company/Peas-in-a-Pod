@@ -22,7 +22,10 @@ namespace TemporaryGameCompany
 
         public void OnEventRaised()
         {
-            Response.Invoke();
+            if (this.enabled)
+            {
+                Response.Invoke();
+            }
         }
     }
 }

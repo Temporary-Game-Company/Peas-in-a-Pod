@@ -267,9 +267,9 @@ public class UnitRTS : MonoBehaviour
 
     public void AddToExhaustionDelta(float value)
     {
-        Debug.Log(value);
+        // Debug.Log(value);
         _exhuastionDelta += value;
-        Debug.Log(_exhuastionDelta);
+        // Debug.Log(_exhuastionDelta);
         
     }
 
