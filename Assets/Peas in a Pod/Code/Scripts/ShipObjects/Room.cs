@@ -124,7 +124,7 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.name == "WeaponsRoom") Debug.Log($"bProducing: {bProducing}  Units: {UnitsInside.Count}");
+        
 
         if (_resourceManager == null)
         {
@@ -230,20 +230,21 @@ public class Room : MonoBehaviour
                 _audioSource.Play();
             }
         }
-        if (_productionParticles)
-        {
-            _productionParticles.Play();
-        }
+       
 
         if (_producesGoods)
         {
+            if (_productionParticles)
+            {
+                _productionParticles.Play();
+            }
             if (_resourceProduced != null)
             {
                 _resourceProduced.ApplyChange(_productionAmt);
             }
             else
             {
-                Debug.Log("No resource produced");
+                
                 if (GetComponent<FoodConsumption>() != null)
                 {
                     GetComponent<FoodConsumption>().ConsumeFood();
