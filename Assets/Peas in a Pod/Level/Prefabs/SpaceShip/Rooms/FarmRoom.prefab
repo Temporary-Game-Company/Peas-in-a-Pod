@@ -14884,8 +14884,8 @@ MonoBehaviour:
   damagedParticles: {fileID: 7525437411770239957}
   _repairedParticles: {fileID: 2462283970515403312}
   _productionParticles: {fileID: 7601621878392232535}
-  _fatigueValueProducing: 2
-  _fatigueValueRepairing: 3
+  _fatigueValueProducing: 1
+  _fatigueValueRepairing: 1.5
   _cameraFocusLoc: {x: 0, y: 0, z: -10}
   _possessedOnClicked: {fileID: 0}
   roomAnimator: {fileID: 7730193280112865780}
