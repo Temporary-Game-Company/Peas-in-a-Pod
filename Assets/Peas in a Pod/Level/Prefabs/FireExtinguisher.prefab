@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -123,8 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _removerType: 0
-  particles: {fileID: 4018860815871041770, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,
-    type: 3}
+  particles: {fileID: 3228299600175595168}
   active: 0
   offset: {x: -0.47, y: 0, z: 0}
 --- !u!114 &3987369779190861989
@@ -242,6 +241,12 @@ PrefabInstance:
 --- !u!4 &2250554508616957282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 302716001672160040, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1948059723605122634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3228299600175595168 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4018860815871041770, guid: 61cd0d8fe0f396c4a8589f01fd12de9e,
     type: 3}
   m_PrefabInstance: {fileID: 1948059723605122634}
   m_PrefabAsset: {fileID: 0}
