@@ -27,7 +27,8 @@ public class Obstacle : MonoBehaviour
 
     public enum ObstacleTypes
     {
-        Fire
+        Fire,
+        AirLeak
     }
 
     public ObstacleTypes _obstacleType;
