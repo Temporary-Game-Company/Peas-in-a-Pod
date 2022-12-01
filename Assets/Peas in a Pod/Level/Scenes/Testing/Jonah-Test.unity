@@ -630,6 +630,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3494547318219775522, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _fatigueValueProducing
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494547318219775522, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _fatigueValueRepairing
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 3567741303130044263, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_Name
