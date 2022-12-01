@@ -82,7 +82,7 @@ public class ResourceManager : MonoBehaviour
 
     public void changeIntegrity(float oldValue, float newValue)
     {
-        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 1f);
+        HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 100f);
         updateHUDIntegrity();
     }
     
@@ -107,7 +107,7 @@ public class ResourceManager : MonoBehaviour
         
         powerAmt.Value = initialPowerAmt;
         powerAmt.ValueChanged += changePower;
-        HullIntegrity.Value = 1f;
+        HullIntegrity.Value = 100f;
         HullIntegrity.ValueChanged += changeIntegrity;
         updateHUDIntegrity();
         updateHUDPower(); 

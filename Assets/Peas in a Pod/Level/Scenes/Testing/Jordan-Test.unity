@@ -4984,6 +4984,12 @@ MonoBehaviour:
   loc: {fileID: 734665894}
   _toInstantiate: {fileID: 0}
   _originalSpawn: {x: 0, y: 0, z: 0}
+  _laserRetentionTime: 0.5
+  _maxChargeTime: 1
+  _chargeSlider: {fileID: 0}
+  _cooldownTime: 1
+  _chargeSound: {fileID: 0}
+  _fireSound: {fileID: 0}
 --- !u!1 &734665892
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16078789, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
+      propertyPath: _powerConsumptionPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 841683980, guid: 85b4bb3066a04614cbed3795e80bcf30, type: 3}
       propertyPath: _toInstantiate
       value: 
@@ -5197,6 +5207,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 523546227350819890, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _powerConsumptionPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 762447413541788931, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5227,6 +5242,11 @@ PrefabInstance:
       propertyPath: _productionAmt
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2099190496254363628, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _powerConsumptionPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2231457114058871850, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_Name
@@ -5236,6 +5256,16 @@ PrefabInstance:
         type: 3}
       propertyPath: dmgAmt
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426114115155656479, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426114115155656479, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2856257606733898824, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
@@ -5257,6 +5287,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2874996867694880400, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _powerConsumptionPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3017589606580108395, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5276,6 +5311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: 1396655913
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494547318219775522, guid: 85b4bb3066a04614cbed3795e80bcf30,
+        type: 3}
+      propertyPath: _powerConsumptionPerSecond
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3567741303130044263, guid: 85b4bb3066a04614cbed3795e80bcf30,
         type: 3}
@@ -10469,7 +10509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodAmt: {fileID: 11400000, guid: da876b73bf295a540996e819d7dcd353, type: 2}
-  playerHUD: {fileID: 2008575322}
+  playerHUD: {fileID: 4727563614544631732, guid: ffccab4636cb5bf448bd3d436b54aaa5,
+    type: 3}
   ResourceManagerSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
   powerAmt: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
   OxygenAmt: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
@@ -10479,6 +10520,8 @@ MonoBehaviour:
   Windows: {fileID: 11400000, guid: db94b6e0aa6fcd34e95552f089b88cfc, type: 2}
   _timeBetweenHeatCycles: 1
   _outsideHeatValue: 50
+  _toLoad:
+    m_Handle: 0
 --- !u!4 &1370309770
 Transform:
   m_ObjectHideFlags: 0
@@ -10989,18 +11032,6 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546c6ae5ed49fb643bb2e7267deb16e8, type: 3}
---- !u!114 &2008575322 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4727563614544631732, guid: ffccab4636cb5bf448bd3d436b54aaa5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4727563614348049134}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641e782f4d2815843a3c54f08bcadd95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4727563614348049134
 PrefabInstance:
   m_ObjectHideFlags: 0
