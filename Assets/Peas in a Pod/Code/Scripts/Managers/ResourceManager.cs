@@ -28,7 +28,7 @@ public class ResourceManager : MonoBehaviour
     private float initialPowerAmt = 30f;
 
 
-    private float _initialOxygenAmt = 1f;
+    private float _initialOxygenAmt = 100f;
 
     public FloatVariable OxygenAmt;
 
@@ -41,8 +41,6 @@ public class ResourceManager : MonoBehaviour
     public FloatVariable HullIntegrity;
 
     public PeaRuntimeSet Peas;
-
-    private int _activePeas;
 
     private float _temperatureDelta = 0f;
 
@@ -111,7 +109,6 @@ public class ResourceManager : MonoBehaviour
         powerAmt.ValueChanged += changePower;
         HullIntegrity.Value = 1f;
         HullIntegrity.ValueChanged += changeIntegrity;
-        _activePeas = 0;
         updateHUDIntegrity();
         updateHUDPower(); 
         updateHUDOxygen();
@@ -189,30 +186,10 @@ public class ResourceManager : MonoBehaviour
         updateHUDTemp();
     }
 
-    public void increaseActivePeas()
-    {
-        _activePeas++;
-        updateHUDPeas();
-    }
-
     public void ReloadLevel()
     {
         
         SceneManager.LoadScene(1);
-    }
-
-    private void updateHUDPeas()
-    {
-        if (playerHUD)
-        {
-            playerHUD.UpdateHUDActivePeas(_activePeas, Peas.Items.Count);
-        }
-    }
-
-    public void decreaseActivePeas()
-    {
-        _activePeas--;
-        updateHUDPeas();
     }
 
     public void IncreaseTemperatureDelta(float amt)
@@ -480,7 +457,7 @@ public class ResourceManager : MonoBehaviour
          {
              if (playerHUD)
              {
-                 playerHUD.DisplayWinScreen();
+                //  playerHUD.DisplayWinScreen();
              }
          }
      }
