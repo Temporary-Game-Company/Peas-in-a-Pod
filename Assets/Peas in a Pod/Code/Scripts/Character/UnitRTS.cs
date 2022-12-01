@@ -129,6 +129,8 @@ public class UnitRTS : MonoBehaviour
     }
     private const float _STARVING_FATIGUE_MULTIPLIER = 4f; // how much faster fatigue is gained when pea is starving
 
+    public ObstacleRemover equipment;
+
     private void Awake()
     {
         Transform t = transform.Find("Selected");
