@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a20d7b2e70291449fe8150b3733776, type: 3}
-  m_Name: FoodSupply
+  m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
+  m_Name: FireEventEasy
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: 100
+  Difficulty: 0
+  _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
+    type: 3}
+  EventType: 3
+  _loc: {x: -1.43, y: -2.02, z: 0}

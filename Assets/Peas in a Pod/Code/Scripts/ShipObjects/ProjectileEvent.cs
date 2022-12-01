@@ -33,6 +33,10 @@ public class ProjectileEvent : MonoBehaviour
 
     private ResourceManager _resourceManager;
     private Rigidbody2D rb2d;
+
+    [SerializeField] private float _hitsRequired = 3;
+
+    private float _hitsTaken = 0f;
     
     void Start()
     {
@@ -51,10 +55,24 @@ public class ProjectileEvent : MonoBehaviour
        
     }
 
+    private void OnBecameVisible()
+    {
+        
+    }
+
     IEnumerator LifetimeCheck()
     {
         yield return new WaitForSeconds(InterpTime);
         
+    }
+
+    public void Hit()
+    {
+        _hitsTaken++;
+        if (_hitsTaken >= _hitsRequired)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other) {

@@ -13,10 +13,15 @@ public class ObstacleRemover : MonoBehaviour
     public bool active; // true if it can be picked up right now
 
     public Vector3 offset;
+
+    private BoxCollider2D _boxCollider;
+
+    private Rigidbody2D _rb;
     // Start is called before the first frame update
     void Start()
     {
-
+        _boxCollider = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,6 +32,7 @@ public class ObstacleRemover : MonoBehaviour
         {
             transform.localPosition = owner.transform.localPosition + offset;
         }
+        
     }
 
     private void OnTriggerStay2D(Collider2D col)

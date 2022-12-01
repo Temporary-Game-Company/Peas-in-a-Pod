@@ -67,6 +67,8 @@ public class Room : MonoBehaviour
     public Turret _possessedOnClicked;
     
     [SerializeField] Animator roomAnimator;
+    private float _currentIncreasePerSecond = 0f;
+    
 
     private List<UnitRTS> UnitsInside = new List<UnitRTS>();
     // Start is called before the first frame update
@@ -81,8 +83,22 @@ public class Room : MonoBehaviour
             _roomIndicator = t.gameObject;
             _roomIndicator.SetActive(false);
         }
+        
+        if (_repairBar != null)
+                {
+                    _repairBar.gameObject.SetActive(false);
+                }
 
-        // TODO add self to HUD in rooms tab
+        StartCoroutine(UpdateProd());
+    }
+
+    private IEnumerator UpdateProd()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            UpdateProduction();
+        }
     }
 
     private void Awake()
@@ -121,8 +137,8 @@ public class Room : MonoBehaviour
             }
             else
             {
-                _timeSinceProduction += Time.deltaTime * UnitsInside.Count; 
                 if (roomAnimator) roomAnimator.SetBool("isActive", true);
+                _timeSinceProduction += Time.deltaTime * _currentIncreasePerSecond; 
             }
         } else if (roomAnimator) roomAnimator.SetBool("isActive", false);
         
@@ -191,7 +207,7 @@ public class Room : MonoBehaviour
                 CameraShake cs = Camera.main.GetComponent<CameraShake>();
                 if (cs != null)
                 {
-                    StartCoroutine(cs.BackToStart());
+                    //StartCoroutine(cs.BackToStart());
                 }   
                 if (_possessedOnClicked)
                 {
@@ -205,13 +221,10 @@ public class Room : MonoBehaviour
                 CameraShake cs = Camera.main.GetComponent<CameraShake>();
                 if (cs != null)
                 {
-                    StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
+                    //StartCoroutine(cs.GoToLoc(_cameraFocusLoc));
                     
                 }   
-                if (_possessedOnClicked)
-                {
-                    _possessedOnClicked.Possessed();
-                }
+                
             }
 
             
@@ -281,18 +294,24 @@ public class Room : MonoBehaviour
                 if (GetComponent<FoodConsumption>() != null)
                 {
                     GetComponent<FoodConsumption>().ConsumeFood();
-                    Debug.Log("Comsuuming food");
+                    
                 }
-                else
-                {
-                    Debug.Log("No Food consumption");
-                }
+                
             }
             
             if (_resourceManager)
             {
                 _resourceManager.UpdateAllHUD();
             }
+        }
+    }
+
+    public void UpdateProduction()
+    {
+        _currentIncreasePerSecond = 0f;
+        foreach (UnitRTS r in UnitsInside)
+        {
+            _currentIncreasePerSecond += r.GetProductionPercentage();
         }
     }
 
@@ -362,31 +381,44 @@ public class Room : MonoBehaviour
         
         //TODO remove self from tasks tab
     }
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        
+
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
             unit.isWorking = true;
-            
-            UnitsInside.Add(unit);
+            if(!UnitsInside.Contains(unit))
+            {
+                UnitsInside.Add(unit);
+            }
+
+            if (_possessedOnClicked)
+            {
+                _possessedOnClicked.Possessed();
+            }
             unit.EnteredRoom(this);
+            _currentIncreasePerSecond += unit.GetProductionPercentage();
             if (_isDamaged)
             {
                 _resourceManager.increaseActivePeas();
                 unit.AddToExhaustionDelta(_fatigueValueRepairing);
             }
             else
-            {            
+            {
                 unit.AddToExhaustionDelta(_fatigueValueProducing);
             }
             
-            
-            
         }
     }
+    
+    private void CalculateProductionPerSecond(){
+    
+    
+    }
+
+    
 
     private void OnTriggerStay2D(Collider2D col)
     {
@@ -403,8 +435,15 @@ public class Room : MonoBehaviour
         if (unit != null)
         {
             unit.isWorking = false;
-            UnitsInside.Remove(unit);
+            if (UnitsInside.Contains(unit))
+            {
+                UnitsInside.Remove(unit);
+            }
+            
             unit.LeftRoom();
+            
+            UpdateProduction();
+            
             if (_isDamaged)
             {
                 _resourceManager.decreaseActivePeas();
@@ -414,7 +453,31 @@ public class Room : MonoBehaviour
             {
                 unit.AddToExhaustionDelta(-_fatigueValueProducing);
             }
+
+            if (UnitsInside.Count == 0)
+            {
+                if (_possessedOnClicked)
+                {
+                    _possessedOnClicked.Unpossess();
+                }
+            }
             
+        }
+    }
+
+    public void RemoveFromWorkers(UnitRTS remove)
+    {
+        if (UnitsInside.Contains(remove))
+        {
+            UnitsInside.Remove(remove);
+        }
+    }
+
+    public void AddToWorkers(UnitRTS toAdd)
+    {
+        if (!UnitsInside.Contains(toAdd))
+        {
+            UnitsInside.Add(toAdd);
         }
     }
 

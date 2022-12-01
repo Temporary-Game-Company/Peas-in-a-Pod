@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Peas in a Pod/Level/Scenes/Testing/Alex-Test.unity
     guid: dd3caaf4535fd784abeaa26e2317cb52
+  - enabled: 1
+    path: Assets/Peas in a Pod/Level/Scenes/Testing/Jonah-Test.unity
+    guid: a90e8f14786891740b03dc7a46a42ce1
   m_configObjects: {}

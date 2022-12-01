@@ -29,6 +29,14 @@ public class UnitRTS : MonoBehaviour
 
     private float CurrentHeat;
 
+    [SerializeField] private float _oxygenConsumptionPerSecond = 0.1f;
+
+    [SerializeField] private FloatVariable _oxygenAmt;
+
+    private bool _isPassedOut = false;
+
+    private bool _canWork = true;
+
 
     public FloatVariable _shipTemperature;
 
@@ -100,6 +108,14 @@ public class UnitRTS : MonoBehaviour
             }
             
         }
+
+        Draggable drag = GetComponent<Draggable>();
+        if (drag != null)
+        {
+            drag.enabled = true;
+        }
+
+
     }
 
     public void SetSelectedVisible(bool visible)
@@ -117,6 +133,7 @@ public class UnitRTS : MonoBehaviour
         raycastMask = LayerMask.GetMask(new string[] {"Ship"});
         contactFilter = new ContactFilter2D();
         contactFilter.useTriggers = false;
+       
 
 
         DesiredLocation = transform.position;
@@ -138,15 +155,27 @@ public class UnitRTS : MonoBehaviour
         // isGrounded = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, 0.2f, raycastMask)? true : false;
         _hitCount = Physics2D.CircleCast(gameObject.transform.position, 0.2f, Vector2.down, contactFilter, _castHits, 0.2f);
         isGrounded = false;
-        for (int i = 0; i < _hitCount; i++) if (_castHits[i].collider.gameObject != gameObject) isGrounded = true;
+        for (int i = 0; i < _hitCount; i++)
+            if (_castHits[i].collider.gameObject != gameObject)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+               
+            }
         
-        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 0.1f);
+        
+        Debug.DrawRay(gameObject.transform.position, Vector2.down * 0.38f, isGrounded? Color.green : Color.red, 3f);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         CheckIfGrounded();
+       
     }
+    
+    
 
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -160,15 +189,9 @@ public class UnitRTS : MonoBehaviour
         if (unit != null)
         {
             
-            if (r.collider.Equals(col))
-            {
-                AddToExhaustionDelta(-1f);
-                Debug.Log("Peas in a pod");
-            }
-            else
-            {
-                Debug.Log("Obstructed");
-            }
+            
+                //AddToExhaustionDelta(-1f);
+               
             
         }
     }
@@ -180,7 +203,7 @@ public class UnitRTS : MonoBehaviour
         if (unit != null && r.collider.Equals(other))
         {
             Debug.Log("Pea removed from each other");
-            AddToExhaustionDelta(1f);
+            //AddToExhaustionDelta(1f);
         }
     }
 
@@ -191,6 +214,8 @@ public class UnitRTS : MonoBehaviour
             FatigueSlider.value = _exhaustion / _maxExhaustion;
         }
     }
+    
+    
 
     public void AddToExhuastion(float amt)
     {
@@ -198,11 +223,26 @@ public class UnitRTS : MonoBehaviour
         UpdateFatigue();
     }
 
+    public void ResetExhuastionDelta()
+    {
+        _exhuastionDelta = _initialExhuastionDelta;
+    }
+
     private void Update()
     {
         HandleTemperatureExhuastion();
         HandleFatigue();
+
+        HandleOxygen();
         // if (gameObject.name == "Pea-Alex") Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
+    }
+
+    private void HandleOxygen()
+    {
+        if (_oxygenAmt)
+        {
+            _oxygenAmt.ApplyChange(-Time.deltaTime * _oxygenConsumptionPerSecond);
+        }
     }
 
     private void HandleTemperatureExhuastion()
@@ -223,10 +263,29 @@ public class UnitRTS : MonoBehaviour
         UpdateFatigue();
     }
 
+    
+
     public void AddToExhaustionDelta(float value)
     {
+        Debug.Log(value);
         _exhuastionDelta += value;
+        Debug.Log(_exhuastionDelta);
         
+    }
+
+    public float GetProductionPercentage()
+    {
+        if (_exhaustion == _maxExhaustion)
+        {
+            return 0;
+        }else if (_exhaustion / _maxExhaustion < 0.5)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0.5f;
+        }
     }
 
     /* private void OnMouseDown()
@@ -261,6 +320,48 @@ public class UnitRTS : MonoBehaviour
     public void LeftRoom()
     {
         _currentRoom = null;
+    }
+
+    public void PassOut()
+    {
+        Debug.Log("snoozin!");
+        _isPassedOut = true;
+        
+        Draggable drag = GetComponent<Draggable>();
+        if (_currentRoom)
+        {
+            _currentRoom.RemoveFromWorkers(this);
+        }
+        if (drag != null)
+        {
+            drag.Disable();
+        }
+    }
+
+    public void WakeUp()
+    {
+        _isPassedOut = false;
+        if (_currentRoom)
+        {
+            _currentRoom.AddToWorkers(this);
+        }
+
+        Draggable drag = GetComponent<Draggable>();
+
+        if (drag != null)
+        {
+            drag.Disable();
+        }
+    }
+
+    public bool IsPassedOut()
+    {
+        return _isPassedOut;
+    }
+
+    public bool CanWork()
+    {
+        return _canWork;
     }
 
 

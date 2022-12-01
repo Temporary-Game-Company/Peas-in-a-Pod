@@ -17,6 +17,8 @@ public class Obstacle : MonoBehaviour
 
     private int removersInside = 0;
 
+    public float _fatigueWhileInside = 3f;
+
     public enum ObstacleTypes
     {
         Fire
@@ -27,7 +29,7 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         curHealth = Health;
-        Debug.Log(curHealth);
+        
     }
 
     // Update is called once per frame
@@ -59,10 +61,21 @@ public class Obstacle : MonoBehaviour
                 removersInside++;
             }
         }
+
+        UnitRTS unit = col.GetComponent<UnitRTS>();
+        if (unit != null)
+        {
+            unit.AddToExhaustionDelta(_fatigueWhileInside);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        UnitRTS unit = other.GetComponent<UnitRTS>();
+        if (unit != null)
+        {
+            unit.AddToExhaustionDelta(-_fatigueWhileInside);
+        }
         ObstacleRemover remover = other.GetComponent<ObstacleRemover>();
         if (remover != null)
         {

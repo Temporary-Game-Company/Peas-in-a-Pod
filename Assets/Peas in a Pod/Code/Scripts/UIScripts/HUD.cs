@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TemporaryGameCompany;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -21,6 +22,10 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI HullIntegrity;
 
     public Slider PowerSlider;
+
+    public Gradient TempGradient;
+
+    public Canvas _winScreen;
 
 
     void Start()
@@ -48,7 +53,7 @@ public class HUD : MonoBehaviour
 
     public void UpdateHUDOxygen(float percent)
     {
-        OxygenText.text = (percent * 100).ToString() + "%";
+        OxygenText.text = Math.Round((percent * 100), 1).ToString() + "%";
     }
 
     public void UpdateHUDIntegrity(float amt)
@@ -66,9 +71,22 @@ public class HUD : MonoBehaviour
 
     public void UpdateHUDTemp(float temp)
     {
+        if (TempGradient != null)
+        {
+            TemperatureText.color = TempGradient.Evaluate(temp/60);
+        }
+        TemperatureText.fontSize = (48 + Math.Abs(temp - 30) * 2);
         if (TemperatureText)
         {
             TemperatureText.text = Math.Round(temp, 2).ToString() + "C";
+        }
+    }
+
+    public void DisplayWinScreen()
+    {
+        if (_winScreen)
+        {
+            _winScreen.gameObject.SetActive(true);
         }
     }
 }

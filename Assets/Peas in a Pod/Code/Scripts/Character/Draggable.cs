@@ -14,6 +14,8 @@ public class Draggable : MonoBehaviour
     [FormerlySerializedAs("RigidBody")] [SerializeField] Rigidbody2D rb2d;
     [SerializeField] FloatReference DragVelocity;
 
+    private bool Enabled = true;
+
     // tracking whether object is being dragged, providing delegate for catching changes in state
     public SelectedChangeDelegate OnSelectedChanged;
     bool _isSelected = false;
@@ -46,6 +48,7 @@ public class Draggable : MonoBehaviour
     void Start()
     {
         isSelected = false;
+        Enabled = true;
         _obstacleRemover = gameObject.GetComponent<ObstacleRemover>();
     }
 
@@ -63,9 +66,23 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Vector3 targetDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position - _offset;
+        if (Enabled)
+        {
+            Vector3 targetDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position - _offset;
        
-        rb2d.velocity = targetDirection * DragVelocity;
+            rb2d.velocity = targetDirection * DragVelocity;   
+        }
+       
+    }
+
+    public void Enable()
+    {
+        Enabled = true;
+    }
+
+    public void Disable()
+    {
+        Enabled = false;
     }
 
     void OnMouseUp()

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using TemporaryGameCompany;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
@@ -23,7 +25,7 @@ public class ResourceManager : MonoBehaviour
 
     public FloatVariable powerAmt;
 
-    private float initialPowerAmt = 100f;
+    private float initialPowerAmt = 30f;
 
 
     private float _initialOxygenAmt = 100f;
@@ -56,11 +58,15 @@ public class ResourceManager : MonoBehaviour
 
     private float _tempCheckTime = 1f;
 
+    private float _oxygenThreshold = 1f;
+
+    [SerializeField] private Scene _toLoad;
+
 
 
     public void changePower(float oldPower, float newPower)
     {
-        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, initialPowerAmt);
+        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, 100);
         
         updateHUDPower();
     }
@@ -82,12 +88,16 @@ public class ResourceManager : MonoBehaviour
         HullIntegrity.Value = Math.Clamp(HullIntegrity.Value, 0, 100f);
         updateHUDIntegrity();
     }
-
+    
     public void changeOxygen(float oldValue, float newValue)
     {
-        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 110f);
+        OxygenAmt.Value = Math.Clamp(OxygenAmt.Value, 0, 100f);
+        UpdatePassedOut();
         updateHUDOxygen();
     }
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +107,7 @@ public class ResourceManager : MonoBehaviour
         OxygenAmt.Value = _initialOxygenAmt;
         temperature.Value = _initialTemperature;
         temperature.ValueChanged += changeTemp;
-        Debug.Log(temperature.Value);
+        
         powerAmt.Value = initialPowerAmt;
         powerAmt.ValueChanged += changePower;
         HullIntegrity.Value = 100f;
@@ -140,9 +150,11 @@ public class ResourceManager : MonoBehaviour
 
     private void updateHUDPower()
     {
+        CheckIfWon();
+        
         if (playerHUD)
         {
-            playerHUD.UpdateHUDPower(powerAmt.Value/initialPowerAmt);
+            playerHUD.UpdateHUDPower(powerAmt.Value/100f);
             
         }
     }
@@ -199,6 +211,12 @@ public class ResourceManager : MonoBehaviour
         updateHUDPeas();
     }
 
+    public void ReloadLevel()
+    {
+        
+        SceneManager.LoadScene(1);
+    }
+
     private void updateHUDPeas()
     {
         if (playerHUD)
@@ -237,6 +255,11 @@ public class ResourceManager : MonoBehaviour
         {
             powerAmt.ApplyChange(-amt);
         }
+    }
+
+    public void ConsumeOxygen(float amt)
+    {
+        OxygenAmt.Value -= amt;
     }
   
 
@@ -387,4 +410,94 @@ public class ResourceManager : MonoBehaviour
         
         return toReturn/10f;
     }
+    
+     private void UpdatePassedOut()
+    {
+        float oxy = OxygenAmt.Value / _initialOxygenAmt;
+        if (oxy < 0.66 && oxy > 0.33)
+        {
+            if (_oxygenThreshold == 1f)
+            {
+                _oxygenThreshold = 0.66f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (!r.IsPassedOut())
+                    {
+                        r.PassOut();
+                        break;
+                    }
+                }
+            }
+            else if (_oxygenThreshold == 0.33f)
+            {
+                _oxygenThreshold = 0.66f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
+        else if (oxy < 0.33 && oxy > 0)
+        {
+            if (_oxygenThreshold == 0.66f)
+            {
+                _oxygenThreshold = 0.33f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (!r.IsPassedOut())
+                    {
+                        r.PassOut();
+                        break;
+                    }
+                }
+            }
+            else if (_oxygenThreshold == 0f)
+            {
+                _oxygenThreshold = 0.33f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
+        else if (oxy <= 0.0)
+        {
+            //Lose game
+        }
+        else
+        {
+            // Oxygen is above 0.66
+            if (_oxygenThreshold == 0.66f)
+            {
+                _oxygenThreshold = 1f;
+                foreach (UnitRTS r in Peas.Items)
+                {
+                    if (r.IsPassedOut())
+                    {
+                        r.WakeUp();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+     
+     private void CheckIfWon(){
+
+         if (powerAmt.Value >= 100f)
+         {
+             if (playerHUD)
+             {
+                 playerHUD.DisplayWinScreen();
+             }
+         }
+     }
 }
