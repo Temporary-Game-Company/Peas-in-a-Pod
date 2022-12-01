@@ -51,11 +51,11 @@ public class Obstacle : MonoBehaviour
         HandleRemoval();
     }
 
+    ObstacleRemover remover;
     private void HandleRemoval()
     {
         curHealth = curHealth - removersInside * Time.deltaTime;
        
-        if (HealthBar){
         if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
         // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
         if (HealthBar)
@@ -70,7 +70,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
+        remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
             if (remover._removerType == _obstacleType)
