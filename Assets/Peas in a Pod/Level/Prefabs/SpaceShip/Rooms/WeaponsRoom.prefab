@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -192660613
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1171892849, guid: a32b967a7968e804f975e6d48b6c28e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6363,9 +6363,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomSet: {fileID: 11400000, guid: aae419f49d0397f49875d1f373edc01a, type: 2}
-  _producesGoods: 1
+  _producesGoods: 0
   _resourceProduced: {fileID: 11400000, guid: 547b812c605ac4f489db6ae28cc9fb39, type: 2}
-  _productionAmt: 10
+  _productionAmt: 0
   _productionTime: 3
   _attentionIndicator: {fileID: 2098333989294569715}
   _powerConsumptionPerSecond: 0.5
