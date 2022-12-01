@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0c83eef7f6671a43aeb17a65f1f7b67, type: 3}
-  m_Name: FireEvent
+  m_Name: FireEventMedium
   m_EditorClassIdentifier: 
   Difficulty: 1
   _toSpawn: {fileID: 1333066020181334091, guid: f1778167011d5f14d8244c182335ae8e,
     type: 3}
   EventType: 3
-  _loc: {x: -2, y: -2, z: -1}
+  _loc: {x: 0.888, y: -0.431, z: 0}

@@ -32,6 +32,8 @@ public class UnitRTS : MonoBehaviour
     [SerializeField] private float _oxygenConsumptionPerSecond = 0.1f;
 
     [SerializeField] private FloatVariable _oxygenAmt;
+    
+    private bool _isResting;
 
     public BoolChangeDelegate OnPassedOutChanged;
     private bool _isPassedOut = false;
@@ -249,6 +251,11 @@ public class UnitRTS : MonoBehaviour
     public void ResetExhuastionDelta()
     {
         _exhuastionDelta = _initialExhuastionDelta;
+    }
+
+    public void SetIsResting(bool bIsresting)
+    {
+        _isResting = bIsresting;
     }
 
     private void Update()

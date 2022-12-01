@@ -21,6 +21,8 @@ public class Obstacle : MonoBehaviour
 
     public float _fatigueWhileInside = 3f;
 
+    private ObstacleRemover remover;
+
     [SerializeField] bool drainsResource;
     [SerializeField] FloatVariable resourceAffected;
     float _drainRate;
@@ -55,7 +57,6 @@ public class Obstacle : MonoBehaviour
     {
         curHealth = curHealth - removersInside * Time.deltaTime;
        
-        if (HealthBar){
         if (remover && remover.isEquipped) curHealth -= Time.deltaTime;
         // Debug.Log(curHealth + "   " + (remover? true : false) + "   " + (remover? remover.isEquipped : false));
         if (HealthBar)
@@ -64,13 +65,13 @@ public class Obstacle : MonoBehaviour
         }
         if (curHealth <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        ObstacleRemover remover = col.GetComponent<ObstacleRemover>();
+        remover = col.GetComponent<ObstacleRemover>();
         if (remover != null)
         {
             if (remover._removerType == _obstacleType)
