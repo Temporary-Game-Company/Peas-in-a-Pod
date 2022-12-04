@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Selected
+  - Ship
   layers:
   - Default
   - TransparentFX
@@ -12,14 +13,14 @@ TagManager:
   - Buildings
   - Water
   - UI
-  - 
-  - 
+  - Ship
+  - Player
   - CastingPlane
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - TaskObject
+  - ShipExterior
+  - IgnorePlayer
+  - PlayerHitDetection
   - 
   - 
   - 
@@ -39,6 +40,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1396655913
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ship
+    uniqueID: 4102306683
+    locked: 0
+  - name: Player
+    uniqueID: 2241008549
+    locked: 0
+  - name: Foreground
+    uniqueID: 2813413883
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 2151778427
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 4270326167
     locked: 0
