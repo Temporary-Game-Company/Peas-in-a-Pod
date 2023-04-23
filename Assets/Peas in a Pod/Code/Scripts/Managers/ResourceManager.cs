@@ -66,7 +66,7 @@ public class ResourceManager : MonoBehaviour
 
     public void changePower(float oldPower, float newPower)
     {
-        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, 100);
+        powerAmt.Value = Math.Clamp(powerAmt.Value, 0, _toWin);
         
         updateHUDPower();
     }
@@ -137,7 +137,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (playerHUD)
         {
-            playerHUD.UpdateHUDPower(powerAmt.Value/100f);
+            playerHUD.UpdateHUDPower(powerAmt.Value/_toWin);
         }
         CheckIfWon();
     }
@@ -458,7 +458,7 @@ public class ResourceManager : MonoBehaviour
      private void CheckIfWon()
      {
         
-         if (powerAmt.Value > _toWin)
+         if (powerAmt.Value >= _toWin)
          {
             SceneManager.LoadScene("WinScreen");
          }
