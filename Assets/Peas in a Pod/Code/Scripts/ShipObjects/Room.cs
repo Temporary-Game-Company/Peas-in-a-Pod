@@ -12,8 +12,6 @@ public class Room : MonoBehaviour
 
     public bool _producesGoods = true;
 
-    private bool IsFocused = false;
-
     public FloatVariable _resourceProduced;
 
     public float _productionAmt = 2f;
@@ -242,16 +240,6 @@ public class Room : MonoBehaviour
             {
                 _resourceProduced.ApplyChange(_productionAmt);
             }
-            else
-            {
-                
-                if (GetComponent<FoodConsumption>() != null)
-                {
-                    GetComponent<FoodConsumption>().ConsumeFood();
-                    
-                }
-                
-            }
             
             if (_resourceManager)
             {
@@ -315,7 +303,8 @@ public class Room : MonoBehaviour
         {
            
             r.AddToExhaustionDelta(_fatigueValueRepairing);
-            r.AddToExhaustionDelta(-_fatigueValueProducing);
+            if (_producesGoods)
+                r.AddToExhaustionDelta(-_fatigueValueProducing);
         }
         
         //TODO add self to tasks tab
@@ -367,7 +356,8 @@ public class Room : MonoBehaviour
         {
            
             r.AddToExhaustionDelta(-_fatigueValueRepairing);
-            r.AddToExhaustionDelta(_fatigueValueProducing);
+            if (_producesGoods)
+                r.AddToExhaustionDelta(_fatigueValueProducing);
         }
         
         //TODO remove self from tasks tab
@@ -396,7 +386,7 @@ public class Room : MonoBehaviour
                 
                     unit.AddToExhaustionDelta(_fatigueValueRepairing);
                 }
-                else
+                else if (_producesGoods)
                 {
                     unit.AddToExhaustionDelta(_fatigueValueProducing);
                 }
@@ -447,7 +437,7 @@ public class Room : MonoBehaviour
                
                     unit.AddToExhaustionDelta(-_fatigueValueRepairing);
                 }
-                else
+                else if (_producesGoods)
                 {
                     unit.AddToExhaustionDelta(-_fatigueValueProducing);
                 }

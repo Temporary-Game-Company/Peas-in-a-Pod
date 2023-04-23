@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45a20d7b2e70291449fe8150b3733776, type: 3}
-  m_Name: Temperature
+  m_Name: HungryPercent
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: -32.02674
+  DeveloperDescription: The percentage of hunger at which a pea is considered hungry.
+  Value: 0.5

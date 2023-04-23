@@ -6,20 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Peas in a Pod/Level/Scenes/DesignScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Peas in a Pod/Level/Scenes/Testing/Alex-Test.unity
-    guid: dd3caaf4535fd784abeaa26e2317cb52
-  - enabled: 1
-    path: Assets/Peas in a Pod/Level/Scenes/Testing/Jonah-Test.unity
-    guid: a90e8f14786891740b03dc7a46a42ce1
-  - enabled: 1
-    path: Assets/Peas in a Pod/Level/Scenes/LossScreen.unity
-    guid: 3e3b58d4b62c2e94aa2b12b8da541be1
+    path: Assets/Peas in a Pod/Level/Scenes/Startup Screen.unity
+    guid: 8803d21ca4f1a65479fc0d59dfeecbbb
   - enabled: 1
     path: Assets/Peas in a Pod/Level/Scenes/Menu.unity
     guid: e5e7824bce9b7ca499be5ec2c155ab28
+  - enabled: 1
+    path: Assets/Peas in a Pod/Level/Scenes/DesignScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Peas in a Pod/Level/Scenes/LossScreen.unity
+    guid: 3e3b58d4b62c2e94aa2b12b8da541be1
   - enabled: 1
     path: Assets/Peas in a Pod/Level/Scenes/WinScreen.unity
     guid: 1d99ca3198bcd4e4c8a22054f82c040f

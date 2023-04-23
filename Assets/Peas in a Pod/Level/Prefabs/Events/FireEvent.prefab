@@ -136,13 +136,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   HealthBar: {fileID: 4454107788586756559}
-  _fatigueWhileInside: 3
-  drainsResource: 0
+  _fatigueWhileInside: 1
+  drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 0f3a779949c6a194eb29d4238842e52c, type: 2}
-  initialDrainRate: -0.5
+  initialDrainRate: 0.05
   maxDrainRate: 0.5
   drainAcceleration: 0.05
-  _obstacleType: 0
+  _spawnedClip: {fileID: 0}
+  obstacleType: 0
 --- !u!1 &1034877622281475236
 GameObject:
   m_ObjectHideFlags: 0

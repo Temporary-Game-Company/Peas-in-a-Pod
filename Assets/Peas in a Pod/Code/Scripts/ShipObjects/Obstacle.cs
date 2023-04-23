@@ -128,8 +128,11 @@ public class Obstacle : MonoBehaviour
     {
         foreach (UnitRTS r in UnitsInside)
         {
-            r.AddToExhaustionDelta(-_fatigueWhileInside);
-            UnitsInside.Remove(r);
+            if (UnitsInside.Contains(r))
+            {
+                UnitsInside.Remove(r);
+                r.AddToExhaustionDelta(-_fatigueWhileInside);
+            }
         }
     }
 }

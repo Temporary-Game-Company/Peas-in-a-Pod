@@ -50,7 +50,7 @@ public class ResourceManager : MonoBehaviour
 
     public float _outsideHeatValue = 50f;
 
-    private float _lastHeatThreshold = 30;
+    // private float _lastHeatThreshold = 30;
 
     private float _tempCheck = 0f;
 
@@ -60,6 +60,8 @@ public class ResourceManager : MonoBehaviour
 
     [SerializeField] private Scene _toLoad;
 
+    [Tooltip("Amount of power to win.")]
+    [SerializeField] private FloatReference _toWin;
 
 
     public void changePower(float oldPower, float newPower)
@@ -228,128 +230,128 @@ public class ResourceManager : MonoBehaviour
 
     private void HandleHeatTemperature()
     {
-        if (temperature.Value > 20 && temperature.Value < 40)
-        {
-            if (_lastHeatThreshold != 30)
-            {
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(-1f);
+        // if (temperature.Value > 20 && temperature.Value < 40)
+        // {
+        //     if (_lastHeatThreshold != 30)
+        //     {
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(-1f);
                     
-                }
-            }
-            _lastHeatThreshold = 30;
-            return;
-        }
-        if (temperature.Value > 50 && _lastHeatThreshold < 50)
-        {
-            _lastHeatThreshold = 50;
-            if (_lastHeatThreshold == 30)
-            {
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(2f);
-                } 
-            }
-            else
-            {
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(0.5f);
-                }
-            }
+        //         }
+        //     }
+        //     _lastHeatThreshold = 30;
+        //     return;
+        // }
+        // if (temperature.Value > 50 && _lastHeatThreshold < 50)
+        // {
+        //     _lastHeatThreshold = 50;
+        //     if (_lastHeatThreshold == 30)
+        //     {
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(2f);
+        //         } 
+        //     }
+        //     else
+        //     {
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(0.5f);
+        //         }
+        //     }
             
-        }else if (temperature.Value > 45)
-        {
-            if (_lastHeatThreshold == 40)
-            {
-                _lastHeatThreshold = 45f;
-                foreach (UnitRTS pea in Peas.Items)
-                {
+        // }else if (temperature.Value > 45)
+        // {
+        //     if (_lastHeatThreshold == 40)
+        //     {
+        //         _lastHeatThreshold = 45f;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
                     
-                    pea.AddToExhaustionDelta(0.5f);
-                }
-            }else if (_lastHeatThreshold == 50)
-            {
-                _lastHeatThreshold = 45;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(-0.5f);
+        //             pea.AddToExhaustionDelta(0.5f);
+        //         }
+        //     }else if (_lastHeatThreshold == 50)
+        //     {
+        //         _lastHeatThreshold = 45;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(-0.5f);
                     
-                }
-            }
-            else
-            {
-                _lastHeatThreshold = 45;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(1.5f);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         _lastHeatThreshold = 45;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(1.5f);
                     
-                }
-            }
+        //         }
+        //     }
             
-        }else if (temperature.Value > 40)
-        {
-            if (_lastHeatThreshold == 45)
-            {
-                _lastHeatThreshold = 40;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(-0.5f); 
-                }
-            }else if (_lastHeatThreshold == 30)
-            {
-                _lastHeatThreshold = 40;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(1f); 
-                }
-            }
-        }else if (temperature.Value < 10)
-        {
-            if (_lastHeatThreshold == 15)
-            {
-                _lastHeatThreshold = 10;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(0.5f); 
-                }
-            }
-        }else if (temperature.Value < 15)
-        {
-            if (_lastHeatThreshold == 10)
-            {
-                _lastHeatThreshold = 15;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(-0.5f); 
-                }
-            }else if (_lastHeatThreshold == 20)
-            {
-                _lastHeatThreshold = 15;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(0.5f); 
-                }
-            } 
-        }else if (temperature.Value < 20)
-        {
-            if (_lastHeatThreshold == 15)
-            {
-                _lastHeatThreshold = 20;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(-0.5f); 
-                }
-            }else if(_lastHeatThreshold == 30)
-            {
-                _lastHeatThreshold = 20;
-                foreach (UnitRTS pea in Peas.Items)
-                {
-                    pea.AddToExhaustionDelta(1f); 
-                }
-            }
-        }
+        // }else if (temperature.Value > 40)
+        // {
+        //     if (_lastHeatThreshold == 45)
+        //     {
+        //         _lastHeatThreshold = 40;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(-0.5f); 
+        //         }
+        //     }else if (_lastHeatThreshold == 30)
+        //     {
+        //         _lastHeatThreshold = 40;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(1f); 
+        //         }
+        //     }
+        // }else if (temperature.Value < 10)
+        // {
+        //     if (_lastHeatThreshold == 15)
+        //     {
+        //         _lastHeatThreshold = 10;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(0.5f); 
+        //         }
+        //     }
+        // }else if (temperature.Value < 15)
+        // {
+        //     if (_lastHeatThreshold == 10)
+        //     {
+        //         _lastHeatThreshold = 15;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(-0.5f); 
+        //         }
+        //     }else if (_lastHeatThreshold == 20)
+        //     {
+        //         _lastHeatThreshold = 15;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(0.5f); 
+        //         }
+        //     } 
+        // }else if (temperature.Value < 20)
+        // {
+        //     if (_lastHeatThreshold == 15)
+        //     {
+        //         _lastHeatThreshold = 20;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(-0.5f); 
+        //         }
+        //     }else if(_lastHeatThreshold == 30)
+        //     {
+        //         _lastHeatThreshold = 20;
+        //         foreach (UnitRTS pea in Peas.Items)
+        //         {
+        //             pea.AddToExhaustionDelta(1f); 
+        //         }
+        //     }
+        // }
     }
 
     private float CalculateHeatChange()
@@ -369,9 +371,9 @@ public class ResourceManager : MonoBehaviour
             }
         }
 
-        temperature.ApplyChange(toReturn/10f);
+        temperature.SetValue(Mathf.Clamp(temperature.Value + toReturn, -30, 90));
         
-        return toReturn/10f;
+        return toReturn;
     }
     
      private void UpdatePassedOut()
@@ -456,7 +458,7 @@ public class ResourceManager : MonoBehaviour
      private void CheckIfWon()
      {
         
-         if (powerAmt.Value > 99f)
+         if (powerAmt.Value > _toWin)
          {
             SceneManager.LoadScene("WinScreen");
          }

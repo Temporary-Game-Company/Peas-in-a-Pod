@@ -4834,7 +4834,8 @@ MonoBehaviour:
   initialDrainRate: 0.5
   maxDrainRate: 1.5
   drainAcceleration: 0.05
-  _obstacleType: 0
+  _spawnedClip: {fileID: 0}
+  obstacleType: 0
 --- !u!61 &7859142287074596354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4971,7 +4972,8 @@ MonoBehaviour:
   _shakeTime: 0.4
   dmgAmt: 0.2
   ManagerRuntimeSet: {fileID: 11400000, guid: 6db2637f9a0ff3b4c99d565398ae110a, type: 2}
-  _hitsRequired: 3
+  _onHit: {fileID: 0}
+  _hitsRequired: 1
 --- !u!58 &8249918494069922715
 CircleCollider2D:
   m_ObjectHideFlags: 0

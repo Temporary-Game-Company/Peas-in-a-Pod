@@ -16,7 +16,7 @@ public class Selected : MonoBehaviour
             UnitRTS r = go.GetComponent<UnitRTS>();
             if (r != null)
             {
-                r.SetSelectedVisible(true);
+                // r.SetSelectedVisible(true); ** Make it so that user can see unit selected.
             }
             else
             {
@@ -40,7 +40,7 @@ public class Selected : MonoBehaviour
                 UnitRTS r = pair.Value.GetComponent<UnitRTS>();
                 if (r != null)
                 {
-                    r.SetSelectedVisible(false);
+                    // r.SetSelectedVisible(false); ** Make it so that user can see unit selected.
                 }
             }
         }

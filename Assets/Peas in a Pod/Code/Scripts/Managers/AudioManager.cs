@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
 
     async private void Loop()
     {
-        if (gameObject == null) return;
+        if (this == null) return;
 
         AudioSource.Play();
         await Task.Delay((int) AudioSource.clip.length*1000 + 100);

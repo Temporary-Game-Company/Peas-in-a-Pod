@@ -6,26 +6,19 @@ using UnityEngine;
 
 public class FoodConsumption : MonoBehaviour
 {
-    private List<UnitRTS> UnitsInside = new List<UnitRTS>();
+    private HashSet<UnitRTS> UnitsInside = new HashSet<UnitRTS>();
 
     public float _exhuastionReduction;
 
     public FloatVariable _FoodSupply;
-
-    public void ConsumeFood()
-    {
-        foreach(UnitRTS r in UnitsInside){
-            r.AddToExhuastion(-_exhuastionReduction);
-            _FoodSupply.ApplyChange(-1f);
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         UnitRTS unit = col.GetComponent<UnitRTS>();
         if (unit != null)
         {
-            UnitsInside.Add(unit);
+            if (UnitsInside.Add(unit))
+                unit.AddToExhaustionDelta(-_exhuastionReduction);
         }
     }
 
@@ -34,9 +27,9 @@ public class FoodConsumption : MonoBehaviour
         UnitRTS unit = other.GetComponent<UnitRTS>();
         if (unit != null)
         {
-            if (UnitsInside.Contains(unit))
+            if (UnitsInside.Remove(unit))
             {
-                UnitsInside.Remove(unit);
+                unit.AddToExhaustionDelta(_exhuastionReduction);
             }
             
         }

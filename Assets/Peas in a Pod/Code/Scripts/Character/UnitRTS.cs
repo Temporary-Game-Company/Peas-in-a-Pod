@@ -8,26 +8,17 @@ using UnityEngine.UI;
 
 public delegate void BoolChangeDelegate(bool newValue);
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class UnitRTS : MonoBehaviour
 {
     [SerializeField] private PeaRuntimeSet PeaSet;
 
-    private GameObject _selectedGameObject;
+    [SerializeField] private GameObject HungryIndicator;
 
-    [SerializeField] private float Velocity;
-
-    private NavMeshAgent NavAgent;
+    [SerializeField] private FloatReference HungryPercent;
 
     public Slider FatigueSlider;
 
     private Vector3 DesiredLocation;
-
-    [SerializeField] private float StartingHeat;
-
-    [SerializeField] private float MaximumHeat;
-
-    private float CurrentHeat;
 
     [SerializeField] private float _oxygenConsumptionPerSecond = 0.1f;
 
@@ -111,18 +102,18 @@ public class UnitRTS : MonoBehaviour
     public float hunger {
         private set {
             _hunger = value;
-            if (_hunger / MAX_HUNGER > 0.2)
+            if (_hunger / MAX_HUNGER > HungryPercent)
             {
-                if (_selectedGameObject)
+                if (HungryIndicator)
                 {
-                    _selectedGameObject.SetActive(true);
+                    HungryIndicator.SetActive(true);
                 }
             }
             isStarving = (_hunger >= MAX_HUNGER);
         } 
         get => _hunger;
     }
-    public const float MAX_HUNGER = 40f; // max hunger before starving
+    public const float MAX_HUNGER = 60f; // max hunger before starving
     // private bool _isStarving = false; 
     public bool isStarving { // true if the pea is at or above max hunger
         private set; get;
@@ -130,37 +121,6 @@ public class UnitRTS : MonoBehaviour
     private const float _STARVING_FATIGUE_MULTIPLIER = 4f; // how much faster fatigue is gained when pea is starving
 
     public ObstacleRemover equipment;
-
-    private void Awake()
-    {
-        Transform t = transform.Find("Selected");
-        if (t != null)
-        {
-            _selectedGameObject = t.gameObject;
-            if (_selectedGameObject)
-            {
-                _selectedGameObject.SetActive(false);
-            }
-            
-        }
-
-        Draggable drag = GetComponent<Draggable>();
-        if (drag != null)
-        {
-            drag.enabled = true;
-        }
-
-
-    }
-
-    public void SetSelectedVisible(bool visible)
-    {
-        if (_selectedGameObject != null)
-        {
-            _selectedGameObject.SetActive(visible);
-        }
-        
-    }
 
     private void Start()
     {
@@ -172,7 +132,6 @@ public class UnitRTS : MonoBehaviour
 
 
         DesiredLocation = transform.position;
-        CurrentHeat = StartingHeat;
         _exhuastionDelta = _initialExhuastionDelta;
         UpdateFatigue();
         
@@ -181,6 +140,15 @@ public class UnitRTS : MonoBehaviour
 
 
         _audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        HandleTemperatureExhuastion();
+        HandleFatigue();
+
+        HandleOxygen();
+        // if (gameObject.name == "Pea-Alex") Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
     }
 
 
@@ -219,31 +187,6 @@ public class UnitRTS : MonoBehaviour
         CheckIfGrounded();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        UnitRTS unit = col.GetComponent<UnitRTS>();
-        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, col.transform.localPosition);
-        if (unit != null)
-        {
-            
-            
-                
-               
-            
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        UnitRTS unit = other.GetComponent<UnitRTS>();
-        RaycastHit2D r = Physics2D.Raycast(transform.localPosition, other.transform.localPosition);
-        if (unit != null && r.collider.Equals(other))
-        {
-            Debug.Log("Pea removed from each other");
-            
-        }
-    }
-
     private void UpdateFatigue()
     {
         if (FatigueSlider != null)
@@ -251,7 +194,6 @@ public class UnitRTS : MonoBehaviour
             FatigueSlider.value = _exhaustion / _maxExhaustion;
         }
     }
-    
     
 
     public void AddToExhuastion(float amt)
@@ -268,15 +210,6 @@ public class UnitRTS : MonoBehaviour
     public void SetIsResting(bool bIsresting)
     {
         isResting = bIsresting;
-    }
-
-    private void Update()
-    {
-        HandleTemperatureExhuastion();
-        HandleFatigue();
-
-        HandleOxygen();
-        // if (gameObject.name == "Pea-Alex") Debug.Log($"Hunger:{_hunger}, Fatigue:{_exhaustion}");
     }
 
     private void HandleOxygen()
@@ -419,9 +352,9 @@ public class UnitRTS : MonoBehaviour
             _audioSource.Play();
 
         }
-        if (_selectedGameObject)
+        if (HungryIndicator)
         {
-            _selectedGameObject.SetActive(false);
+            HungryIndicator.SetActive(false);
         }
         hunger = 0;
     }

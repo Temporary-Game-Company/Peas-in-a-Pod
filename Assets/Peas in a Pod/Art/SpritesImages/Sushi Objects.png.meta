@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3551763d98b6b48418a8a79360394b0d
+guid: 941d043da32308645a28922171da64d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,43 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sushi_0
+      name: Sushi Objects_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 19
-        width: 15
-        height: 8
+        x: 0
+        y: 13
+        width: 17
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33dbd6be6d463c24bbad3256480100bb
-      internalID: 744580858
+      spriteID: fcebcc3009a596d4d8b314f865020378
+      internalID: -1527547804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sushi_1
+      name: Sushi Objects_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 3
-        width: 13
-        height: 10
+        x: 4
+        y: 0
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6bf0d1aaf078647a21c65e8c00b36e
-      internalID: -1894959842
+      spriteID: 92589b62597272d43bc04deb73855967
+      internalID: 1312782496
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sushi_0: 744580858
-      sushi_1: -1894959842
+      Sushi Objects_1: 1312782496
+      Sushi Objects_0: -1527547804
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

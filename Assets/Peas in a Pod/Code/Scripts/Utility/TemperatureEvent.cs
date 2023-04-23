@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Collections;
@@ -51,7 +52,7 @@ public class TemperatureEvent : MonoBehaviour
             await Task.Delay(100);
         }
 
-        if (gameObject != null)
+        if (this != null)
         {
             Destroy(gameObject);
         }

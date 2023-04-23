@@ -113,7 +113,8 @@ MonoBehaviour:
   _fatigueWhileInside: 0
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
-  initialDrainRate: -1
-  maxDrainRate: -1
+  initialDrainRate: 3
+  maxDrainRate: 3
   drainAcceleration: 0
-  _obstacleType: 0
+  _spawnedClip: {fileID: 0}
+  obstacleType: 0

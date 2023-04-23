@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour
 
     public Laser _toInstantiate;
 
-    public Vector3 _originalSpawn;
+    private Vector3 _originalSpawn;
 
     private Vector3 _forwardVector;
 
@@ -40,11 +40,6 @@ public class Turret : MonoBehaviour
     public AudioSource _chargeSound;
 
     public AudioSource _fireSound;
-
-    [SerializeField] private float _powerCostToFire = 1f;
-
-    [SerializeField] private FloatVariable _powerAmt;
-    
 
     private Quaternion originalRotation;
     void Start()
@@ -144,7 +139,6 @@ public class Turret : MonoBehaviour
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
         if (r.collider == null) return true;
-        if (_powerAmt && _powerAmt.Value < _powerCostToFire) return false; 
         return (r.collider.gameObject.GetComponent<ProjectileEvent>() != null);
     }
         
@@ -187,10 +181,6 @@ public class Turret : MonoBehaviour
             _fireSound.Play();
         }
 
-        if (_powerAmt )
-        {
-            _powerAmt.ApplyChange(-_powerCostToFire);
-        }
         RaycastHit2D r = Physics2D.Raycast(loc.position,
             loc.position + _forwardVector * 20f);
         Debug.DrawLine(loc.position, loc.position + _forwardVector * 20f, Color.red,
@@ -199,6 +189,7 @@ public class Turret : MonoBehaviour
         if (r.collider == null)
         {
             Laser l = Instantiate<Laser>(_toInstantiate, loc);
+            Debug.Log("No Hit!");
             if (l != null)
             {
                 myLaser = l;

@@ -4888,15 +4888,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31101e31a5f62d344a1f577c06c255fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
+  Health: 1
   HealthBar: {fileID: 0}
-  _fatigueWhileInside: 2
+  _fatigueWhileInside: 1
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 609f7b0e277f28244b5e930f44d62918, type: 2}
-  initialDrainRate: -0.15
-  maxDrainRate: 1
-  drainAcceleration: 0.15
-  _obstacleType: 1
+  initialDrainRate: 0.05
+  maxDrainRate: 0.5
+  drainAcceleration: 0.05
+  _spawnedClip: {fileID: 0}
+  obstacleType: 1
 --- !u!58 &7764327696690603571
 CircleCollider2D:
   m_ObjectHideFlags: 0

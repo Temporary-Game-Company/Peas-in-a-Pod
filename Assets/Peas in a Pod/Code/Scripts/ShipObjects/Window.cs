@@ -98,12 +98,6 @@ public class Window : MonoBehaviour
         Windows.Remove(this);
     }
 
-
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if (_unitsInside > 0)

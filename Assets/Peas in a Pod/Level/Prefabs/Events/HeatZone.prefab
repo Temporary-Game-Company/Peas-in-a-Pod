@@ -50,7 +50,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0
+  weight: 1
   sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
 --- !u!114 &114224907993253791
 MonoBehaviour:
@@ -113,7 +113,8 @@ MonoBehaviour:
   _fatigueWhileInside: 0
   drainsResource: 1
   resourceAffected: {fileID: 11400000, guid: 3b43675f7de754b4ab12839cac3fb190, type: 2}
-  initialDrainRate: 0.5
-  maxDrainRate: 0.5
+  initialDrainRate: -3
+  maxDrainRate: -3
   drainAcceleration: 0
-  _obstacleType: 0
+  _spawnedClip: {fileID: 0}
+  obstacleType: 0
